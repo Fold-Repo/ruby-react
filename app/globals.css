@@ -1,16 +1,83 @@
 @import "tailwindcss";
+@plugin "tailwindcss-debug-screens";
+@plugin "@tailwindcss/forms";
+
+@plugin './hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 :root {
+  /* COLORS */
+  /* --primary: #DB4444;
+  --danger: #CB1A14;
+  --red: #FF0000;
+  --success: #28A745; */
+
+  --bg-white-smoke: #F4F4F4;
+  --bg-lavender: #FFF5F7;
+  --light-pink: #F3EBEB80;
+
+  --input-bg: #F3F8F7;
+  --dark: #181818;
+  --placeholder: #0000009d;
+
+  /* FONTS */
+  --font-sans: 'Nunito Sans', sans-serif;
+  --font-digital: 'Digital Numbers', sans-serif;
+  --font-oleo: 'Oleo Script Swash Caps', sans-serif;
+
+  /* TEXT SIZES */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@theme {
+  /* Colors */
+  --color-primary: var(--primary);
+  --color-danger: var(--danger);
+  --color-red: var(--red);
+  --color-success: var(--success);
+  --color-bg-white-smoke: var(--bg-white-smoke);
+  --color-bg-lavender: var(--bg-lavender);
+  --color-light-pink: var(--light-pink);
+  --color-input-bg: var(--input-bg);
+  --color-dark: var(--dark);
+  --color-placeholder: var(--placeholder);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-sans);
+  --font-digital: var(--font-digital);
+  --font-oleo: var(--font-oleo);
+
+  /* Text Sizes */
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-4xl: var(--text-4xl);
+  --text-5xl: var(--text-5xl);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -23,4 +90,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+
 }
