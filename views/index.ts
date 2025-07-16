@@ -1,9 +1,10 @@
 import { LoginView, RegisterView, ForgotPasswordView, ResetPasswordView } from "./auth";
-import {
-    ErrorView, FaqView, TermsView, ComingSoonView, ComingSoonTwoView, CustomerFeedbacksView, PaymentConfirmation,
+
+import { ErrorView, FaqView, TermsView, ComingSoonView, ComingSoonTwoView, CustomerFeedbacksView, PaymentConfirmation,
     PaymentFailed, AboutView, ContactView, ContactView2, StoreView, StoreView2, AccountView, AddressView, OrderView, OrderDetails,
-    TrackingView, TrackingDetails
-} from "./pages";
+    TrackingView, TrackingDetails } from "./pages";
+
+import { BlogDefaultView, BlogListView, BlogListTwoView, BlogGridView, BlogDetailView, BlogDetailsTwoView } from "./blog";
 
 export {
     // ======== AUTH =========== //
@@ -31,6 +32,14 @@ export {
     OrderView,
     OrderDetails,
     TrackingView,
-    TrackingDetails
+    TrackingDetails,
+
+    // ========= BLOG ========== //
+    BlogDefaultView,
+    BlogListView,
+    BlogListTwoView,
+    BlogGridView,
+    BlogDetailView,
+    BlogDetailsTwoView
 
 }

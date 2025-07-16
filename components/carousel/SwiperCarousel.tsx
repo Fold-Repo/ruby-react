@@ -1,12 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 type SwiperCarouselProps = {
     className?: string;
@@ -22,10 +18,10 @@ type SwiperCarouselProps = {
     spaceMd?: number;
     spaceLg?: number;
 
-    pagination?: number;
-    paginationMd?: number;
-    paginationLg?: number;
-    paginationXl?: number;
+    group?: number;
+    groupMd?: number;
+    groupLg?: number;
+    groupXl?: number;
 
     loop?: boolean;
     centered?: boolean;
@@ -46,10 +42,10 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
     space = 10,
     spaceMd = 20,
     spaceLg = 30,
-    pagination = 1,
-    paginationMd = 2,
-    paginationLg = 3,
-    paginationXl = 4,
+    group = 1,
+    groupMd = 1,
+    groupLg = 1,
+    groupXl = 1,
     loop = false,
     centered = false,
     navPrevClass = '.nav-prev-categories',
@@ -58,6 +54,7 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
 }) => {
     return (
         <Swiper
+            modules={[Pagination, Navigation]}
             className={className}
             slidesPerView={mobile}
             spaceBetween={space}
@@ -73,33 +70,30 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
             navigation={{
                 prevEl: navPrevClass,
                 nextEl: navNextClass,
-                // clickable: true,
             }}
-            slidesPerGroup={pagination}
+            slidesPerGroup={group}
             breakpoints={{
                 640: {
                     slidesPerView: sm ?? mobile,
                     spaceBetween: space,
-                    slidesPerGroup: pagination ?? 1,
+                    slidesPerGroup: group ?? 1,
                 },
                 768: {
                     slidesPerView: md ?? sm ?? mobile,
                     spaceBetween: spaceMd,
-                    slidesPerGroup: paginationMd ?? pagination ?? 1,
+                    slidesPerGroup: groupMd ?? group ?? 1,
                 },
                 1024: {
                     slidesPerView: lg ?? md ?? mobile,
                     spaceBetween: spaceLg,
-                    slidesPerGroup: paginationLg ?? paginationMd ?? pagination ?? 1,
+                    slidesPerGroup: groupLg ?? groupMd ?? group ?? 1,
                 },
                 1280: {
                     slidesPerView: xl ?? lg ?? md ?? mobile,
                     spaceBetween: spaceLg,
-                    slidesPerGroup:
-                        paginationXl ?? paginationLg ?? paginationMd ?? pagination ?? 1,
+                    slidesPerGroup: groupXl ?? groupLg ?? groupMd ?? group ?? 1,
                 },
-            }}
-            modules={[Pagination, Navigation]}>
+            }}>
             {children}
         </Swiper>
     );

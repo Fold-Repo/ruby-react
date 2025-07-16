@@ -9,3 +9,12 @@ export interface TimelineStepType {
     status: TimelineStatusType;
     icon?: IconType;
 }
+
+export type CommentType = {
+    id: number | string;
+    avatar: string;
+    name: string;
+    date: string;
+    message: string;
+    replies?: CommentType[];
+};
