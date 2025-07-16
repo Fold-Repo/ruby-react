@@ -18,11 +18,11 @@ const pagesMenu: DropdownItemType[] = [
 ];
 
 const blogMenu: DropdownItemType[] = [
-    { label: 'Blog Default', href: '/blog/blog-default' },
+    { label: 'Blog Default', href: '/blog' },
     { label: 'Blog List', href: '/blog/blog-list' },
     { label: 'Blog List 2', href: '/blog/blog-list-2' },
     { label: 'Blog Grid', href: '/blog/blog-grid' },
-    { label: 'Blog Detail 1', href: '/blog/blog-detail-1' },
+    { label: 'Blog Detail 1', href: '/blog/1' },
     { label: 'Blog Detail 2', href: '/blog/blog-detail-2' },
 ];
 

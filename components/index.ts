@@ -8,6 +8,7 @@ import { ServiceSection } from "./services";
 import { ContactDetails, MapLocation, ContactForm } from "./contact";
 import { AccountSidebar, ProfileImage } from "./account";
 import Timeline from "./Timeline";
+import { CommentItem, CommentForm } from "./comments";
 
 export {
     Header,
@@ -42,6 +43,8 @@ export {
     AccountSidebar,
     ProfileImage,
 
-    Timeline
+    Timeline,
+    CommentItem,
+    CommentForm
 
 }

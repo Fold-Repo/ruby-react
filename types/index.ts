@@ -1,7 +1,8 @@
 import type { NavItemType, DropdownItemType, MenuItemType, MenuGroupType, HomeCategoryType, MegaMenuType } from "./nav";
 import type { FeedBackType, TeamMemberType, AddressType, StoreCardType } from "./pages";
 import type {  OrderType, OrderStatusType, OrderProductDetailsType, PaymentInfoType, DeliveryInfoType } from './order'
-import { TimelineStatusType, TimelineStepType } from "./global";
+import { TimelineStatusType, TimelineStepType, CommentType } from "./global";
+import type { PostType, PostVariantType } from "./blog";
 
 export type {
     NavItemType,
@@ -23,5 +24,9 @@ export type {
     DeliveryInfoType,
 
     TimelineStepType,
-    TimelineStatusType
+    TimelineStatusType,
+    CommentType,
+
+    PostType,
+    PostVariantType
 }

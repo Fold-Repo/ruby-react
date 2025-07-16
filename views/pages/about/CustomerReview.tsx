@@ -17,6 +17,7 @@ const CustomerReview = () => {
 
             <SwiperCarousel mobile={1} sm={2} md={2} lg={3} xl={4}
                 space={10} spaceMd={10} spaceLg={10}
+                group={1} groupMd={2} groupLg={3} groupXl={4}
                 loop={true} centered={false}
                 paginationClass=".sw-pagination-feedback">
                 {feedbacksData.map((feedback, index) => (

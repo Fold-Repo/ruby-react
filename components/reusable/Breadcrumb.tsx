@@ -16,7 +16,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ title, items }) => {
     return (
         <div className="bg-[#F5F3EE] h-36 md:h-40 rounded flex flex-col items-center justify-center gap-y-2.5">
 
-            <h1 className="font-bold text-xl 2xl:text-2xl">{title}</h1>
+            <h1 className="font-bold text-xl 2xl:text-2xl max-w-xl text-center mx-auto">{title}</h1>
 
             {items && (
                 <div className="flex items-center gap-1 text-gray-600 text-sm">
