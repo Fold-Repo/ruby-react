@@ -1,6 +1,8 @@
 import { menuItems, shopMenuGroups, productMenuItems, homeCategories } from "./nav";
-import { footerSections, footerContact, newsletterText  } from "./footer";
+import { footerSections, footerContact, newsletterText } from "./footer";
 import { faqData } from "./faq";
+
+import { API_BASE_URL, ENDPOINT } from "./endpoint";
 
 export {
     menuItems,
@@ -12,5 +14,8 @@ export {
     footerSections,
     newsletterText,
 
-    faqData
+    faqData,
+    
+    API_BASE_URL,
+    ENDPOINT
 }

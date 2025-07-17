@@ -15,7 +15,7 @@ import Image from 'next/image'
 
 const Header = () => {
 
-    const [ open, setOpen ] = useState<boolean>(false)
+    const [open, setOpen] = useState<boolean>(false)
     const [megaMenuType, setMegaMenuType] = useState<MegaMenuType>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const isMouseInMegaMenu = useRef(false)

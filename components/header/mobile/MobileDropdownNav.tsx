@@ -11,9 +11,10 @@ interface MobileDropdownNavProps {
     items?: DropdownItemType[];
     groups?: MenuGroupType[];
     homeItems?: HomeCategoryType[];
+    close: () => void;
 }
 
-const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, groups, homeItems }) => {
+const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, groups, homeItems, close }) => {
 
     const [open, setOpen] = useState(false);
     const [groupOpen, setGroupOpen] = useState<Record<number, boolean>>({});
@@ -21,6 +22,14 @@ const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, gro
     const toggleGroup = (idx: number) => {
         setGroupOpen((prev) => ({ ...prev, [idx]: !prev[idx] }));
     };
+
+    const onclose = () => {
+        setTimeout(() => {
+            close();
+            setGroupOpen({});
+            setOpen(false);
+        }, 200);
+    }
 
     return (
         <div className="pt-5">
@@ -40,7 +49,7 @@ const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, gro
                 {items &&
                     items.map((item, index) => (
                         <div key={index} className="pl-3">
-                            <Link href={item.href} className="block py-1 text-[13px] text-gray-500 hover:text-primary transition-colors duration-300">
+                            <Link href={item.href} onClick={onclose} className="block py-2.5 text-[13px] text-gray-500 hover:text-primary transition-colors duration-300">
                                 {item.label}
                             </Link>
                         </div>
@@ -50,7 +59,7 @@ const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, gro
 
                     groups.map((group, idx) => (
 
-                        <div key={idx} className="py-3 pl-3">
+                        <div key={idx} className="py-2 pl-3">
 
                             <div className="flex items-center justify-between text-xs font-semibold text-gray-900 uppercase cursor-pointer mb-3"
                                 onClick={() => toggleGroup(idx)}>
@@ -65,10 +74,10 @@ const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, gro
                             <div className={`transition-all overflow-hidden duration-300 ease-in-out ${groupOpen[idx] ? 'max-h-96' : 'max-h-0'
                                 }`}>
 
-                                <ul className="space-y-2 text-[13px] text-gray-500 pl-2">
+                                <ul className="space-y-2.5 text-[13px] text-gray-500 pl-2">
                                     {group.items.map((item, index) => (
                                         <li key={index}>
-                                            <Link href={item.href} className="hover:text-primary transition-colors duration-300 block py-1">
+                                            <Link href={item.href} onClick={onclose} className="hover:text-primary transition-colors duration-300 block py-1">
                                                 {item.label}
                                             </Link>
                                         </li>
@@ -81,7 +90,7 @@ const MobileDropdownNav: React.FC<MobileDropdownNavProps> = ({ title, items, gro
                     ))}
 
                 {homeItems && (
-                    <div className="grid grid-cols-2 gap-4 px-2 pt-2">
+                    <div className="grid grid-cols-2 gap-4 px-2 py-2">
                         {homeItems.map((item, index) => (
                             <HomeCategoryCard key={index} {...item} />
                         ))}

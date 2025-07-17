@@ -11,7 +11,7 @@ const NavBar = () => {
 
                     <ul className="flex items-center gap-x-4 md:gap-x-3">
                         <li>
-                            <a href="#" className="text-xs text-white">Hello@support.com</a>
+                            <a href="#" className="text-xs text-white hidden sm:block">hello@support.com</a>
                         </li>
                         <li>
                             <a href="tel:315-666-6688" className="text-xs text-white">+477 097-3948-098</a>

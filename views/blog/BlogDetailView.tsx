@@ -4,96 +4,108 @@ import { Breadcrumb, CommentForm, CommentItem, Container } from '@/components'
 import React from 'react'
 import { BlogBanner, PostMetaInfo, BlogImageRow, PostShareBar } from '@/components/blog'
 import RelatedPosts from './components/RelatedPosts'
-import { posts } from '@/data'
 import { notFound } from 'next/navigation'
+import { useGetPostById } from '@/service'
+import { CommentType } from '@/types'
+import { BlogDetailsViewSkeleton } from '@/components/skeleton'
 
 
 const BlogDetailsTwoView = ({ postId }: { postId: number | string }) => {
 
-    const post = posts.find(post => post.id == postId)
+    const { response: post = {}, isLoading } = useGetPostById(postId);
 
     if (!post) return notFound()
 
-    const { title, description, imageUrl, imageUrlRight, author, date, views, commentsCount, content, tags, 
-    shareData, galleryImages, comments } = post;
+    const { title, description, imageUrl, imageUrlRight, author, date, views, commentsCount, content, tags,
+        shareData, galleryImages, comments } = post || {};
 
     return (
         <>
 
             <Breadcrumb
-                title={title}
+                title={title || 'Blog Details'}
             />
 
             <Container>
 
                 <div className="section-lg space-y-8">
 
-                    <BlogBanner variant='split' imageUrl={imageUrl} imageUrlRight={imageUrlRight} />
+                    { isLoading ? (
 
-                    <div className="space-y-8 max-w-7xl m-auto">
+                        <BlogDetailsViewSkeleton variant='split' />
 
-                        <PostMetaInfo
-                            author={author}
-                            date={date}
-                            views={views}
-                            comments={commentsCount}
-                        />
+                    ) : (
+                        <>
 
-                        <p className="text-sm">
-                            { content }
-                        </p>
+                            <BlogBanner variant='split' imageUrl={imageUrl} imageUrlRight={imageUrlRight} />
 
-                        <BlogImageRow
-                            variant="quad"
-                            images={galleryImages || []}
-                        />
+                            <div className="space-y-8 max-w-7xl m-auto">
 
-                        <h1 className="font-bold text-sm lg:!text-[15px]">
-                            { title }
-                        </h1>
+                                <PostMetaInfo
+                                    author={author}
+                                    date={date}
+                                    views={views}
+                                    comments={commentsCount}
+                                />
 
-                        <p className="text-sm">
-                            { description }
-                        </p>
+                                <p className="text-sm">
+                                    {content}
+                                </p>
 
-                    </div>
+                                <BlogImageRow
+                                    variant="quad"
+                                    images={galleryImages || []}
+                                />
 
-                    <div className="space-y-8 max-w-7xl m-auto pt-20">
+                                <h1 className="font-bold text-sm lg:!text-[15px]">
+                                    {title}
+                                </h1>
 
-                        {/* ========== SHARE BLOG POST ============= */}
-                        <PostShareBar
-                            tags={['Accessories', 'Fashion Trend']}
-                            shareData={{
-                                title: shareData?.title || title,
-                                text: shareData?.text || description,
-                            }}
-                        />
+                                <p className="text-sm">
+                                    {description}
+                                </p>
 
-                        {/* ========== BLOG COMMENTS ============= */}
-                        <div className="space-y-5">
-
-                            <h1 className="font-bold text-base lg:!text-lg">
-                                Comments
-                            </h1>
-
-                            <div className="space-y-5">
-                                {comments?.map((comment) => (
-                                    <CommentItem key={comment.id} comment={comment} />
-                                ))}
                             </div>
 
-                        </div>
+                            <div className="space-y-8 max-w-7xl m-auto pt-20">
 
-                        {/*  ========== LEAVE COMMENT ============= */}
-                        <CommentForm />
+                                {/* ========== SHARE BLOG POST ============= */}
+                                <PostShareBar
+                                    tags={tags}
+                                    shareData={{
+                                        title: shareData?.title || title,
+                                        text: shareData?.text || description,
+                                    }}
+                                />
 
-                    </div>
+                                {/* ========== BLOG COMMENTS ============= */}
+                                <div className="space-y-5">
 
-                    <RelatedPosts />
+                                    <h1 className="font-bold text-base lg:!text-lg">
+                                        Comments
+                                    </h1>
+
+                                    <div className="space-y-5">
+                                        {comments?.map((comment: CommentType) => (
+                                            <CommentItem key={comment.id} comment={comment} />
+                                        ))}
+                                    </div>
+
+                                </div>
+
+                                {/*  ========== LEAVE COMMENT ============= */}
+                                <CommentForm />
+
+                            </div>
+
+                            <RelatedPosts postId={postId} />
+
+                        </>
+                    )}
 
                 </div>
 
-            </Container>
+            </Container >
 
         </>
     )
