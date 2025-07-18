@@ -1,8 +1,14 @@
 import { LatestBlogCard } from '@/components/cards'
-import { latestBlogPosts } from '@/data'
+import { LatestBlogCardSkeleton } from '@/components/skeleton'
+import { useGetPosts } from '@/service'
+import { PostType } from '@/types'
 import React from 'react'
 
 const LatestPublication = () => {
+
+    const { response, isLoading } = useGetPosts({ latest: true })
+    const { data: post } = response || {}
+
     return (
         <div className="border border-gray-300 p-3 rounded-lg space-y-3">
 
@@ -13,9 +19,13 @@ const LatestPublication = () => {
             {/* ====== BLOG ITEMS ===== */}
             <div className="divide-y divide-gray-300 ">
 
-                {latestBlogPosts.map((item, index) => (
-                    <LatestBlogCard key={index} post={item} />
-                ))}
+                {isLoading
+                    ? Array.from({ length: 3 }).map((_, index) => (
+                        <LatestBlogCardSkeleton key={index} />
+                    ))
+                    : post?.map((item: PostType, index: number) => (
+                        <LatestBlogCard key={index} post={item} />
+                    ))}
 
             </div>
 

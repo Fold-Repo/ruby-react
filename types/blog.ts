@@ -15,6 +15,7 @@ export interface PostType {
 
     content?: string; 
     tags?: string[]; 
+    category: string;
     shareData?: {
         title: string;
         text: string;

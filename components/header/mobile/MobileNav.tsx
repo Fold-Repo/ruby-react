@@ -71,11 +71,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ open, setOpen }) => {
 
                                 {menuItems.map((item) =>
                                     item.dropdownItems ? (
-                                        <MobileDropdownNav key={item.title} title={item.title} items={item.dropdownItems} />
+                                        <MobileDropdownNav close={close} key={item.title} title={item.title} items={item.dropdownItems} />
                                     ) : item.megaMenuType === 'home' ? (
-                                        <MobileDropdownNav key={item.title} title={item.title} homeItems={homeCategories} />
+                                        <MobileDropdownNav close={close} key={item.title} title={item.title} homeItems={homeCategories} />
                                     ) : item.megaMenuType ? (
-                                        <MobileDropdownNav
+                                        <MobileDropdownNav close={close}
                                             key={item.title}
                                             title={item.title}
                                             groups={getMegaMenuGroups(item.megaMenuType)}

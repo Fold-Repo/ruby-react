@@ -1,10 +1,16 @@
+'use client'
+
 import { Breadcrumb, Container, Pagination } from '@/components'
 import React from 'react'
 import { BlogLayout, BlogRightSide } from './components'
 import { BlogCard } from '@/components/cards'
-import { posts } from '@/data'
+import { usePostsQuery } from './hook'
+import { PostType } from '@/types'
+import { BlogCardSkeleton } from '@/components/skeleton'
 
 const BlogGridView = () => {
+
+    const { posts = [], currentPage, totalItems, limit, isLoading } = usePostsQuery({ page: 1, limit: 4 });
 
     return (
         <>
@@ -27,12 +33,16 @@ const BlogGridView = () => {
                             <div className='space-y-12'>
 
                                 <div className="grid sm:grid-cols-2 gap-4">
-                                    {posts.map((post, index) => (
-                                        <BlogCard key={index} post={post} variant='compact' />
-                                    ))}
+                                    {isLoading
+                                        ? Array.from({ length: 6 }).map((_, index) => (
+                                            <BlogCardSkeleton key={index} variant='compact' />
+                                        ))
+                                        : posts?.map((post: PostType, index: number) => (
+                                            <BlogCard key={index} post={post} variant='compact' />
+                                        ))}
                                 </div>
 
-                                <Pagination total={100} perPage={10} />
+                                <Pagination initialPage={currentPage} total={totalItems || 0} perPage={limit} />
 
                             </div>
                         }

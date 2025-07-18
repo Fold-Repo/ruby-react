@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { InternetCheck } from "@/utils";
 import { Toaster } from "react-hot-toast";
 import { Footer, Header } from "@/components";
+import { Suspense } from "react";
 
 
 export const metadata: Metadata = {
@@ -25,11 +26,15 @@ export default function RootLayout({
 
         <Providers>
 
-          <Header />
+          <Suspense>
 
-          {children}
+            <Header />
 
-          <Footer />
+            {children}
+
+            <Footer />
+
+          </Suspense>
 
         </Providers>
 
