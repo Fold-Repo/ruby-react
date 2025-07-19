@@ -1,6 +1,6 @@
 const BASE_URL = {
-    development: "http://localhost:3000/api/",
-    production: "http://localhost:3000/api//",
+    development: "/api/",
+    production: "/api/",
 } as const;
 
 type Env = keyof typeof BASE_URL;
