@@ -14,7 +14,7 @@ export default function StarRating({ value, size = 'w-4.5 h-4.5' }: StarRatingPr
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
 
     return (
-        <div className="inline-flex items-center gap-x-1 text-yellow-400">
+        <div className="inline-flex items-center gap-x-1 text-yellow-600">
             {Array.from({ length: fullStars }, (_, i) => (
                 <StarIcon key={`full-${i}`} className={clsx(size)} />
             ))}

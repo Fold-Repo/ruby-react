@@ -31,8 +31,7 @@ const RelatedPosts = ({ postId }: { postId: number | string }) => {
                     space={10} spaceMd={20} spaceLg={20}
                     loop={true} centered={false}
                     group={1} groupMd={2} groupLg={3} groupXl={3}
-                    paginationClass=".sw-pagination-post"
-                >
+                    paginationClass=".sw-pagination-post">
                     {posts?.map((post: PostType, index: number) => (
                         <SwiperSlide key={index}>
                             <BlogCard post={post} variant="compact" />

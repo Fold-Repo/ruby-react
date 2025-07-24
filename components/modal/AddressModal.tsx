@@ -10,8 +10,7 @@ interface ShareModalProps {
     address: AddressType | null;
 }
 
-const AddressModal: React.FC<ShareModalProps> = ({ open, setOpen, address }) => {
-    console.log(address)
+const AddressModal: React.FC<ShareModalProps> = ({ open, setOpen }) => {
     return (
         <PopupModal
             size="3xl"

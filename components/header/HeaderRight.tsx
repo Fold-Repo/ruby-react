@@ -10,6 +10,8 @@ import {
 } from '@heroicons/react/24/outline';
 import { Button } from '@/components';
 import dynamic from 'next/dynamic';
+import { selectCartQuantity } from '@/store/cartSlice';
+import { useSelector } from 'react-redux';
 
 const SearchModal = dynamic(() => import('../search/SearchModal'), {
     ssr: false,
@@ -18,6 +20,7 @@ const SearchModal = dynamic(() => import('../search/SearchModal'), {
 const HeaderRight: React.FC = () => {
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const qty = useSelector(selectCartQuantity)
 
     return (
         <>
@@ -69,7 +72,7 @@ const HeaderRight: React.FC = () => {
                 <Link href="/cart" className="relative text-gray-800 hover:text-primary cursor-pointer">
                     <ShoppingBagIcon className="w-4.5 h-4.5" />
                     <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                        1
+                        { qty }
                     </span>
                 </Link>
 
