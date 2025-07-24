@@ -7,8 +7,8 @@ import { ColorType } from "@/types";
 type Props = {
     colors: ColorType[];
     value?: string;
-    onHover?: (image: string) => void;
-    onClick?: (image: string) => void;
+    onHover?: (color: ColorType) => void;
+    onClick?: (color: ColorType) => void;
     className?: string;
 };
 
@@ -23,14 +23,14 @@ export default function ColorSwatchGroup({
         <ul className="flex gap-x-2">
             {colors.map((color) => {
 
-                const isActive = value === color.image;
+                const isActive = value === color.image || value === color.name;
 
                 return (
                     <li key={color.hex}>
                         <button
                             title={color.name}
-                            onMouseEnter={() => onHover?.(color.image)}
-                            onClick={() => onClick?.(color.image)}
+                            onMouseEnter={() => onHover?.(color)}
+                            onClick={() => onClick?.(color)}
                             className={cn(
                                 "cursor-pointer border border-gray-500 rounded-full inline-flex ring-offset-2 transition-all size-4",
                                 isActive && "ring-1 ring-gray-400",

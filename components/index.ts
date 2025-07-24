@@ -14,6 +14,7 @@ import FilterToolbar from "./filter/FilterToolbar";
 import ResponsiveGrid from "./ResponsiveGrid";
 
 import { QuantitySelector } from "./cart";
+import EmptyState from "./EmptyState";
 
 export {
     Header,
@@ -56,6 +57,8 @@ export {
     CommentItem,
     CommentForm,
 
-    QuantitySelector
+    QuantitySelector,
+
+    EmptyState
 
 }

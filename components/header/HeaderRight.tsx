@@ -12,6 +12,7 @@ import { Button } from '@/components';
 import dynamic from 'next/dynamic';
 import { selectCartQuantity } from '@/store/cartSlice';
 import { useSelector } from 'react-redux';
+import { selectWishlistCount } from '@/store/wishlistSlice';
 
 const SearchModal = dynamic(() => import('../search/SearchModal'), {
     ssr: false,
@@ -21,6 +22,7 @@ const HeaderRight: React.FC = () => {
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const qty = useSelector(selectCartQuantity)
+    const wishlistQty = useSelector(selectWishlistCount)
 
     return (
         <>
@@ -64,15 +66,18 @@ const HeaderRight: React.FC = () => {
                 </div>
 
                 {/* Wishlist */}
-                <Link href="/wishlist" className="hidden md:block text-gray-800 hover:text-primary cursor-pointer">
+                <Link href="/wishlist" className="relative hidden md:block text-gray-800 hover:text-primary cursor-pointer">
                     <HeartIcon className="w-4.5 h-4.5" />
+                    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                        {wishlistQty}
+                    </span>
                 </Link>
 
                 {/* Cart */}
                 <Link href="/cart" className="relative text-gray-800 hover:text-primary cursor-pointer">
                     <ShoppingBagIcon className="w-4.5 h-4.5" />
                     <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                        { qty }
+                        {qty}
                     </span>
                 </Link>
 

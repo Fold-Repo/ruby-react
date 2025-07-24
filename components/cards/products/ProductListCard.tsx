@@ -17,10 +17,6 @@ export default function ProductListCard({ product, styeType }: { product: Produc
     const hoverImage = images[1] || "";
     const [activeImage, setActiveImage] = useState<string>(defaultImage);
 
-    const handleColorHover = (image: string) => {
-        setActiveImage(image);
-    };
-
     const discount =
         typeof oldPrice !== 'undefined'
         && getDiscountPercentage(oldPrice, price)
@@ -91,7 +87,7 @@ export default function ProductListCard({ product, styeType }: { product: Produc
                                 <ColorSwatchGroup
                                     colors={colors}
                                     value={activeImage}
-                                    onHover={handleColorHover}
+                                    onHover={(color) => setActiveImage(color.image)}
                                 />
                             )}
 

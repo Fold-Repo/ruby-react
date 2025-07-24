@@ -21,5 +21,4 @@ export const ENDPOINT = {
     },
     COLLECTIONS: 'collection',
     TOP_COLLECTIONS: 'top-categories',
-    WISH_LIST: 'wishlist'
 };

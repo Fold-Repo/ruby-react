@@ -47,11 +47,12 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
 
                     <h3 className="text-base font-semibold"> {title} </h3>
 
-                    <div className="flex gap-2">
+                    <div className="flex items-center flex-wrap gap-2">
 
                         {colors && (
                             <select value={selectedColor} onChange={(e) => handleUpdate('selectedColor', e.target.value)}
                                 className="form-control cursor-pointer rounded text-xs py-1.5">
+                                <option value=""> Select Color </option>
                                 {colors?.map((color, index) => (
                                     <option key={index} value={color.name}> {color.name} </option>
                                 ))}
@@ -62,6 +63,7 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
                             <select value={selectedSize}
                                 onChange={(e) => handleUpdate('selectedSize', e.target.value)}
                                 className="form-control cursor-pointer rounded text-xs py-1.5">
+                                <option value=""> Select Option </option>
                                 {sizes?.map((size, index) => (
                                     <option key={index} value={size}> {size} </option>
                                 ))}
@@ -77,7 +79,6 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
                             <p className="text-sm text-yellow-600">Few units left</p>
                         ) : null
                     )}
-
 
                 </div>
 

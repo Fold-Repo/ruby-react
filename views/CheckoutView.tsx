@@ -19,7 +19,7 @@ const CheckoutView = () => {
 
     const total = totalAmount + shipping - discount;
 
-    // if (items.length < 1) router.push('/cart')
+    if (items.length < 1) router.push('/cart')
 
     return (
         <Container>

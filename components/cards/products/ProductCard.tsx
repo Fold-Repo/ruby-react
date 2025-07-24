@@ -19,10 +19,6 @@ const ProductCard = ({ product, styleType }: { product: ProductType; styleType: 
     const hoverImage = images[1] || "";
     const [activeImage, setActiveImage] = useState<string>(defaultImage);
 
-    const handleColorHover = (image: string) => {
-        setActiveImage(image);
-    };
-
     const discount =
         typeof oldPrice !== 'undefined'
         && getDiscountPercentage(oldPrice, price)
@@ -87,7 +83,7 @@ const ProductCard = ({ product, styleType }: { product: ProductType; styleType: 
                                     className='size-3.5'
                                     colors={colors}
                                     value={activeImage}
-                                    onHover={handleColorHover}
+                                    onHover={(color) => setActiveImage(color.image)}
                                 />
                             )}
 

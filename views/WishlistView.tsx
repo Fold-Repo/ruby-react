@@ -1,16 +1,15 @@
 'use client'
 
-import { Breadcrumb, Container } from '@/components'
+import { Breadcrumb, Container, EmptyState } from '@/components'
 import { ProductCard } from '@/components/cards'
-import { ProductCardSkeleton } from '@/components/skeleton'
-import { useGetWishlists } from '@/service'
+import { useAppSelector } from '@/store/hooks'
+import { selectWishlist } from '@/store/wishlistSlice'
 import { ProductType } from '@/types'
 import React from 'react'
 
 const WishlistView = () => {
 
-    const skeletons = Array.from({ length: 8 })
-    const { wishlists, isLoading } = useGetWishlists()
+    const wishlists = useAppSelector(selectWishlist)
 
     return (
         <>
@@ -27,17 +26,20 @@ const WishlistView = () => {
 
                 <div className="section-lg">
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-6">
-
-                        {isLoading
-                            ? skeletons.map((_, index) => (
-                                <ProductCardSkeleton key={index} />
-                            ))
-                            : wishlists?.map((item: ProductType, index: number) => (
+                    {wishlists.length === 0 ? (
+                        <EmptyState
+                            title="Your wishlist is empty."
+                            description="Start adding your favorite products to keep track of what you love."
+                            actionLabel="Browse Products"
+                            actionHref="/shop/shop_layout"
+                        />
+                    ) : (
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-6">
+                            {wishlists.map((item: ProductType, index: number) => (
                                 <ProductCard styleType="style5" key={index} product={item} />
                             ))}
-
-                    </div>
+                        </div>
+                    )}
 
                 </div>
 

@@ -24,19 +24,40 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
 
-        addToCart(state, action: PayloadAction<ProductType>) {
+        addToCart(
+            state,
+            action: PayloadAction<{
+                product: ProductType;
+                selectedColor?: string;
+                selectedSize?: string;
+                quantity?: number;
+            }>
+        ) {
+            const { product, selectedColor, selectedSize, quantity = 1 } = action.payload;
 
-            const existing = state.items.find(i => i.product.id === action.payload.id);
+            const cleanColor = selectedColor && selectedColor.trim() !== "" ? selectedColor : undefined;
+            const cleanSize = selectedSize && selectedSize.trim() !== "" ? selectedSize : undefined;
+
+            const existing = state.items.find((i) => i.product.id === product.id);
+
             if (existing) {
-                existing.quantity += 1;
+                existing.quantity += quantity;
+
+                if (cleanColor) existing.selectedColor = cleanColor;
+                if (cleanSize) existing.selectedSize = cleanSize;
             } else {
-                state.items.push({ product: action.payload, quantity: 1 });
+
+                state.items.push({
+                    product,
+                    quantity,
+                    ...(cleanColor && { selectedColor: cleanColor }),
+                    ...(cleanSize && { selectedSize: cleanSize }),
+                });
             }
 
             const totals = calculateTotals(state.items);
             state.totalQuantity = totals.totalQuantity;
             state.totalAmount = totals.totalAmount;
-
         },
 
         removeFromCart(state, action: PayloadAction<number | string>) {

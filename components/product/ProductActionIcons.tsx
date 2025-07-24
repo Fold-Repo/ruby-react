@@ -1,16 +1,21 @@
+'use client'
+
 import {
     HeartIcon,
     ShoppingCartIcon,
     ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline";
+import { HeartIcon as SolidHeartIcon } from "@heroicons/react/24/solid";
 import { GoGitCompare } from "react-icons/go";
 import clsx from "clsx";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui";
 import { ProductStyleType, ProductType } from "@/types";
 import { addToCart } from "@/store/cartSlice";
-import { useAppDispatch } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import toast from "react-hot-toast";
+import { addToWishlist, isInWishlist, removeFromWishlist } from "@/store/wishlistSlice";
+import { ProductQuickView } from "../modal";
 
 type ActionIconsProps = {
     styleType: ProductStyleType;
@@ -23,13 +28,16 @@ const IconWrapper = ({
     children,
     onClick,
     className,
+    title
 }: {
     children: React.ReactNode;
     onClick?: () => void;
     className?: string;
+    title: string
 }) => (
     <button
         onClick={onClick}
+        title={title}
         className={clsx(
             "cursor-pointer bg-white rounded-full flex items-center justify-center w-8 aspect-square text-base",
             className
@@ -41,18 +49,28 @@ const IconWrapper = ({
 export default function ActionIcons({ styleType, product }: ActionIconsProps) {
 
     const dispatch = useAppDispatch()
+    const isWished = useAppSelector(isInWishlist(product.id));
+
+    // QUICK VIEW
+    const [ open, setOpen ] = useState(false)
 
     const handleClick = (type: string) => {
         switch (type) {
             case "heart":
-                console.log("Added to wishlist");
+                if (isWished) {
+                    dispatch(removeFromWishlist(product.id));
+                    toast.success("Removed from wishlist");
+                } else {
+                    dispatch(addToWishlist(product));
+                    toast.success("Added to wishlist");
+                }
                 break;
             case "cart":
-                dispatch(addToCart(product))
+                dispatch(addToCart({product}))
                 toast.success('Product added to cart')
                 break;
             case "view":
-                console.log("Viewing product");
+                setOpen(true)
                 break;
             case "compare":
                 console.log("Added to compare list");
@@ -64,28 +82,34 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
 
     const commonIcons = {
         heart: (
-            <IconWrapper onClick={() => handleClick("heart")}>
-                <HeartIcon className={iconClass} />
+            <IconWrapper title='Add to wishlist' onClick={() => handleClick("heart")}>
+                {isWished ? (
+                    <SolidHeartIcon className="w-4 h-4 text-red-500" />
+                ) : (
+                    <HeartIcon className={iconClass} />
+                )}
             </IconWrapper>
         ),
         cart: (
-            <IconWrapper onClick={() => handleClick("cart")}>
+            <IconWrapper title='Add to cart' onClick={() => handleClick("cart")}>
                 <ShoppingCartIcon className={iconClass} />
             </IconWrapper>
         ),
         view: (
-            <IconWrapper onClick={() => handleClick("view")}>
+            <IconWrapper title='Quick view' onClick={() => handleClick("view")}>
                 <ViewfinderCircleIcon className={iconClass} />
             </IconWrapper>
         ),
         compare: (
-            <IconWrapper onClick={() => handleClick("compare")}>
+            <IconWrapper title='Compare product' onClick={() => handleClick("compare")}>
                 <GoGitCompare className={iconClass} />
             </IconWrapper>
         ),
     };
 
     return (
+        <>
+
         <div className="absolute inset-0 z-10">
 
             {(styleType === "style1" ||
@@ -117,15 +141,14 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
                 <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
                     <div className="flex items-center gap-3">
 
-                        <IconWrapper className="w-10" onClick={() => handleClick("cart")}>
-                            <ShoppingCartIcon className={iconClass} />
-                        </IconWrapper>
+                        {  commonIcons.cart }
 
                         <button
                             onClick={() => handleClick("cart")}
                             className="cursor-pointer py-2 px-5 font-medium text-xs !bg-white text-black w-full rounded-md">
                             Add to Cart
                         </button>
+                        
                     </div>
                 </div>
             )}
@@ -143,9 +166,9 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
                 <div className="flex items-center justify-center absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
                     <div className="flex items-center flex-wrap justify-center gap-2">
                         <div className="flex items-center gap-x-2">
-                            <IconWrapper onClick={() => handleClick("heart")}>
-                                <HeartIcon className={iconClass} />
-                            </IconWrapper>
+
+                            {commonIcons.heart}
+
                             <button
                                 onClick={() => handleClick("view")}
                                 className="cursor-pointer py-2 px-5 font-medium text-xs bg-white text-black rounded-md">
@@ -153,9 +176,9 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
                             </button>
                         </div>
                         <div className="flex items-center gap-x-2">
-                            <IconWrapper onClick={() => handleClick("cart")}>
-                                <ShoppingCartIcon className={iconClass} />
-                            </IconWrapper>
+
+                            {commonIcons.cart}
+
                             <button
                                 onClick={() => handleClick("cart")}
                                 className="cursor-pointer py-2 px-5 font-medium text-xs bg-white text-black rounded-md">
@@ -166,30 +189,47 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
                 </div>
             )}
 
-            {(styleType === "style6" || styleType === "style7") && (
-                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500">
-                    {styleType === "style6" ? (
-                        <div className="flex items-center justify-center gap-4">
-                            {commonIcons.cart}
-                            {commonIcons.heart}
-                            {commonIcons.view}
-                        </div>
-                    ) : (
-                        <div className="bg-white rounded-lg max-w-max flex items-center justify-center m-auto p-1 border border-gray-200 shadow">
-                            {[commonIcons.cart, commonIcons.heart, commonIcons.view].map((icon, idx) => (
-                                <button key={idx}
-                                    onClick={() => handleClick(["cart", "heart", "view"][idx])}
-                                    className={clsx(
-                                        "px-3 flex items-center justify-center",
-                                        idx < 2 && "border-e border-gray-300"
-                                    )}>
-                                    {icon}
-                                </button>
-                            ))}
-                        </div>
-                    )}
+            {styleType === "style6" && (
+                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-4">
+                    {commonIcons.cart}
+                    {commonIcons.heart}
+                    {commonIcons.view}
                 </div>
             )}
+
+            {styleType === "style7" && (
+                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-4">
+                    <div className="bg-white rounded-lg max-w-max flex items-center justify-center m-auto px-2 py-2.5 border border-gray-200 shadow">
+                        {[
+                            { type: "cart", icon: <ShoppingCartIcon className={iconClass} /> },
+                            {
+                                type: "heart",
+                                icon: isWished ? (
+                                    <SolidHeartIcon className="w-4 h-4 text-red-500" />
+                                ) : (
+                                    <HeartIcon className={iconClass} />
+                                ),
+                            },
+                            { type: "view", icon: <ViewfinderCircleIcon className={iconClass} /> },
+                        ].map((item, idx) => (
+                            <button
+                                key={item.type}
+                                onClick={() => handleClick(item.type)}
+                                className={clsx(
+                                    "cursor-pointer px-3 flex items-center justify-center",
+                                    idx < 2 && "border-e border-gray-300"
+                                )}>
+                                {item.icon}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+
         </div>
+
+        <ProductQuickView open={open} setOpen={setOpen} product={product} />
+
+        </>
     );
 }
