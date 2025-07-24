@@ -12,7 +12,7 @@ const Footer = () => {
 
             <Container>
 
-                <div className="mb-15 m-auto relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-y-8 sm:gap-y-12 px-6 sm:px-0 z-20">
+                <div className="mb-15 m-auto relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-y-8 sm:gap-y-12 px-6 sm:px-0">
 
                     <div className="w-full mb-5 lg:mb-0">
                         <Link href="/">

@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchInput from './SearchInput';
+import { Button } from '../ui';
+import { useRouter } from 'next/navigation';
 
 interface SearchModalProps {
     isOpen: boolean;
@@ -13,6 +15,7 @@ interface SearchModalProps {
 
 const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
+    const router = useRouter();
     const [query, setQuery] = useState<string>('');
     const [mounted, setMounted] = useState(false);
 
@@ -25,6 +28,11 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
     }, [isOpen]);
 
     if (!mounted) return null;
+
+    const handleSearch = () => {
+        router.push(`/search?q=${query}`)
+        onClose()
+    }
 
     return createPortal(
         <AnimatePresence>
@@ -67,7 +75,12 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
                         <div className="pt-8 space-y-8">
 
-                            <SearchInput value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for products..." />
+                            <div className="relative flex items-center">
+                                <SearchInput className='w-full py-3 !pr-24' value={query} onSearch={setQuery} placeholder="Search for products..." />
+                                <Button onClick={handleSearch} size='sm' type='button' className='absolute top-1/2 -translate-y-1/2 right-1.5 !text-xs px-6 !py-2' rounded='xl'>
+                                    Search
+                                </Button>
+                            </div>
 
                             <div className="space-y-3">
                                 <h2 className="text-sm font-semibold text-gray-700">Key features</h2>

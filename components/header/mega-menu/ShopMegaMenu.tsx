@@ -1,8 +1,18 @@
+import { ProductCardTwo } from '@/components/cards'
+import { ProductCardSkeleton } from '@/components/skeleton'
 import { shopMenuGroups } from '@/constants'
+import { useGetProducts } from '@/service'
+import { ProductType } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
 const ShopMegaMenu = () => {
+
+    const { response, isLoading } = useGetProducts({ limit: 2 })
+    const products = response?.data
+
+    const skeletons = Array.from({ length: 2 })
+
     return (
         <div className="grid grid-cols-6 gap-3">
 
@@ -24,6 +34,17 @@ const ShopMegaMenu = () => {
             <div className="flex flex-col col-span-2">
 
                 <h1 className="text-sm font-semibold mb-4">TOP CATEGORIES</h1>
+
+                <div className="grid grid-cols-2 gap-3">
+                    {isLoading
+                        ? skeletons.map((_, index) =>
+                            <ProductCardSkeleton key={index} />
+                        )
+                        : products?.map((item: ProductType, index: number) =>
+                            <ProductCardTwo key={index} product={item} />
+                        )
+                    }
+                </div>
 
             </div>
 

@@ -1,0 +1,88 @@
+import { CollectionType } from "@/types";
+
+export const collections: CollectionType[] = [
+    {
+        id: 1,
+        img: '/img/collection/1.jpg',
+        title: "Men's",
+        subtitle: '7 items Available',
+        alt: 'Men Collection',
+    },
+    {
+        id: 2,
+        img: '/img/collection/2.jpg',
+        title: 'Women’s',
+        subtitle: '7 items Available',
+        alt: 'Women Collection',
+    },
+    {
+        id: 3,
+        img: '/img/collection/3.jpg',
+        title: 'Kid’s',
+        subtitle: '7 items Available',
+        alt: 'Kids Collection',
+    },
+    {
+        id: 4,
+        img: '/img/collection/4.jpg',
+        title: 'Jewelry',
+        subtitle: '7 items Available',
+        alt: 'Jewelry Collection',
+    },
+    {
+        id: 5,
+        img: '/img/collection/5.jpg',
+        title: 'Dresses',
+        subtitle: '7 items Available',
+        alt: 'Dresses Collection',
+    },
+    {
+        id: 6,
+        img: '/img/collection/6.jpg',
+        title: 'Tops',
+        subtitle: '7 items Available',
+        alt: 'Tops Collection',
+    },
+    {
+        id: 7,
+        img: '/img/collection/7.jpg',
+        title: 'Bottoms',
+        subtitle: '7 items Available',
+        alt: 'Bottoms Collection',
+    },
+    {
+        id: 8,
+        img: '/img/collection/8.jpg',
+        title: 'Outerwear',
+        subtitle: '7 items Available',
+        alt: 'Outerwear Collection',
+    },
+    {
+        id: 9,
+        img: '/img/collection/9.jpg',
+        title: 'Shoes',
+        subtitle: '7 items Available',
+        alt: 'Shoes Collection',
+    },
+    {
+        id: 10,
+        img: '/img/collection/10.jpg',
+        title: 'Bags',
+        subtitle: '7 items Available',
+        alt: 'Bags Collection',
+    },
+    {
+        id: 11,
+        img: '/img/collection/11.jpg',
+        title: 'Accessories',
+        subtitle: '7 items Available',
+        alt: 'Accessories Collection',
+    },
+    {
+        id: 12,
+        img: '/img/collection/12.jpg',
+        title: 'Lingerie',
+        subtitle: '7 items Available',
+        alt: 'Lingerie Collection',
+    },
+]
