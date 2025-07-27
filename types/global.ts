@@ -18,3 +18,46 @@ export type CommentType = {
     message: string;
     replies?: CommentType[];
 };
+
+export interface FilterDataType {
+    categories: {
+        name: string;
+        slug: string;
+        count: number;
+    }[];
+    stockOptions: {
+        id: string;
+        label: string;
+        count: number;
+        checked?: boolean;
+    }[];
+    priceRange: {
+        min: number;
+        max: number;
+    };
+    sizes: string[];
+    colors: {
+        name: string;
+        color: string;
+    }[];
+    brands: {
+        id: string;
+        label: string;
+        count: number;
+        checked?: boolean;
+    }[];
+}
+
+export type CollectionType = {
+    id: number | string
+    img: string
+    title: string
+    subtitle: string
+    alt?: string
+}
+
+export interface CategoryType {
+    id: number | string;
+    name: string;
+    img: string;
+}

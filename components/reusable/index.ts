@@ -4,6 +4,7 @@ import Tab from "./Tab";
 import StarRating from "./StarRating";
 import Pagination from "./Pagination";
 import SectionTitle from "./SectionTitle";
+import GridSwitcher from "./GridSwitcher";
 
 export {
     Breadcrumb,
@@ -11,5 +12,6 @@ export {
     Tab,
     StarRating,
     Pagination,
-    SectionTitle
+    SectionTitle,
+    GridSwitcher
 }

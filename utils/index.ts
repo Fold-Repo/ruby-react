@@ -1,9 +1,13 @@
 import InternetCheck from "./internetCheck";
-import { formatDigits } from "./helper";
+import { formatDigits, getDiscountPercentage, removeEmptyFields } from "./helper";
 import { paginate } from "./paginate";
+import { debounce } from "./debounce";
 
 export {
     InternetCheck,
     formatDigits,
-    paginate 
+    paginate,
+    debounce,
+    getDiscountPercentage,
+    removeEmptyFields
 }

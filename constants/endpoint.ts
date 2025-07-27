@@ -14,5 +14,11 @@ export const ENDPOINT = {
         POST_BY_ID: (id: string | number) => `post/${id}`,
         RELATED_POSTS: (id: string | number) => `post/${id}/related`,
         POST_METAS: 'post/meta',
-    }
+    },
+    PRODUCT: {
+        PRODUCTS: 'product',
+        PRODUCT_METAS: 'product/meta'
+    },
+    COLLECTIONS: 'collection',
+    TOP_COLLECTIONS: 'top-categories',
 };

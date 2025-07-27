@@ -3,6 +3,7 @@ import { footerSections, footerContact, newsletterText } from "./footer";
 import { faqData } from "./faq";
 
 import { API_BASE_URL, ENDPOINT } from "./endpoint";
+import { filterData } from "./filter";
 
 export {
     menuItems,
@@ -17,5 +18,7 @@ export {
     faqData,
     
     API_BASE_URL,
-    ENDPOINT
+    ENDPOINT,
+
+    filterData
 }
