@@ -66,7 +66,7 @@ const HeaderRight: React.FC = () => {
                 </div>
 
                 {/* Wishlist */}
-                <Link href="/wishlist" className="relative hidden md:block text-gray-800 hover:text-primary cursor-pointer">
+                <Link href="/wishlist" className="relative text-gray-800 hover:text-primary cursor-pointer">
                     <HeartIcon className="w-4.5 h-4.5" />
                     <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
                         {wishlistQty}

@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
+/**
+ * Represents the time left in the countdown.
+ */
 interface CountdownTime {
     days: number;
     hours: number;
@@ -11,7 +14,25 @@ interface CountdownTime {
     isCompleted: boolean;
 }
 
-export const useCountdown = (targetDate: Date | string, onEnd?: () => void): CountdownTime => {
+/**
+ * A React hook that returns the countdown to a target date.
+ * 
+ * @param targetDate - The target date to count down to (Date object or date string).
+ * @param onEnd - Optional callback invoked when the countdown ends.
+ * @returns An object containing the remaining time and a flag for completion.
+ * 
+ * @example
+ * const countdown = useCountdown('2025-12-31T23:59:59', () => {
+ *   console.log('Countdown complete!');
+ * });
+ * 
+ * console.log(countdown.minutes); // 12
+ * console.log(countdown.isCompleted); // false
+ */
+export const useCountdown = (
+    targetDate: Date | string,
+    onEnd?: () => void
+): CountdownTime => {
     const [timeLeft, setTimeLeft] = useState<CountdownTime>({
         days: 0,
         hours: 0,
@@ -25,7 +46,7 @@ export const useCountdown = (targetDate: Date | string, onEnd?: () => void): Cou
         const target = new Date(targetDate).getTime();
 
         const updateCountdown = () => {
-            const now = new Date().getTime();
+            const now = Date.now();
             const distance = target - now;
 
             if (distance <= 0) {
@@ -57,8 +78,8 @@ export const useCountdown = (targetDate: Date | string, onEnd?: () => void): Cou
             });
         };
 
-        updateCountdown(); 
-        const interval = setInterval(updateCountdown, 1000); 
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
 
         return () => clearInterval(interval);
     }, [targetDate, onEnd]);

@@ -1,5 +1,5 @@
 import { useGetPosts, useGetPostById, useGetPostMetas } from "./post";
-import { useGetProducts, useGetProductsMetas, useInfiniteProductsQuery, useProductQuery } from "./product";
+import { useGetProducts, useGetProductsMetas, useInfiniteProductsQuery, useProductQuery, useProductDetails, useGetRelatedProduct } from "./product";
 import { useGetCollections } from "./collection";
 import { useGetTopCategories } from "./top_category";
 
@@ -13,8 +13,10 @@ export {
 
     useProductQuery,
     useInfiniteProductsQuery,
+    useProductDetails,
 
     useGetCollections,
 
     useGetTopCategories,
+    useGetRelatedProduct,
 }

@@ -116,7 +116,7 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
                 styleType === "style2" ||
                 styleType === "style3" ||
                 styleType === "style5") && (
-                    <div className="absolute right-3 top-3 flex flex-col gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="absolute right-3 top-3 flex flex-col gap-y-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
                         {styleType !== "style5" && commonIcons.heart}
                         {(styleType === "style1" || styleType === "style2") && commonIcons.cart}
                         {(styleType === "style2" || styleType === "style3" || styleType === "style5") &&
@@ -154,7 +154,7 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
             )}
 
             {styleType === "style4" && (
-                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-4">
+                <div className="absolute bottom-3 md:-bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-3">
                     {commonIcons.cart}
                     {commonIcons.heart}
                     {commonIcons.view}
@@ -190,7 +190,8 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
             )}
 
             {styleType === "style6" && (
-                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-4">
+                <div className="absolute bottom-3 md:-bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 
+                    flex items-center justify-center gap-3">
                     {commonIcons.cart}
                     {commonIcons.heart}
                     {commonIcons.view}
@@ -198,7 +199,8 @@ export default function ActionIcons({ styleType, product }: ActionIconsProps) {
             )}
 
             {styleType === "style7" && (
-                <div className="absolute -bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 flex items-center justify-center gap-4">
+                <div className="absolute bottom-3 md:-bottom-20 group-hover:bottom-5 start-3 end-3 duration-500 
+                    flex items-center justify-center gap-3">
                     <div className="bg-white rounded-lg max-w-max flex items-center justify-center m-auto px-2 py-2.5 border border-gray-200 shadow">
                         {[
                             { type: "cart", icon: <ShoppingCartIcon className={iconClass} /> },

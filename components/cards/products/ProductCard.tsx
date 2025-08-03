@@ -67,7 +67,7 @@ const ProductCard = ({ product, styleType }: { product: ProductType; styleType: 
 
                 <div className="space-y-1.5 pt-3">
 
-                    <Link href={`/product/${id}`} className="hover:text-primary text-sm sm:text-base font-medium block !line-clamp-1">
+                    <Link href={`/products/${id}`} className="hover:text-primary text-sm sm:text-base font-medium block !line-clamp-1">
                         {title}
                     </Link>
 

@@ -3,7 +3,8 @@
 import { useQueryParams } from "@/hooks";
 import { useGetProducts } from "@/service";
 import { removeEmptyFields } from "@/utils";
-import { useInfiniteProducts } from "./productFn";
+import { useGetProductById, useInfiniteProducts } from "./productFn";
+import { useMemo } from "react";
 
 export function useProductQuery(defaults = { page: 1, limit: 8 }) {
 
@@ -66,3 +67,24 @@ export function useInfiniteProductsQuery(
 
     return useInfiniteProducts(params, limit);
 }
+
+export const useProductDetails = (productId: string | number) => {
+
+    const { response, isLoading } = useGetProductById(productId || '');
+
+    const productData = useMemo(() => {
+        if (!response?.product) return {};
+
+        return {
+            product: response.product || [],
+            related: response.related || [],
+            frequentlyBoughtTogether: response.frequentlyBoughtTogether || [],
+            group: response.group || [],
+        };
+    }, [response]);
+
+    return {
+        isLoading,
+        ...productData,
+    };
+};

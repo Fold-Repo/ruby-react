@@ -67,8 +67,8 @@ export const productMenuItems: MenuGroupType[] = [
             { label: 'Deals', href: '/products/features/deals' },
             { label: 'With Discount', href: '/products/features/with-discount' },
             { label: 'Subscribe Save', href: '/products/features/subscribe-save' },
-            { label: 'Deals grid', href: '/products/features/deals-grid' },
-            { label: 'Buy X Get Y', href: '/products/features/buy-x-get-y' },
+            // { label: 'Deals grid', href: '/products/features/deals-grid' },
+            // { label: 'Buy X Get Y', href: '/products/features/buy-x-get-y' },
         ],
     },
     {

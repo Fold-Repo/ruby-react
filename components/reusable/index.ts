@@ -5,6 +5,8 @@ import StarRating from "./StarRating";
 import Pagination from "./Pagination";
 import SectionTitle from "./SectionTitle";
 import GridSwitcher from "./GridSwitcher";
+import RatingBreakdown from "./RatingBreakdown";
+import DiscountTag from "./DiscountTag";
 
 export {
     Breadcrumb,
@@ -13,5 +15,7 @@ export {
     StarRating,
     Pagination,
     SectionTitle,
-    GridSwitcher
+    GridSwitcher,
+    RatingBreakdown,
+    DiscountTag
 }

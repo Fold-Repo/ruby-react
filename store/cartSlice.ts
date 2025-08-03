@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartItemType, CartType, ProductType } from '@/types';
+import { CartItemType, CartType, MaterialType, ProductType, SubType } from '@/types';
 
 const initialState: CartType = {
     items: [],
@@ -8,14 +8,13 @@ const initialState: CartType = {
 };
 
 const calculateTotals = (items: CartItemType[]) => {
-
     const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
-
-    const totalAmount = items.reduce(
-        (sum, item) => sum + item.quantity * item.product.price,
-        0
-    );
-
+    const totalAmount = items.reduce((sum, item) => {
+        const basePrice = item.price ?? item.product.price;
+        const discount = item.discountPercent ?? 0;
+        const discountedPrice = basePrice * (1 - discount / 100);
+        return sum + discountedPrice * item.quantity;
+    }, 0);
     return { totalQuantity, totalAmount };
 };
 
@@ -30,28 +29,64 @@ const cartSlice = createSlice({
                 product: ProductType;
                 selectedColor?: string;
                 selectedSize?: string;
+                selectedMaterial?: MaterialType;
                 quantity?: number;
+                price?: number;
+                discountPercent?: number;
+                subscription?: SubType;
+                customerNote?: {
+                    note?: string;
+                    file?: File | null;
+                };
             }>
         ) {
-            const { product, selectedColor, selectedSize, quantity = 1 } = action.payload;
+            const {
+                product,
+                selectedColor,
+                selectedSize,
+                selectedMaterial,
+                price,
+                quantity = 1,
+                discountPercent,
+                subscription,
+                customerNote,
+            } = action.payload;
 
-            const cleanColor = selectedColor && selectedColor.trim() !== "" ? selectedColor : undefined;
-            const cleanSize = selectedSize && selectedSize.trim() !== "" ? selectedSize : undefined;
+            const cleanColor = selectedColor?.trim() || undefined;
+            const cleanSize = selectedSize?.trim() || undefined;
+            const cleanNote = customerNote?.note?.trim() || undefined;
+            const cleanFile = customerNote?.file || null;
+            const materialName = selectedMaterial?.name || undefined;
 
-            const existing = state.items.find((i) => i.product.id === product.id);
+            const existing = state.items.find(
+                (i) =>
+                    i.product.id === product.id &&
+                    i.selectedColor === cleanColor &&
+                    i.selectedSize === cleanSize &&
+                    i.selectedMaterial?.name === materialName &&
+                    i.customerNote?.note === cleanNote &&
+                    (i.customerNote?.file?.name || '') === (cleanFile?.name || '') &&
+                    i.discountPercent === discountPercent
+            );
 
             if (existing) {
                 existing.quantity += quantity;
-
-                if (cleanColor) existing.selectedColor = cleanColor;
-                if (cleanSize) existing.selectedSize = cleanSize;
             } else {
-
                 state.items.push({
                     product,
                     quantity,
                     ...(cleanColor && { selectedColor: cleanColor }),
                     ...(cleanSize && { selectedSize: cleanSize }),
+                    ...(selectedMaterial && { selectedMaterial }),
+                    ...(typeof price === 'number' && { price }),
+                    ...(subscription && { subscription }),
+                    ...(typeof discountPercent === 'number' && { discountPercent }),
+                    ...(customerNote && {
+                        customerNote: {
+                            ...(cleanNote && { note: cleanNote }),
+                            ...(cleanFile && { file: cleanFile }),
+                        },
+                    }),
                 });
             }
 

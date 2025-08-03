@@ -2,7 +2,8 @@ import BadgeSkeleton from "./BadgeSkeleton";
 
 import { BlogCardSkeleton, LatestBlogCardSkeleton, BlogListCardSkeleton, BlogDetailsViewSkeleton, AuthorCardSkeleton } from "./blog";
 
-import { ProductCardSkeleton, ProductListCardSkeleton } from "./product";
+import { ProductCardSkeleton, ProductListCardSkeleton, ProductTopSkeleton, ProductImageGallerySkeleton, 
+    ProductDetailsSkeleton, FeaturedGallerySkeleton, StackGallerySkeleton } from "./product";
 
 import FilterSkeleton from "./FilterSkeleton";
 
@@ -21,6 +22,11 @@ export {
 
     ProductListCardSkeleton,
     ProductCardSkeleton,
+    ProductTopSkeleton,
+    ProductImageGallerySkeleton,
+    ProductDetailsSkeleton,
+    FeaturedGallerySkeleton,
+    StackGallerySkeleton,
 
     FilterSkeleton,
 

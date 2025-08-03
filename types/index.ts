@@ -8,9 +8,9 @@ import { TimelineStatusType, TimelineStepType, CommentType, FilterDataType, Coll
 
 import type { PostType, PostVariantType } from "./blog";
 
-import { ColorType, ProductType, ProductStyleType } from "./product";
+import { ColorType, ProductType, ProductStyleType, RatingBreakdownType, ProductReviewType, MaterialType } from "./product";
 
-import { CartItemType, CartType } from "./cart";
+import { CartItemType, CartType, SubType } from "./cart";
 
 export type {
     NavItemType,
@@ -44,7 +44,11 @@ export type {
     ColorType,
     ProductType,
     ProductStyleType,
+    RatingBreakdownType,
+    ProductReviewType,
+    MaterialType,
 
     CartItemType,
-    CartType
+    CartType,
+    SubType
 }
