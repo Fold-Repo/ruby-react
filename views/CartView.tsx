@@ -1,6 +1,6 @@
 'use client'
 
-import { Breadcrumb, Container } from '@/components'
+import { Breadcrumb, Container, Input } from '@/components'
 import { CartItem, CartSummary, CouponInput, EmptyCart } from '@/components/cart'
 import { selectCart } from '@/store/cartSlice'
 import React from 'react'
@@ -27,7 +27,9 @@ const CartView = () => {
                 <div className="section-lg">
 
                     {items.length < 1 ? (
+
                         <EmptyCart />
+
                     ) : (
                         <div className='space-y-14'>
 

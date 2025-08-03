@@ -3,16 +3,18 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storageSession from 'redux-persist/lib/storage/session'
 import cartReducer from './cartSlice'
 import wishlistReducer from './wishlistSlice'
+import productReducer from './productSlice'
 
 const rootReducer = combineReducers({
     cart: cartReducer,
     wishlist: wishlistReducer,
+    product: productReducer,
 })
 
 const persistConfig = {
     key: 'root',
     storage: storageSession,
-    whitelist: ['cart', 'wishlist'], 
+    whitelist: ['cart', 'wishlist', 'product'], 
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

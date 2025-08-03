@@ -4,6 +4,7 @@ import React, { ReactNode, useState } from "react";
 import { cn } from "@/lib";
 import Label from "./Label";
 import ErrorMessage from "./ErrorMessage";
+import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
 
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
     label?: string;
@@ -21,6 +22,7 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
     isCurrency?: boolean;
+    type?: string
 }
 
 const sizeClasses: Record<string, string> = {
@@ -64,6 +66,7 @@ const Input: React.FC<InputProps> = ({
     onChange,
     onBlur,
     isCurrency = false,
+    type = 'text',
     ...props
 }) => {
     const [displayValue, setDisplayValue] = useState(() => {
@@ -79,7 +82,7 @@ const Input: React.FC<InputProps> = ({
         if (isCurrency) {
             rawValue = unformatCurrency(rawValue);
             const formattedValue = formatCurrency(rawValue);
-            
+
             const syntheticEvent = {
                 ...e,
                 target: {
@@ -88,7 +91,7 @@ const Input: React.FC<InputProps> = ({
                     name: name
                 }
             };
-            
+
             onChange?.(syntheticEvent);
             setDisplayValue(formattedValue);
         } else {
@@ -111,9 +114,10 @@ const Input: React.FC<InputProps> = ({
 
                 <input
                     {...props}
+                    type={type}
                     id={name}
                     name={name}
-                    value={inputValue}
+                    value={type !== 'file' ? inputValue : undefined}
                     onChange={handleChange}
                     onBlur={onBlur}
                     className={cn(
@@ -127,11 +131,24 @@ const Input: React.FC<InputProps> = ({
                     )}
                 />
 
-                {endContent && (
-                    <div className="absolute right-3 inset-y-0 flex items-center">
-                        {endContent}
+                {/* Custom File Upload Button */}
+                {type === 'file' && (
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                        <button
+                            type="button"
+                            className="flex items-center gap-1 px-3 py-2 text-xs hover:bg-black bg-primary text-white rounded-full cursor-pointer"
+                            onClick={() => document.getElementById(name)?.click()}>
+                            Upload
+                            <ArrowUpTrayIcon className="w-4 h-4" />
+                        </button>
                     </div>
                 )}
+
+                {type !== 'file' && endContent && (
+                    <div className="absolute right-3 inset-y-0 flex items-center">{endContent}</div>
+                )}
+
+
             </div>
 
             <ErrorMessage error={error} />

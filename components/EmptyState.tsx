@@ -28,7 +28,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
                 height={500}
                 src={imageSrc}
                 alt="Empty state"
-                className="size-28 md:size-30 m-auto"
+                className="size-28 m-auto"
             />
 
             <div className="space-y-2 mt-6">

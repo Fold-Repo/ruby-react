@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { getProductMetas, getProducts } from "./product";
+import { getProductId, getProductMetas, getProducts, getRelatedProduct } from "./product";
 
 export const useGetProducts = (params = {}) => {
     const { data: response, isLoading } = useQuery({
@@ -26,6 +26,26 @@ export const useGetProductsMetas = () => {
     const { data: response, isLoading } = useQuery({
         queryKey: ['product_metas',],
         queryFn: () => getProductMetas(),
+    });
+
+    return { response, isLoading };
+};
+
+export const useGetProductById = (id: string | number) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['product_', id],
+        queryFn: () => getProductId(id),
+        enabled: !!id
+    });
+
+    return { response, isLoading };
+};
+
+export const useGetRelatedProduct = (id: string | number) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['product_', id, '_related'],
+        queryFn: () => getRelatedProduct(id),
+        enabled: !!id
     });
 
     return { response, isLoading };

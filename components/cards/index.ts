@@ -6,7 +6,7 @@ import OrderCard from "./OrderCard";
 import CollectionCard from "./CollectionCard";
 
 import { BlogCard, LatestBlogCard, BlogListCard, AuthorCard } from "./blog";
-import { ProductCard, ProductListCard, ProductCardTwo } from "./products";
+import { ProductCard, ProductListCard, ProductCardTwo, FreqBoughtCard } from "./products";
 
 import { CategoryCard, CategoryCardTwo } from "./category";
 
@@ -27,6 +27,7 @@ export {
     ProductCard,
     ProductListCard,
     ProductCardTwo,
+    FreqBoughtCard,
 
     CategoryCard,
     CategoryCardTwo,

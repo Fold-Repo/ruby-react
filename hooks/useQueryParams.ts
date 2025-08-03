@@ -6,11 +6,28 @@ import { useCallback } from 'react';
 type QueryValue = string | number | boolean | null | undefined;
 type QueryUpdates = Record<string, QueryValue>;
 
+/**
+ * Custom hook to manage URL query parameters in a Next.js app.
+ *
+ * @returns An object with helpers to get, update, remove, and reset query parameters.
+ *
+ * @example
+ * const { updateQueryParams, removeQueryParams } = useQueryParams();
+ * updateQueryParams({ page: 2, sort: 'desc' });
+ * removeQueryParams('page');
+ */
 export const useQueryParams = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const router = useRouter();
 
+    /**
+     * Updates the query parameters in the URL.
+     *
+     * @param newParams - An object of key-value pairs to add/update.
+     * @param options - Optional settings.
+     *        - clearAll: If true, clears existing query params before applying new ones.
+     */
     const updateQueryParams = useCallback(
         (newParams: QueryUpdates = {}, options?: { clearAll?: boolean }) => {
             const currentParams = options?.clearAll
@@ -44,6 +61,11 @@ export const useQueryParams = () => {
         [searchParams, pathname, router]
     );
 
+    /**
+     * Removes one or more query parameters from the URL.
+     *
+     * @param keys - A single key or array of keys to remove.
+     */
     const removeQueryParams = useCallback(
         (keys: string | string[]) => {
             const currentParams = new URLSearchParams(searchParams.toString());
@@ -68,6 +90,9 @@ export const useQueryParams = () => {
         [searchParams, pathname, router]
     );
 
+    /**
+     * Resets (clears) all query parameters from the URL.
+     */
     const resetQueryParams = useCallback(() => {
         router.push(pathname, { scroll: false });
     }, [pathname, router]);

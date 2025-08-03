@@ -15,7 +15,7 @@ interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
     checked?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-    value: string;
+    value?: string;
 }
 
 const Radio: React.FC<RadioProps> = ({

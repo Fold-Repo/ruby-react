@@ -1,7 +1,7 @@
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { Button, Input, PasswordInput, Select, Radio, Checkbox, TextArea, PopupModal } from "./ui";
-import { Breadcrumb, Accordion, Tab, StarRating, Pagination, SectionTitle, GridSwitcher } from "./reusable";
+import { Breadcrumb, Accordion, Tab, StarRating, RatingBreakdown, Pagination, SectionTitle, GridSwitcher, DiscountTag } from "./reusable";
 import { ServiceSection } from "./services";
 import { ContactDetails, MapLocation, ContactForm } from "./contact";
 import { AccountSidebar, ProfileImage } from "./account";
@@ -42,9 +42,11 @@ export {
     Accordion,
     Tab,
     StarRating,
+    RatingBreakdown,
     Pagination,
     SectionTitle,
     GridSwitcher,
+    DiscountTag,
 
     ServiceSection,
     MapLocation,

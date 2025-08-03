@@ -65,7 +65,7 @@ export default function ProductListCard({ product, styeType }: { product: Produc
                 {/* Info Section */}
                 <div className="ms-6 space-y-1.5 md:space-y-2 max-w-3xl w-full">
 
-                    <Link href={`/product/${id}`} className="hover:text-primary text-sm sm:text-base md:text-lg font-medium block !line-clamp-1">
+                    <Link href={`/products/${id}`} className="hover:text-primary text-sm sm:text-base md:text-lg font-medium block !line-clamp-1">
                         {title}
                     </Link>
 

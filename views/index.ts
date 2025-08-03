@@ -20,6 +20,46 @@ import WishlistView from "./WishlistView";
 import CheckoutView from "./CheckoutView";
 import CartView from "./CartView";
 
+import {
+
+    // PRODUCTS LAYOUTS
+    BottomThumbnailsView,
+    DefaultView,
+    DescAccordionView,
+    DescListView,
+    DescTabView,
+    DescWidthView,
+    FixedPriceView,
+    FixedScrollsView,
+    GridOneView,
+    GridTwoView,
+    RightThumbnailsView,
+    StackedView,
+
+    // PRODUCTS FEATURES
+    BoughtTogetherView,
+    UpSellView,
+    PreOrdersView,
+    GroupedView,
+    CustomerNoteView,
+    OutStockView,
+    PickupView,
+    VariableView,
+    DealsView,
+    DiscountView,
+    SubscribeView,
+
+    // COLOR SWATCHES
+    SwatchesColorView,
+    SwatchesDropColorView,
+    SwatchesDropdownView,
+    SwatchesImageView,
+    SwatchesImgRoundedView,
+    SwatchesRoundedView,
+    SwatchesRoundedColorView
+
+} from "./products"
+
 export {
     // ======== AUTH =========== //
     LoginView,
@@ -87,11 +127,46 @@ export {
 
     // SEARCH
     SearchView,
-
     WishlistView,
-
     CheckoutView,
+    CartView,
 
-    CartView
+    // ====== PRODUCTS ====== //
+
+    //LAYOUTS
+    BottomThumbnailsView,
+    DefaultView,
+    DescAccordionView,
+    DescListView,
+    DescTabView,
+    DescWidthView,
+    FixedPriceView,
+    FixedScrollsView,
+    GridOneView,
+    GridTwoView,
+    RightThumbnailsView,
+    StackedView,
+
+    // PRODUCTS FEATURES
+    BoughtTogetherView,
+    UpSellView,
+    PreOrdersView,
+    GroupedView,
+    CustomerNoteView,
+    OutStockView,
+    PickupView,
+    VariableView,
+    DealsView,
+    DiscountView,
+    SubscribeView,
+
+    // COLOR SWATCHES
+    SwatchesColorView,
+    SwatchesDropColorView,
+    SwatchesDropdownView,
+    SwatchesImageView,
+    SwatchesImgRoundedView,
+    SwatchesRoundedView,
+    SwatchesRoundedColorView
 
 }

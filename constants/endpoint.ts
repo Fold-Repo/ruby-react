@@ -17,6 +17,8 @@ export const ENDPOINT = {
     },
     PRODUCT: {
         PRODUCTS: 'product',
+        PRODUCT_ID: (id: string | number) => `product/${id}`,
+        RELATED: (id: string | number) => `product/${id}/related`,
         PRODUCT_METAS: 'product/meta'
     },
     COLLECTIONS: 'collection',

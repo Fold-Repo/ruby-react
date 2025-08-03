@@ -75,7 +75,7 @@ const Select: React.FC<SelectProps> = ({
                     onChange={onChange}
                     onBlur={onBlur}
                     className={cn(
-                        "form-control appearance-none",
+                        "form-control appearance-none pr-8",
                         sizeClasses[inputSize],
                         radiusClasses[radius],
                         startContent ? "pl-9" : "",
