@@ -1,10 +1,42 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { getProductId, getProductMetas, getProducts, getRelatedProduct } from "./product";
+import { getElectronicsProducts, getOtherProducts, getProductId, getProductMetas, getProducts, getRelatedProduct, getSkinCareProducts, getSportProducts } from "./product";
 
 export const useGetProducts = (params = {}) => {
     const { data: response, isLoading } = useQuery({
-        queryKey: ['product', params],
+        queryKey: ['product_', params],
         queryFn: () => getProducts(params),
+    });
+    return { response, isLoading };
+};
+
+export const useGetSkinCareProducts = (params = {}) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['skin_product_', params],
+        queryFn: () => getSkinCareProducts(params),
+    });
+    return { response, isLoading };
+};
+
+export const useGetSportProducts = (params = {}) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['sport_products', params],
+        queryFn: () => getSportProducts(params),
+    });
+    return { response, isLoading };
+};
+
+export const useGetOtherProducts = (params = {}) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['home_products', params],
+        queryFn: () => getOtherProducts(params),
+    });
+    return { response, isLoading };
+};
+
+export const useGetElectronicsProducts = (params = {}) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['electronics_products', params],
+        queryFn: () => getElectronicsProducts(params),
     });
     return { response, isLoading };
 };

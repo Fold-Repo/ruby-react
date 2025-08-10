@@ -60,6 +60,20 @@ import {
 
 } from "./products"
 
+
+import {
+    HomeView,
+    BeautySkinView,
+    BookStoreView,
+    ElectronicView,
+    FurnitureView,
+    MenFashionView,
+    SportAccessoryView,
+    TrendingFashionView,
+    WomenFashionView,
+} from './home'
+
+
 export {
     // ======== AUTH =========== //
     LoginView,
@@ -167,6 +181,17 @@ export {
     SwatchesImageView,
     SwatchesImgRoundedView,
     SwatchesRoundedView,
-    SwatchesRoundedColorView
+    SwatchesRoundedColorView,
+
+    // ======= HOME VIEWS ======= //
+    HomeView,
+    BeautySkinView,
+    BookStoreView,
+    ElectronicView,
+    FurnitureView,
+    MenFashionView,
+    SportAccessoryView,
+    TrendingFashionView,
+    WomenFashionView,
 
 }

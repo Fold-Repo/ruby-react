@@ -4,6 +4,7 @@ import Spinner from "../Spinner";
 
 type ButtonVariant =
     | "primary"
+    | "white"
     | "secondary"
     | "dark"
     | "transparent"
@@ -42,6 +43,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ) => {
         const variantClasses: Record<ButtonVariant, string> = {
             primary: "bg-primary hover:bg-black text-white",
+            white: "bg-white hover:bg-white text-black",
             dark: "bg-black hover:bg-primary text-white",
             secondary: "bg-gray-500 text-white",
             transparent: "bg-transparent border hover:bg-gray-50 hover:text-gray-800 text-gray-700",

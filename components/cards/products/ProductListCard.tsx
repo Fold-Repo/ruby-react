@@ -34,11 +34,12 @@ export default function ProductListCard({ product, styeType }: { product: Produc
                         alt="Product"
                         width={300}
                         height={500}
-                        className="h-full object-cover w-full rounded-md group-hover:scale-110 duration-500"
+                        className={`h-full object-cover w-full rounded-md duration-500 
+                        ${hoverImage ? 'group-hover:opacity-0 group-hover:scale-110' : 'group-hover:scale-110'}`}
                     />
 
                     {/* Hover Overlay Image */}
-                    {hoverImage && hoverImage !== defaultImage && (
+                    {hoverImage && (
                         <Image
                             src={hoverImage}
                             alt="Hover"

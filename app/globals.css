@@ -108,6 +108,17 @@ body {
   font-size: var(--text-md);
 }
 
+@layer utilities {
+  .hover\:shadow_brand:hover {
+    box-shadow: 0px 0px 50px 0px #00000014;
+  }
+
+  .shadow_elect {
+    box-shadow: 1px 1px 10px 1px #00000010;
+  }
+}
+
+
 
 @layer components {
 
@@ -235,15 +246,15 @@ body {
 
 /* === WHITE Variant === */
 .sw-dots.type-circle.white .swiper-pagination-bullet::after {
-  border: 1px solid var(--color-bg-white-smoke);
+  border: 1px solid #FFF !important;
 }
 
 .sw-dots.type-circle.white .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  border: 1px solid var(--color-bg-white-smoke);
+  border: 1px solid #FFF !important;
 }
 
 .sw-dots.type-circle.white .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
-  background-color: var(--color-bg-white-smoke);
+  background-color: #FFF;
 }
 
 .swiper {

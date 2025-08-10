@@ -21,7 +21,6 @@ const ProductCardTwo = ({ product }: { product: ProductType }) => {
                     className="object-cover h-full  w-full rounded-md product-image
                         group-hover:scale-110 duration-500 group"
                 />
-
                 {/* Icons */}
                 <ProductActionIcons product={product} styleType='style1' />
 

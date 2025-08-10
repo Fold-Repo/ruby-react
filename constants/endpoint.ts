@@ -17,10 +17,34 @@ export const ENDPOINT = {
     },
     PRODUCT: {
         PRODUCTS: 'product',
+        SKIN_CARE_PRODUCTS: 'product/skin-care',
+        SPORT_PRODUCTS: 'product/sport',
+        OTHER_PRODUCTS: 'product/others',
+        ELECTONICS_PRODUCTS: 'product/electronics',
         PRODUCT_ID: (id: string | number) => `product/${id}`,
         RELATED: (id: string | number) => `product/${id}/related`,
         PRODUCT_METAS: 'product/meta'
     },
-    COLLECTIONS: 'collection',
-    TOP_COLLECTIONS: 'top-categories',
+
+    COLLECTION: {
+        COLLECTIONS: 'collection',
+        MEN_COLLECTIONS: 'collection/men',
+    },
+
+    CATEGORY: {
+        TRENDING_FASHION_CATEGORY: 'category/trending-fashion',
+        BRANDS: 'category/brands',
+        TOP_COLLECTIONS: 'top-categories',
+    },
+
+    ELECTRONICS: {
+        CATEGORY: "electronics/category",
+        TOP_CATEGORY: "electronics/category/top",
+        TOP_PRODUCTS: "electronics/top-products"
+    },
+
+    SPORT: {
+        APPAREL: 'sport/apparel',
+        INSTAGRAM: 'sport/instagram',
+    }
 };

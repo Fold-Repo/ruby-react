@@ -1,9 +1,12 @@
 import { feedbacksData, aboutTabContent, teamMembers, storeList, addresses } from "./pages";
 import { ordersData } from "./order";
 import { posts, latestBlogPosts } from "./post";
-import { products, discount } from "./products";
+import { products, skinCareProducts, sportProducts, otherProducts, electronicProducts, discount } from "./products";
 import { collections } from "./collections";
-import { categoryData, categoryDataTwo } from "./categories";
+import { categoryData, categoryDataTwo, trendingFashionData, menCollectionData, brands } from "./categories";
+import { testimonials } from "./testimonials";
+import { apparelData, instagramProducts } from "./sport";
+import { electCategories, electTopCategories, electTopProducts } from './electronics'
 
 export {
 
@@ -15,12 +18,31 @@ export {
     ordersData,
     posts,
     latestBlogPosts,
-    products,
-    discount,
     
+    products,
+    skinCareProducts,
+    sportProducts,
+    otherProducts,
+    electronicProducts,
+
+    discount,
+
     collections,
 
     categoryData,
-    categoryDataTwo
+    categoryDataTwo,
+
+    trendingFashionData,
+    menCollectionData,
+    brands,
+    
+    electCategories,
+    electTopCategories,
+    electTopProducts,
+
+    testimonials,
+
+    apparelData,
+    instagramProducts,
 
 }

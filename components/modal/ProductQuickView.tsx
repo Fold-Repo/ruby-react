@@ -31,7 +31,6 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
     const { id, title, price, description, oldPrice, sizes = [], colors = [], images = [], inStock } = product
 
     const defaultImage = images[0] || "";
-    const hoverImage = images[1] || "";
     const [activeImage, setActiveImage] = useState<string>(defaultImage);
 
     const discount =
@@ -125,19 +124,8 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                             width={900}
                             height={900}
                             className="object-cover h-full  w-full rounded-md product-image
-                                        group-hover:scale-110 duration-500 group group-hover:opacity-0"
+                                        group-hover:scale-110 duration-500"
                         />
-
-                        {/* Hover Overlay Image */}
-                        {hoverImage && hoverImage !== defaultImage && (
-                            <Image
-                                src={hoverImage}
-                                alt="Hover"
-                                width={900}
-                                height={900}
-                                className="h-full w-full object-cover rounded-md absolute top-0 left-0 opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100 scale-105"
-                            />
-                        )}
 
                         {/* Percentage off */}
                         {discount && (
@@ -203,7 +191,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                         </div>
 
                         {/* CART AND BUY */}
-                        <div className="space-y-3">
+                        <div className="space-y-5">
 
                             <div className="flex items-center gap-3">
 

@@ -7,6 +7,7 @@ import SectionTitle from "./SectionTitle";
 import GridSwitcher from "./GridSwitcher";
 import RatingBreakdown from "./RatingBreakdown";
 import DiscountTag from "./DiscountTag";
+import SectionHeader from "./SectionHeader";
 
 export {
     Breadcrumb,
@@ -17,5 +18,6 @@ export {
     SectionTitle,
     GridSwitcher,
     RatingBreakdown,
-    DiscountTag
+    DiscountTag,
+    SectionHeader
 }

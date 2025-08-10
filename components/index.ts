@@ -1,7 +1,7 @@
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { Button, Input, PasswordInput, Select, Radio, Checkbox, TextArea, PopupModal } from "./ui";
-import { Breadcrumb, Accordion, Tab, StarRating, RatingBreakdown, Pagination, SectionTitle, GridSwitcher, DiscountTag } from "./reusable";
+import { Breadcrumb, Accordion, Tab, StarRating, RatingBreakdown, Pagination, SectionTitle, GridSwitcher, DiscountTag, SectionHeader } from "./reusable";
 import { ServiceSection } from "./services";
 import { ContactDetails, MapLocation, ContactForm } from "./contact";
 import { AccountSidebar, ProfileImage } from "./account";
@@ -15,6 +15,9 @@ import ResponsiveGrid from "./ResponsiveGrid";
 
 import { QuantitySelector } from "./cart";
 import EmptyState from "./EmptyState";
+import CountdownDisplay from "./CountdownDisplay";
+
+import { IconWrapper } from "./product";
 
 export {
     Header,
@@ -47,6 +50,7 @@ export {
     SectionTitle,
     GridSwitcher,
     DiscountTag,
+    SectionHeader,
 
     ServiceSection,
     MapLocation,
@@ -61,6 +65,10 @@ export {
 
     QuantitySelector,
 
-    EmptyState
+    EmptyState,
+
+    CountdownDisplay,
+
+    IconWrapper
 
 }

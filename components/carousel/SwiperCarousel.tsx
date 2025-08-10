@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Navigation, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
 type SwiperCarouselProps = {
     className?: string;
@@ -29,6 +29,11 @@ type SwiperCarouselProps = {
     navPrevClass?: string;
     navNextClass?: string;
     paginationClass?: string;
+
+    autoplay?: boolean;
+    autoplayDelay?: number;
+
+    onRealIndexChange?: (swiper: SwiperClass) => void;
 };
 
 const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
@@ -51,18 +56,26 @@ const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
     navPrevClass = '.nav-prev-categories',
     navNextClass = '.nav-next-categories',
     paginationClass = '.sw-pagination-categories',
+    autoplay = false,
+    autoplayDelay = 4000,
+    onRealIndexChange,
 }) => {
     return (
         <Swiper
-            modules={[Pagination, Navigation]}
+            modules={[Pagination, Navigation, Autoplay]}
+            onRealIndexChange={onRealIndexChange}
             className={className}
             slidesPerView={mobile}
             spaceBetween={space}
             speed={1000}
             loop={loop}
             centeredSlides={centered}
-            observer={true}
+            // observer={true}
             observeParents={true}
+            autoplay={autoplay ? {
+                delay: autoplayDelay,
+                disableOnInteraction: false,
+            } : false}
             pagination={{
                 el: paginationClass,
                 clickable: true,

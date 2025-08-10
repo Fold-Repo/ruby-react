@@ -15,7 +15,7 @@ const FullGridView = () => {
     const sort = searchParams.get('sort') || ''
     
     const { response: filterData = {}, isLoading: pending } = useGetProductsMetas()
-    const { products, limit, currentPage, totalItems, isLoading } = useProductQuery({ page: 1, limit: 8 })
+    const { products, limit, currentPage, totalItems, isLoading } = useProductQuery({ page: 1, limit: 12 })
 
     const skeletons = Array.from({ length: 8 })
 

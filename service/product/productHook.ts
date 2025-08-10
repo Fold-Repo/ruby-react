@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useQueryParams } from "@/hooks";
 import { useGetProducts } from "@/service";
@@ -6,70 +6,45 @@ import { removeEmptyFields } from "@/utils";
 import { useGetProductById, useInfiniteProducts } from "./productFn";
 import { useMemo } from "react";
 
-export function useProductQuery(defaults = { page: 1, limit: 8 }) {
+type QueryObject = Record<string, any>;
 
+// 🔁 Build a reusable function to merge URL and default query values
+const useMergedQueryParams = (defaults: QueryObject = {}) => {
     const { searchParams } = useQueryParams();
 
-    const page = Number(searchParams.get('page')) || defaults.page;
-    const limit = Number(searchParams.get('limit')) || defaults.limit;
+    const query: QueryObject = { ...defaults };
 
-    const sort = searchParams.get('sort') || ''
-    const category = searchParams.get('category') || ''
-    const stock = searchParams.get('stock') || ''
-    const minPrice = searchParams.get('minPrice') || ''
-    const maxPrice = searchParams.get('maxPrice') || ''
-    const size = searchParams.get('size') || ''
-    const color = searchParams.get('color') || ''
-    const brand = searchParams.get('brand') || ''
+    for (const [key, value] of searchParams.entries()) {
+        query[key] = value;
+    }
 
-    const payload = { page, limit, category, sort, stock, minPrice, maxPrice, size, color, brand };
+    return removeEmptyFields(query);
+};
 
-    const query = removeEmptyFields(payload)
+// 📦 Standard Product List Query
+export function useProductQuery(defaults: QueryObject = { page: 1, limit: 12 }) {
+    
+    const query = useMergedQueryParams(defaults);
 
-    const { response, isLoading } = useGetProducts(query);
+    const { page = 1, limit = 12, ...restQuery } = query;
+
+    const { response, isLoading } = useGetProducts({ page, limit, ...restQuery });
     const { data: products, currentPage, totalItems } = response || {};
 
     return { products, currentPage, totalItems, limit, isLoading };
 }
 
-interface UseInfiniteProductsProps {
-    limit?: number;
-    search?: string;
-}
-export function useInfiniteProductsQuery(
-    defaults: UseInfiniteProductsProps = { limit: 8 }
-) {
-    const { searchParams } = useQueryParams();
+// 🔄 Infinite Scrolling Product Query
+export function useInfiniteProductsQuery(defaults: QueryObject = { limit: 8 }) {
+    const query = useMergedQueryParams(defaults);
 
-    const limit = Number(searchParams.get('limit')) || defaults.limit || 8;
-
-    const sort = searchParams.get('sort') || '';
-    const category = searchParams.get('category') || '';
-    const stock = searchParams.get('stock') || '';
-    const minPrice = searchParams.get('minPrice') || '';
-    const maxPrice = searchParams.get('maxPrice') || '';
-    const size = searchParams.get('size') || '';
-    const color = searchParams.get('color') || '';
-    const brand = searchParams.get('brand') || '';
-    const search = searchParams.get('q') || defaults.search || '';
-
-    const params = removeEmptyFields({
-        category,
-        sort,
-        stock,
-        minPrice,
-        maxPrice,
-        size,
-        color,
-        brand,
-        search
-    });
+    const { limit = 8, ...params } = query;
 
     return useInfiniteProducts(params, limit);
 }
 
+// 🔍 Single Product + Related/Frequently Bought
 export const useProductDetails = (productId: string | number) => {
-
     const { response, isLoading } = useGetProductById(productId || '');
 
     const productData = useMemo(() => {

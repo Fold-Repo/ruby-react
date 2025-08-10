@@ -61,3 +61,19 @@ export interface CategoryType {
     name: string;
     img: string;
 }
+
+export interface TestimonialType {
+    name: string
+    role?: string
+    rating?: number
+    message: string
+    image?: string
+    date?: string
+}
+
+export type TrendingFashionType = {
+    id: number | string,
+    image: string,
+    title: string,
+    desc: string
+}

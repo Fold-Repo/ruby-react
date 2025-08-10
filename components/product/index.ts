@@ -1,6 +1,6 @@
 import ColorSwatchGroup from "./ColorSwatchGroup";
 import SizeBadgeGroup from "./SizeBadgeGroup";
-import ProductActionIcons from "./ProductActionIcons";
+import ProductActionIcons, { IconWrapper } from "./ProductActionIcons";
 import ProductTop from "./ProductTop";
 import ProductImageGallery from "./ProductImageGallery";
 import ProductInfoSection from "./ProductInfoSection";
@@ -18,6 +18,7 @@ export {
     ColorSwatchGroup,
     SizeBadgeGroup,
     ProductActionIcons,
+    IconWrapper,
     ProductTop,
     ProductImageGallery,
     ProductImageFallert,

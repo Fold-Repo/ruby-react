@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { products } from '@/data';
+import { products, skinCareProducts, sportProducts } from '@/data';
+import { ProductType } from '@/types';
 
 export async function GET(
     request: NextRequest,
@@ -7,16 +8,25 @@ export async function GET(
 ) {
     const { id } = await params;
 
-    const product = products.find(p => String(p.id) === id);
+    // Merge all product categories into one array
+    const allProducts: ProductType[] = [
+        ...products,
+        ...skinCareProducts,
+        ...sportProducts,
+    ];
+
+    // Find the current product
+    const product = allProducts.find(p => String(p.id) === id);
 
     if (!product) {
         return NextResponse.json({ message: 'Product not found' }, { status: 404 });
     }
 
-    const related = products
+    // Get related products (excluding the current one)
+    const related = allProducts
         .filter(p => String(p.id) !== id)
-        .sort(() => Math.random() - 0.5) 
-        .slice(0, 4);
+        .sort(() => Math.random() - 0.5) // randomize
+        .slice(0, 4); // limit to 4
 
     return NextResponse.json({
         related,
