@@ -24,7 +24,7 @@ type ActionIconsProps = {
 
 const iconClass = "w-4 h-4 text-gray-700";
 
-const IconWrapper = ({
+export const IconWrapper = ({
     children,
     onClick,
     className,

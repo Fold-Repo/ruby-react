@@ -3,7 +3,7 @@ import { axiosNoAuth } from "@/lib";
 import { useQuery } from "@tanstack/react-query";
 
 export const getTopCategories = async () => {
-    const response = await axiosNoAuth.get(ENDPOINT.TOP_COLLECTIONS);
+    const response = await axiosNoAuth.get(ENDPOINT.CATEGORY.TOP_COLLECTIONS);
     return response?.data;
 };
 

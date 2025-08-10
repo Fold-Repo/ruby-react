@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { discount, products } from '@/data';
+import { discount, products, skinCareProducts, sportProducts } from '@/data';
 import { ProductType } from '@/types';
 
 type RelatedProduct = Pick<
@@ -20,7 +20,13 @@ export async function GET(
 ) {
     const { id } = await params;
 
-    const product = products.find((p) => String(p.id) === id);
+    const allProducts: ProductType[] = [
+        ...products,
+        ...skinCareProducts,
+        ...sportProducts,
+    ];
+
+    const product = allProducts.find((p) => String(p.id) === id);
 
     if (!product) {
         return NextResponse.json({ message: 'Product not found' }, { status: 404 });

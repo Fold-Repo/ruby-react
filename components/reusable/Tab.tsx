@@ -37,9 +37,9 @@ export default function Tab({
     const isRow = direction === "row";
 
     return (
-        <div className={cn("w-full", isRow && "overflow-x-auto")}>
+        <div className={cn("", isRow && "overflow-x-auto")}>
             <div className={cn(
-                    "px-4 text-sm relative",
+                    "text-sm relative",
                     isRow
                         ? "flex justify-start sm:justify-center gap-x-4 sm:gap-x-6 whitespace-nowrap"
                         : "flex flex-col gap-y-2",

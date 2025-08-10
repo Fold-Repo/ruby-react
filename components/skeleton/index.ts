@@ -3,13 +3,16 @@ import BadgeSkeleton from "./BadgeSkeleton";
 import { BlogCardSkeleton, LatestBlogCardSkeleton, BlogListCardSkeleton, BlogDetailsViewSkeleton, AuthorCardSkeleton } from "./blog";
 
 import { ProductCardSkeleton, ProductListCardSkeleton, ProductTopSkeleton, ProductImageGallerySkeleton, 
-    ProductDetailsSkeleton, FeaturedGallerySkeleton, StackGallerySkeleton } from "./product";
+    ProductDetailsSkeleton, FeaturedGallerySkeleton, StackGallerySkeleton, ProductCardThreeSkeleton, SportProductCardSkeleton,
+    ElectronicProductCardSkeleton, ElectProductTwoSkeleton
+} from "./product";
 
 import FilterSkeleton from "./FilterSkeleton";
 
 import CollectionSkeleton from "./collectionsSkeleton";
 
-import { CategoryCardTwoSkeleton, CategoryCardSkeleton } from "./category";
+import { CategoryCardTwoSkeleton, CategoryCardSkeleton, TrendingFashionCardSkeleton } from "./category";
+import BrandSkeleton from "./BrandSkeleton";
 
 export {
     BadgeSkeleton,
@@ -25,6 +28,12 @@ export {
     ProductTopSkeleton,
     ProductImageGallerySkeleton,
     ProductDetailsSkeleton,
+    ProductCardThreeSkeleton,
+    SportProductCardSkeleton,
+    
+    ElectronicProductCardSkeleton,
+    ElectProductTwoSkeleton,
+
     FeaturedGallerySkeleton,
     StackGallerySkeleton,
 
@@ -33,5 +42,8 @@ export {
     CollectionSkeleton,
 
     CategoryCardTwoSkeleton,
-    CategoryCardSkeleton
+    CategoryCardSkeleton,
+    TrendingFashionCardSkeleton,
+
+    BrandSkeleton
 }

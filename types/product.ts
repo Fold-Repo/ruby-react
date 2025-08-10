@@ -27,10 +27,10 @@ export type MaterialType = {
 
 export type DiscountType = {
     id: string | number;
-    title?: string;          
-    percentage: number;           
-    description?: string; 
-    active?: boolean;   
+    title?: string;
+    percentage: number;
+    description?: string;
+    active?: boolean;
 };
 
 
@@ -68,7 +68,8 @@ export type ProductType = {
     frequentlyBoughtTogether?: ProductType[]
     group?: ProductType[]
     materials?: MaterialType[];
-    discounts?:  DiscountType[]
+    discounts?: DiscountType[]
+    gender?: ("men" | "women")[];
 };
 
 export type ProductStyleType =

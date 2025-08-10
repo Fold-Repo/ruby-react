@@ -4,13 +4,18 @@ import type { FeedBackType, TeamMemberType, AddressType, StoreCardType } from ".
 
 import type {  OrderType, OrderStatusType, OrderProductDetailsType, PaymentInfoType, DeliveryInfoType } from './order'
 
-import { TimelineStatusType, TimelineStepType, CommentType, FilterDataType, CollectionType, CategoryType } from "./global";
+import { TimelineStatusType, TimelineStepType, CommentType, FilterDataType, CollectionType, CategoryType, TestimonialType, 
+TrendingFashionType } from "./global";
 
 import type { PostType, PostVariantType } from "./blog";
 
-import { ColorType, ProductType, ProductStyleType, RatingBreakdownType, ProductReviewType, MaterialType } from "./product";
+import { ColorType, ProductType, ProductStyleType, RatingBreakdownType, ProductReviewType, MaterialType, DiscountType } from "./product";
 
 import { CartItemType, CartType, SubType } from "./cart";
+
+import { MenCollectionType, BrandType, ElectCategoryType } from "./categories";
+
+import { ApparelType, InstagramProductType } from "./sport";
 
 export type {
     NavItemType,
@@ -37,6 +42,8 @@ export type {
     FilterDataType,
     CollectionType,
     CategoryType,
+    TestimonialType,
+    TrendingFashionType,
 
     PostType,
     PostVariantType,
@@ -47,8 +54,17 @@ export type {
     RatingBreakdownType,
     ProductReviewType,
     MaterialType,
+    DiscountType,
 
     CartItemType,
     CartType,
-    SubType
+    SubType,
+
+    MenCollectionType,
+    BrandType,
+    ElectCategoryType,
+
+    ApparelType,
+    InstagramProductType
+    
 }

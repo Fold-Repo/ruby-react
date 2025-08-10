@@ -36,12 +36,12 @@ const ProductCard = ({ product, styleType }: { product: ProductType; styleType: 
                         alt="Product"
                         width={500}
                         height={500}
-                        className="object-cover h-full  w-full rounded-md product-image
-                        group-hover:scale-110 duration-500 group group-hover:opacity-0"
+                        className={`object-cover h-full w-full rounded-md product-image duration-500 
+                        ${hoverImage ? 'group-hover:opacity-0 group-hover:scale-110' : 'group-hover:scale-110'}`}
                     />
 
                     {/* Hover Overlay Image */}
-                    {hoverImage && hoverImage !== defaultImage && (
+                    {hoverImage && (
                         <Image
                             src={hoverImage}
                             alt="Hover"
@@ -65,17 +65,17 @@ const ProductCard = ({ product, styleType }: { product: ProductType; styleType: 
 
                 </div>
 
-                <div className="space-y-1.5 pt-3">
+                <div className="space-y-2 pt-3">
 
                     <Link href={`/products/${id}`} className="hover:text-primary text-sm sm:text-base font-medium block !line-clamp-1">
                         {title}
                     </Link>
 
                     {(colors.length > 0 || sizes.length > 0) && (
-                        <div className="!space-y-4">
+                        <div className="flex items-center justify-between gap-3">
 
                             {sizes.length > 0 && (
-                                <SizeBadgeGroup sizes={sizes} />
+                                <SizeBadgeGroup className='size-5' sizes={sizes} />
                             )}
 
                             {colors.length > 0 && (

@@ -4,6 +4,7 @@ import { ProductType } from '@/types';
 import { products } from '@/data';
 
 export async function GET(request: Request) {
+
     const { searchParams } = new URL(request.url);
 
     // Get all filter parameters
@@ -16,9 +17,12 @@ export async function GET(request: Request) {
     const sizes = searchParams.get('size')?.split(',') || [];
     const colors = searchParams.get('color')?.split(',') || [];
     const brands = searchParams.get('brand')?.split(',') || [];
+    const genders = searchParams.get('gender')?.split(',') || [];
     const search = searchParams.get('search')?.toLowerCase() || '';
+    const type = searchParams.get('type')?.toLowerCase() || '';
+    const sort = searchParams.get('sort')?.toLowerCase() || '';
 
-    const filteredProducts = products.filter(product => {
+    let filteredProducts = products.filter(product => {
 
         // 🔍 General search (name, category, brand, etc.)
         if (search) {
@@ -64,6 +68,21 @@ export async function GET(request: Request) {
             if (!hasColor) return false;
         }
 
+        if (genders.length > 0) {
+            if (!Array.isArray(product.gender)) {
+                return false;
+            }
+
+            const matched = product.gender.some(g =>
+                genders.includes(g.toLowerCase())
+            );
+
+            if (!matched) {
+                return false;
+            }
+        }
+
+
         if (brands.length > 0 && !brands.includes(product.brand)) {
             return false;
         }
@@ -73,6 +92,20 @@ export async function GET(request: Request) {
 
     // ✅ Shuffle before pagination
     // filteredProducts = filteredProducts.sort(() => Math.random() - 0.5);
+
+    if (type === 'featured') {
+        filteredProducts = filteredProducts.slice(0, 8)
+    } else if (type === 'popular') {
+        filteredProducts = filteredProducts.slice(-8)
+    } else if (type === 'deals') {
+        filteredProducts = filteredProducts.filter((_, i) => i % 3 === 0) // every 3rd product
+    }
+
+    if (sort === 'asc') {
+        filteredProducts.sort((a, b) => Number(a.id) - Number(b.id));
+    } else if (sort === 'desc') {
+        filteredProducts.sort((a, b) => Number(b.id) - Number(a.id));
+    }
 
     const paginated = paginate<ProductType>(filteredProducts, { page, limit });
 
