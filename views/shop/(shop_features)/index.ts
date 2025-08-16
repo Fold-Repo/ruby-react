@@ -1,4 +1,4 @@
-import BookCollectionView from "./BookCollectionView";
+import BookCollectionView from "./book/BookCollectionView";
 import BreadcrumbBG from "./BreadcrumbBG";
 import BreadcrumbImgView from "./BreadcrumbImgView";
 import BreadcrumbLeft from "./BreadcrumbLeft";

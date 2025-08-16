@@ -56,7 +56,9 @@ import {
     SwatchesImageView,
     SwatchesImgRoundedView,
     SwatchesRoundedView,
-    SwatchesRoundedColorView
+    SwatchesRoundedColorView,
+
+    BookStoreDetailsView
 
 } from "./products"
 
@@ -193,5 +195,7 @@ export {
     SportAccessoryView,
     TrendingFashionView,
     WomenFashionView,
+
+    BookStoreDetailsView
 
 }

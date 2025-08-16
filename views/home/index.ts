@@ -1,5 +1,5 @@
 import BeautySkinView from './beauty/BeautySkinView';
-import BookStoreView from './BookStoreView';
+import BookStoreView from './book/BookStoreView';
 import ElectronicView from './elect/ElectronicView';
 import FurnitureView from './furniture/FurnitureView';
 import MenFashionView from './men-fashion/MenFashionView';

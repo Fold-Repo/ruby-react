@@ -8,8 +8,10 @@ import StackGallerySkeleton from "./StackGallerySkeleton";
 import ProductCardThreeSkeleton from "./ProductCardThreeSkeleton";
 import SportProductCardSkeleton from "./SportProductCardSkeleton";
 
-import ElectronicProductCardSkeleton from "./ElectronicProductCardSkeleton";
-import ElectProductTwoSkeleton from "./ElectProductTwoSkeleton";
+import ElectronicProductCardSkeleton from "./elect/ElectronicProductCardSkeleton";
+import ElectProductTwoSkeleton from "./elect/ElectProductTwoSkeleton";
+
+import { BookProductCardSkeleton, BookProductCardTwoSkeleton, BookStoreDetailsSkeleton, BookProductCardThreeSkeleton } from "./book";
 
 export {
     ProductCardSkeleton,
@@ -23,5 +25,10 @@ export {
     SportProductCardSkeleton,
 
     ElectronicProductCardSkeleton,
-    ElectProductTwoSkeleton
+    ElectProductTwoSkeleton,
+
+    BookProductCardSkeleton,
+    BookProductCardTwoSkeleton,
+    BookProductCardThreeSkeleton,
+    BookStoreDetailsSkeleton
 }

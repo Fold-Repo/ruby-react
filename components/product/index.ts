@@ -1,6 +1,7 @@
 import ColorSwatchGroup from "./ColorSwatchGroup";
 import SizeBadgeGroup from "./SizeBadgeGroup";
-import ProductActionIcons, { IconWrapper } from "./ProductActionIcons";
+import ProductActionIcons, { IconWrapper } from "./(actions)/ProductActionIcons";
+import ProductActionIconsTwo from "./(actions)/ProductActionIconsTwo";
 import ProductTop from "./ProductTop";
 import ProductImageGallery from "./ProductImageGallery";
 import ProductInfoSection from "./ProductInfoSection";
@@ -15,9 +16,12 @@ import MaterialSwatch from "./MaterialSwatch";
 import SubAndSave from "./SubAndSave";
 
 export {
+
+    ProductActionIcons,
+    ProductActionIconsTwo,
+
     ColorSwatchGroup,
     SizeBadgeGroup,
-    ProductActionIcons,
     IconWrapper,
     ProductTop,
     ProductImageGallery,

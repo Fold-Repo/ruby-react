@@ -9,13 +9,13 @@ import { HeartIcon as SolidHeartIcon } from "@heroicons/react/24/solid";
 import { GoGitCompare } from "react-icons/go";
 import clsx from "clsx";
 import React, { useState } from "react";
-import { Button } from "../ui";
+import { Button } from "../../ui";
 import { ProductStyleType, ProductType } from "@/types";
 import { addToCart } from "@/store/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import toast from "react-hot-toast";
 import { addToWishlist, isInWishlist, removeFromWishlist } from "@/store/wishlistSlice";
-import { ProductQuickView } from "../modal";
+import { ProductQuickView } from "../../modal";
 
 type ActionIconsProps = {
     styleType: ProductStyleType;

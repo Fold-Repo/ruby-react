@@ -83,7 +83,7 @@ export async function GET(request: Request) {
         }
 
 
-        if (brands.length > 0 && !brands.includes(product.brand)) {
+        if (brands.length > 0 && (!product.brand || !brands.includes(product.brand))) {
             return false;
         }
 

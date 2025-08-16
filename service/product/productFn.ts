@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { getElectronicsProducts, getOtherProducts, getProductId, getProductMetas, getProducts, getRelatedProduct, getSkinCareProducts, getSportProducts } from "./product";
+import { getBookDetails, getBooksProduct, getElectronicsProducts, getOtherProducts, getProductBookMetas, getProductId, getProductMetas, getProducts, getRelatedProduct, getSkinCareProducts, getSportProducts } from "./product";
 
 export const useGetProducts = (params = {}) => {
     const { data: response, isLoading } = useQuery({
@@ -41,6 +41,14 @@ export const useGetElectronicsProducts = (params = {}) => {
     return { response, isLoading };
 };
 
+export const useGetBooksProduct = (params = {}) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['books_products', params],
+        queryFn: () => getBooksProduct(params),
+    });
+    return { response, isLoading };
+};
+
 export const useInfiniteProducts = (params = {}, limit = 8) => {
     return useInfiniteQuery({
         queryKey: ['infinite-products', params],
@@ -63,10 +71,29 @@ export const useGetProductsMetas = () => {
     return { response, isLoading };
 };
 
+export const useGetProductBooksMetas = () => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['product_book_metas',],
+        queryFn: () => getProductBookMetas(),
+    });
+
+    return { response, isLoading };
+};
+
 export const useGetProductById = (id: string | number) => {
     const { data: response, isLoading } = useQuery({
         queryKey: ['product_', id],
         queryFn: () => getProductId(id),
+        enabled: !!id
+    });
+
+    return { response, isLoading };
+};
+
+export const useGetBookDetails = (id: string | number) => {
+    const { data: response, isLoading } = useQuery({
+        queryKey: ['book_product_', id],
+        queryFn: () => getBookDetails(id),
         enabled: !!id
     });
 

@@ -51,9 +51,11 @@ export default function ProductVariantDropdown({
                 border-gray-300 rounded-lg w-full py-2 px-3 gap-x-2 text-xs">
                 <span className="flex items-center gap-x-2">
                     {variant === "image" && selected?.image && (
-                        <img
+                        <Image
                             src={selected.image}
                             alt={selected.label}
+                            width={20}
+                            height={20}
                             className="w-5 h-5 rounded object-cover"
                         />
                     )}
@@ -69,12 +71,12 @@ export default function ProductVariantDropdown({
                             const isActive = option.value === selected?.value;
                             return (
                                 <li key={option.value} onClick={() => {
-                                        onChange(option);
-                                        setOpen(false);
-                                    }}  className={cn(
-                                        "flex items-center justify-between gap-2 py-1.5 px-3 rounded-md text-xs hover:bg-gray-100 cursor-pointer",
-                                        isActive && "bg-gray-100"
-                                    )}>
+                                    onChange(option);
+                                    setOpen(false);
+                                }} className={cn(
+                                    "flex items-center justify-between gap-2 py-1.5 px-3 rounded-md text-xs hover:bg-gray-100 cursor-pointer",
+                                    isActive && "bg-gray-100"
+                                )}>
 
                                     <div className="flex items-center gap-2">
                                         {variant === "image" && option.image && (

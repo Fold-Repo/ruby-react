@@ -10,7 +10,9 @@ import { useAppDispatch } from '@/store/hooks'
 const CartList = ({ cart }: { cart: CartItemType }) => {
 
     const { product, quantity = 0, selectedColor, selectedSize } = cart
-    const { id: productId, title, images, sizes, colors, price, stock } = product
+    const { id: productId, title, images, price, stock } = product;
+    const colors = 'colors' in product ? product.colors : undefined;
+    const sizes = 'sizes' in product ? product.sizes : undefined;
 
     const sub = Number(price) * quantity
     const dispatch = useAppDispatch()
@@ -26,10 +28,10 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
 
         if (field === 'selectedColor') {
             payload.selectedColor = value;
-            payload.selectedSize = selectedSize; // maintain current size
+            payload.selectedSize = selectedSize; 
         } else if (field === 'selectedSize') {
             payload.selectedSize = value;
-            payload.selectedColor = selectedColor; // maintain current color
+            payload.selectedColor = selectedColor; 
         }
 
         dispatch(updateCart(payload));
@@ -48,12 +50,11 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
                     <h3 className="text-base font-semibold"> {title} </h3>
 
                     <div className="flex items-center flex-wrap gap-2">
-
-                        {colors && (
+                        {Array.isArray(colors) && (
                             <select value={selectedColor} onChange={(e) => handleUpdate('selectedColor', e.target.value)}
                                 className="form-control cursor-pointer rounded text-xs py-1.5">
                                 <option value=""> Select Color </option>
-                                {colors?.map((color, index) => (
+                                {colors.map((color, index) => (
                                     <option key={index} value={color.name}> {color.name} </option>
                                 ))}
                             </select>
