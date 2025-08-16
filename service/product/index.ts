@@ -1,7 +1,7 @@
 import { useGetProducts, useGetProductsMetas, useGetRelatedProduct, useGetSkinCareProducts, useGetSportProducts,
-useGetOtherProducts, useGetElectronicsProducts
+useGetOtherProducts, useGetElectronicsProducts, useGetBooksProduct, useGetProductBooksMetas, useGetBookDetails
  } from "./productFn";
-import { useProductQuery, useInfiniteProductsQuery, useProductDetails } from "./productHook";
+import { useProductQuery, useBookProductQuery, useInfiniteProductsQuery, useProductDetails } from "./productHook";
 
 export {
     useGetProducts,
@@ -9,10 +9,14 @@ export {
     useGetSportProducts,
     useGetOtherProducts,
     useGetElectronicsProducts,
+    useGetBooksProduct,
+    useGetProductBooksMetas,
     useGetProductsMetas,
     useGetRelatedProduct,
 
     useProductDetails,
+    useGetBookDetails,
     useProductQuery,
+    useBookProductQuery,
     useInfiniteProductsQuery
 }

@@ -56,7 +56,9 @@ function getFilterMeta(products: ProductType[]) {
     }));
 
     const brandCounts = products.reduce((acc, product) => {
-        acc[product.brand] = (acc[product.brand] || 0) + 1;
+        if (product.brand !== undefined) {
+            acc[product.brand] = (acc[product.brand] || 0) + 1;
+        }
         return acc;
     }, {} as Record<string, number>);
 

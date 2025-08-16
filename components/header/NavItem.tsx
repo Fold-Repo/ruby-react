@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import DropdownMenu from './DropdownMenu'
@@ -23,26 +23,35 @@ const NavItem: React.FC<Props> = ({
     onHoverChange,
     activeMegaMenuType,
     onItemLeave,
-    onItemEnter
+    onItemEnter,
 }) => {
+    
+    const [open, setOpen] = useState(false)
+    const dropdownRef = useRef<HTMLLIElement>(null)
 
     const handleMouseEnter = () => {
-        onHoverChange?.(megaMenuType ?? null)
-        onItemEnter?.()
+        if (megaMenuType) {
+            onHoverChange?.(megaMenuType ?? null)
+            onItemEnter?.()
+        }
+        if (hasDropdown) setOpen(true)
     }
 
     const handleMouseLeave = () => {
         if (megaMenuType) onItemLeave?.()
+        if (hasDropdown) setOpen(false)
+    }
+
+    const handleLinkClick = () => {
+        setOpen(false) 
     }
 
     const isActive = megaMenuType && activeMegaMenuType == megaMenuType
-
     const textColor = isActive
         ? 'text-primary'
-        : 'text-gray-800 group-hover:text-primary'
+        : 'text-gray-800 hover:text-primary'
 
     const renderTrigger = () => {
-
         const baseClass = 'font-semibold flex items-center gap-1 transition-all relative'
 
         if (linkOnly || (!hasDropdown && href)) {
@@ -62,15 +71,16 @@ const NavItem: React.FC<Props> = ({
     }
 
     return (
-        <li
-            className="py-6 group relative"
+        <li ref={dropdownRef} className="py-6 relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
+
             {renderTrigger()}
 
-            {!megaMenuType && hasDropdown && dropdownItems.length > 0 && (
-                <DropdownMenu items={dropdownItems} />
+            {hasDropdown && dropdownItems.length > 0 && open && (
+                <DropdownMenu items={dropdownItems} onLinkClick={handleLinkClick} />
             )}
+
         </li>
     )
 }

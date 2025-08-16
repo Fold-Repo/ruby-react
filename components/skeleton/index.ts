@@ -4,7 +4,7 @@ import { BlogCardSkeleton, LatestBlogCardSkeleton, BlogListCardSkeleton, BlogDet
 
 import { ProductCardSkeleton, ProductListCardSkeleton, ProductTopSkeleton, ProductImageGallerySkeleton, 
     ProductDetailsSkeleton, FeaturedGallerySkeleton, StackGallerySkeleton, ProductCardThreeSkeleton, SportProductCardSkeleton,
-    ElectronicProductCardSkeleton, ElectProductTwoSkeleton
+    ElectronicProductCardSkeleton, ElectProductTwoSkeleton, BookProductCardSkeleton, BookProductCardTwoSkeleton, BookProductCardThreeSkeleton, BookStoreDetailsSkeleton
 } from "./product";
 
 import FilterSkeleton from "./FilterSkeleton";
@@ -33,6 +33,11 @@ export {
     
     ElectronicProductCardSkeleton,
     ElectProductTwoSkeleton,
+
+    BookProductCardSkeleton,
+    BookProductCardTwoSkeleton,
+    BookProductCardThreeSkeleton,
+    BookStoreDetailsSkeleton,
 
     FeaturedGallerySkeleton,
     StackGallerySkeleton,

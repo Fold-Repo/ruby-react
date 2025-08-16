@@ -1,30 +1,16 @@
 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IconWrapper } from '@/components';
 import { getDiscountPercentage } from '@/utils';
 import { formatCurrency } from '@/lib';
 import { ProductType } from '@/types';
 import { StarRating } from '@/components/reusable';
 import { Button } from '@/components/ui';
-import {
-    HeartIcon, ShoppingCartIcon, ViewfinderCircleIcon,
-} from "@heroicons/react/24/outline";
-import { HeartIcon as SolidHeartIcon } from "@heroicons/react/24/solid";
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { addToCart } from '@/store/cartSlice';
-import toast from 'react-hot-toast';
-import { addToWishlist, isInWishlist, removeFromWishlist } from '@/store/wishlistSlice';
-import { ProductQuickView } from '@/components/modal';
+import { ProductActionIconsTwo } from '@/components/product';
 
-const iconClass = "w-4 h-4 text-gray-700";
 const ElectronicProductCard = ({ product }: { product: ProductType }) => {
-
-    const dispatch = useAppDispatch()
-    const isWished = useAppSelector(isInWishlist(product.id));
-    const [open, setOpen] = useState(false)
 
     const { id, title, price, oldPrice, images = [], ratingAverage } = product;
 
@@ -33,27 +19,6 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
     const discount =
         typeof oldPrice !== 'undefined' &&
         getDiscountPercentage(oldPrice, price);
-
-    const handleClick = (type: string) => {
-        switch (type) {
-            case "heart":
-                if (isWished) {
-                    dispatch(removeFromWishlist(product.id));
-                    toast.success("Removed from wishlist");
-                } else {
-                    dispatch(addToWishlist(product));
-                    toast.success("Added to wishlist");
-                }
-                break;
-            case "cart":
-                dispatch(addToCart({ product }))
-                toast.success('Product added to cart')
-                break;
-            case "view":
-                setOpen(true)
-                break;
-        }
-    };
 
     return (
         <>
@@ -83,25 +48,7 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                     </div>
 
                     {/* ==== ACTION BUTTON ==== */}
-                    <div className="flex justify-center items-center gap-x-4">
-
-                        <IconWrapper onClick={() => handleClick("heart")} className='border border-gray-100' title='Favorite'>
-                            {isWished ? (
-                                <SolidHeartIcon className="w-4 h-4 text-red-500" />
-                            ) : (
-                                <HeartIcon className={iconClass} />
-                            )}
-                        </IconWrapper>
-
-                        <IconWrapper onClick={() => handleClick("cart")} className='border border-gray-100' title='Add to cart'>
-                            <ShoppingCartIcon className={iconClass} />
-                        </IconWrapper>
-
-                        <IconWrapper onClick={() => handleClick("view")} className='border border-gray-100' title='Quick View'>
-                            <ViewfinderCircleIcon className={iconClass} />
-                        </IconWrapper>
-
-                    </div>
+                    <ProductActionIconsTwo product={product} />
 
                 </div>
 
@@ -130,8 +77,6 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                 </div>
 
             </div>
-
-            <ProductQuickView open={open} setOpen={setOpen} product={product} />
 
         </>
     );

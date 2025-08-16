@@ -1,5 +1,5 @@
 import { useGetPosts, useGetPostById, useGetPostMetas } from "./post";
-import { useGetProducts, useGetProductsMetas, useInfiniteProductsQuery, useProductQuery, useProductDetails, useGetRelatedProduct, useGetSkinCareProducts, useGetSportProducts, useGetOtherProducts, useGetElectronicsProducts } from "./product";
+import { useGetProducts, useGetProductsMetas, useGetProductBooksMetas, useInfiniteProductsQuery, useProductQuery, useProductDetails, useGetRelatedProduct, useGetSkinCareProducts, useGetSportProducts, useGetOtherProducts, useGetElectronicsProducts, useBookProductQuery, useGetBookDetails } from "./product";
 import { useGetCollections, useGetMenCollections } from "./collection";
 import { useGetTopCategories } from "./top_category";
 import { useGetTrendFashionCategory, useGetBrands } from "./categories";
@@ -16,11 +16,15 @@ export {
     useGetSportProducts,
     useGetOtherProducts,
     useGetElectronicsProducts,
+    useBookProductQuery,
+
     useGetProductsMetas,
+    useGetProductBooksMetas,
 
     useProductQuery,
     useInfiniteProductsQuery,
     useProductDetails,
+    useGetBookDetails,
 
     useGetCollections,
     useGetMenCollections,

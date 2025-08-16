@@ -9,7 +9,7 @@ TrendingFashionType } from "./global";
 
 import type { PostType, PostVariantType } from "./blog";
 
-import { ColorType, ProductType, ProductStyleType, RatingBreakdownType, ProductReviewType, MaterialType, DiscountType } from "./product";
+import { ColorType, ProductType, BookType, ProductStyleType, RatingBreakdownType, ProductReviewType, MaterialType, DiscountType } from "./product";
 
 import { CartItemType, CartType, SubType } from "./cart";
 
@@ -50,6 +50,8 @@ export type {
 
     ColorType,
     ProductType,
+    BookType, 
+    
     ProductStyleType,
     RatingBreakdownType,
     ProductReviewType,

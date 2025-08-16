@@ -109,7 +109,8 @@ const Header = () => {
                 {/* ======== MEGA MENU ========== */}
                 <div onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
-                    <MegaMenuContainer type={megaMenuType} />
+                    <MegaMenuContainer type={megaMenuType} 
+                    onLinkClick={() => setMegaMenuType(null)} />
                 </div>
 
                 {/* ======== MOBILE SIDEBAR ========== */}

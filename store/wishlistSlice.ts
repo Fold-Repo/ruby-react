@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProductType } from '@/types';
+import { BookType, ProductType } from '@/types';
 
 type WishlistState = {
-    items: ProductType[];
+    items: (ProductType | BookType)[];
     total: number;
 };
 
@@ -15,7 +15,7 @@ const wishlistSlice = createSlice({
     name: 'wishlist',
     initialState,
     reducers: {
-        addToWishlist(state, action: PayloadAction<ProductType>) {
+        addToWishlist(state, action: PayloadAction<ProductType | BookType>) {
             const exists = state.items.some(item => item.id === action.payload.id);
             if (!exists) {
                 state.items.push(action.payload);

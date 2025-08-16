@@ -1,7 +1,7 @@
-import { MaterialType, ProductType } from "./product";
+import { BookType, MaterialType, ProductType } from "./product";
 
 export type CartItemType = {
-    product: ProductType;
+    product: ProductType | BookType;
     quantity: number;
     selectedSize?: string;
     selectedColor?: string;

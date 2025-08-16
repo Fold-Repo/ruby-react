@@ -9,7 +9,8 @@ import { BlogCard, LatestBlogCard, BlogListCard, AuthorCard } from "./blog";
 import { ProductCard, ProductListCard, ProductCardTwo, ProductCardThree, ProductCardFour, FreqBoughtCard, FurnitureProductCard, 
 SkincareProductCard, SkincareProductCardTwo, SkincareProductCardThree,
 SportProductCard, SportProductCardTwo,
-ElectronicProductCard, ElectronicProductCardTwo
+ElectronicProductCard, ElectronicProductCardTwo,
+BookProductCard, BookProductCardTwo, BookProductCardThree, BookProductCardFour
 } from "./products";
 
 import { CategoryCard, CategoryCardTwo } from "./category";
@@ -50,6 +51,11 @@ export {
 
     ElectronicProductCard,
     ElectronicProductCardTwo,
+
+    BookProductCard,
+    BookProductCardTwo,
+    BookProductCardThree,
+    BookProductCardFour,
 
     CategoryCard,
     CategoryCardTwo,

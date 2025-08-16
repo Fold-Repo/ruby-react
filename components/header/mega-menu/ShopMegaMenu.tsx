@@ -6,7 +6,7 @@ import { ProductType } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
-const ShopMegaMenu = () => {
+const ShopMegaMenu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
 
     const { response, isLoading } = useGetProducts({ limit: 2 })
     const products = response?.data
@@ -22,7 +22,8 @@ const ShopMegaMenu = () => {
                     <ul className="space-y-2.5 font-medium text-[13px] text-gray-700">
                         {group.items.map((item, idx) => (
                             <li key={idx}>
-                                <Link href={item.href} className="hover:text-primary transition-colors duration-300">
+                                <Link href={item.href} className="hover:text-primary transition-colors duration-300"
+                                onClick={onLinkClick}>
                                     {item.label}
                                 </Link>
                             </li>

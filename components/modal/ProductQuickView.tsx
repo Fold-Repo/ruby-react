@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, PopupModal } from '../ui'
-import { ProductType } from '@/types';
+import { BookType, ProductType } from '@/types';
 import Image from 'next/image';
 import { getDiscountPercentage } from '@/utils';
 import { formatCurrency } from '@/lib';
@@ -18,7 +18,7 @@ import { useRouter } from 'next/navigation';
 interface ShareModalProps {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    product: ProductType
+    product: (ProductType | BookType);
 }
 const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product }) => {
 
@@ -28,7 +28,9 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
     const [selectedSize, setSelectedSize] = useState('')
     const [qty, setQty] = useState<number>(1)
 
-    const { id, title, price, description, oldPrice, sizes = [], colors = [], images = [], inStock } = product
+    const { id, title, price, description, oldPrice, images = [], inStock } = product;
+    const sizes = (product as ProductType).sizes ?? [];
+    const colors = (product as ProductType).colors ?? [];
 
     const defaultImage = images[0] || "";
     const [activeImage, setActiveImage] = useState<string>(defaultImage);
@@ -49,9 +51,16 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
         }
     }
 
+    const productForCart = {
+            ...product,
+            brand: (product as ProductType).brand || "",
+            sizes: (product as ProductType).sizes || [],
+            colors: (product as ProductType).colors || [],
+        };
+
     const handleCartAndBuy = (redirect = false) => {
         dispatch(addToCart({
-            product,
+            product: productForCart,
             selectedColor,
             selectedSize,
             quantity: qty
@@ -123,7 +132,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                             alt="Product"
                             width={900}
                             height={900}
-                            className="object-cover h-full  w-full rounded-md product-image
+                            className="object-contain h-full  w-full rounded-md product-image
                                         group-hover:scale-110 duration-500"
                         />
 
@@ -153,7 +162,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                                 {inStock ? "In stock" : "Out of stock"}
                             </Chip>
 
-                            <p className="text-sm !line-clamp-3">
+                            <p className="text-sm !line-clamp-6 leading-7">
                                 {description}
                             </p>
 

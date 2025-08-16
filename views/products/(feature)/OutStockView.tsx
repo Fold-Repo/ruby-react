@@ -65,10 +65,10 @@ const OutStockView = () => {
 
                     <ProductTop loading={isLoading} product={related} />
 
-                    { isLoading ? (
-                        
+                    {isLoading ? (
+
                         <LoadingScreen />
-                        
+
                     ) : (
 
                         <>
@@ -86,13 +86,13 @@ const OutStockView = () => {
 
                                     <div className="flex items-center justify-between gap-3 flex-wrap">
 
-                                      <h1 className="text-base md:text-lg font-semibold block">
-                                        {title}
-                                      </h1>
+                                        <h1 className="text-base md:text-lg font-semibold block">
+                                            {title}
+                                        </h1>
 
-                                      <Chip className='text-xs' color='primary' size='md'>Sold Out</Chip>
+                                        <Chip className='text-xs' color='primary' size='md'>Sold Out</Chip>
 
-                                  </div>
+                                    </div>
 
                                     <p className="text-slate-500 md:block hidden text-[15px]">
                                         {description}
@@ -106,10 +106,10 @@ const OutStockView = () => {
                                     )}
 
                                     {/*  ==== PRICE ====  */}
-                                   {(price || oldPrice) && (
+                                    {(price || oldPrice) && (
                                         <div className="items-center flex gap-x-3 text-base md:text-lg font-medium">
-                                            {price && <p className="text-primary"> { formatCurrency(price) } </p>}
-                                            {oldPrice && <p className="text-gray-400 line-through"> { formatCurrency(oldPrice) } </p>}
+                                            {price && <p className="text-primary"> {formatCurrency(price)} </p>}
+                                            {oldPrice && <p className="text-gray-400 line-through"> {formatCurrency(oldPrice)} </p>}
                                         </div>
                                     )}
 
@@ -156,9 +156,9 @@ const OutStockView = () => {
 
                                     {/*  ====== ACTIONS BUTTONS =======  */}
                                     <div className="space-y-3 pt-3">
-                                      
-                                        <Button onClick={() => handleCartAndBuy(false)} disabled={!stock} fullWidth rounded='xl'> 
-                                          { stock ? 'Add to cart' : 'Sold Out' } 
+
+                                        <Button onClick={() => handleCartAndBuy(false)} disabled={!stock} fullWidth rounded='xl'>
+                                            {stock ? 'Add to cart' : 'Sold Out'}
                                         </Button>
 
                                     </div>

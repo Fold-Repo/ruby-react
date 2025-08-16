@@ -38,6 +38,7 @@ import {
 } from './(feature)'
 
 import ProductDetailsView from "./ProductDetailsView"
+import { BookStoreDetailsView } from "./bookstore"
 
 export {
 
@@ -78,6 +79,8 @@ export {
     SwatchesRoundedColorView,
 
     // PRODUCT DETAILS
-    ProductDetailsView
+    ProductDetailsView,
+
+    BookStoreDetailsView
 
 }

@@ -7,6 +7,7 @@ import { categoryData, categoryDataTwo, trendingFashionData, menCollectionData, 
 import { testimonials } from "./testimonials";
 import { apparelData, instagramProducts } from "./sport";
 import { electCategories, electTopCategories, electTopProducts } from './electronics'
+import { booksDatas } from "./books";
 
 export {
 
@@ -39,6 +40,8 @@ export {
     electCategories,
     electTopCategories,
     electTopProducts,
+
+    booksDatas,
 
     testimonials,
 
