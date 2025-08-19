@@ -2,10 +2,14 @@ import { HomeCategoryType } from '@/types';
 import { Image } from '@heroui/react';
 import Link from 'next/link';
 
+interface HomeCategoryCardProps extends HomeCategoryType {
+    onLinkClick?: () => void;
+}
 
-export default function HomeCategoryCard({ title, href, img, badge }: HomeCategoryType) {
+export default function HomeCategoryCard({ title, href, img, badge, onLinkClick }: HomeCategoryCardProps) {
+
     return (
-        <Link href={href} className="rounded-lg duration-300 transition-all bg-[#F8F5F5] dark:bg-gray-600 block">
+        <Link href={href} className="rounded-lg duration-300 transition-all bg-[#F8F5F5] dark:bg-gray-600 block" onClick={onLinkClick}>
 
             <div className="relative w-full aspect-[7/9] overflow-hidden">
                 <Image radius='none' src={img} alt={title} className="object-cover object-top rounded-t-lg" />

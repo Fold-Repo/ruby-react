@@ -8,11 +8,14 @@ import { removeFromCart, updateCart } from '@/store/cartSlice';
 import { useAppDispatch } from '@/store/hooks';
 
 const CartList = ({ cart }: { cart: CartItemType }) => {
-    const { product, quantity = 0, selectedColor, selectedSize } = cart;
-    const { id: productId, title, images, sizes, colors, price, stock } = product;
+    
+    const { product, quantity = 0, selectedColor, selectedSize } = cart
+    const { id: productId, title, images, price, stock } = product;
+    const colors = 'colors' in product ? product.colors : undefined;
+    const sizes = 'sizes' in product ? product.sizes : undefined;
 
-    const sub = Number(price) * quantity;
-    const dispatch = useAppDispatch();
+    const sub = Number(price) * quantity
+    const dispatch = useAppDispatch()
 
     const handleUpdate = (field: 'selectedColor' | 'selectedSize', value: string) => {
         const payload: {
@@ -23,10 +26,10 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
 
         if (field === 'selectedColor') {
             payload.selectedColor = value;
-            payload.selectedSize = selectedSize;
+            payload.selectedSize = selectedSize; 
         } else if (field === 'selectedSize') {
             payload.selectedSize = value;
-            payload.selectedColor = selectedColor;
+            payload.selectedColor = selectedColor; 
         }
 
         dispatch(updateCart(payload));
@@ -50,6 +53,7 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
                     <h3 className="text-base font-semibold text-black dark:text-gray-100">{title}</h3>
 
                     <div className="flex items-center flex-wrap gap-2">
+                        
                         {colors && (
                             <select
                                 value={selectedColor}

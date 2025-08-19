@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import DropdownMenu from './DropdownMenu'
@@ -23,26 +23,33 @@ const NavItem: React.FC<Props> = ({
     onHoverChange,
     activeMegaMenuType,
     onItemLeave,
-    onItemEnter
+    onItemEnter,
 }) => {
+    const [open, setOpen] = useState(false)
+    const dropdownRef = useRef<HTMLLIElement>(null)
+
     const handleMouseEnter = () => {
-        onHoverChange?.(megaMenuType ?? null)
+        if (megaMenuType) onHoverChange?.(megaMenuType)
+        if (hasDropdown) setOpen(true)
         onItemEnter?.()
     }
 
     const handleMouseLeave = () => {
         if (megaMenuType) onItemLeave?.()
+        if (hasDropdown) setOpen(false)
     }
 
-    const isActive = megaMenuType && activeMegaMenuType == megaMenuType
+    const handleLinkClick = () => {
+        setOpen(false)
+    }
 
+    const isActive = megaMenuType && activeMegaMenuType === megaMenuType
     const textColor = isActive
         ? 'text-[var(--primary)]'
         : 'text-gray-800 dark:text-gray-200 group-hover:text-[var(--primary)]'
 
     const renderTrigger = () => {
-        const baseClass =
-            'font-semibold flex items-center gap-1 transition-all relative'
+        const baseClass = 'font-semibold flex items-center gap-1 transition-all relative'
 
         if (linkOnly || (!hasDropdown && href)) {
             return (
@@ -61,14 +68,14 @@ const NavItem: React.FC<Props> = ({
     }
 
     return (
-        <li
-            className="py-6 group relative"
+        <li ref={dropdownRef}
+            className="py-6 relative group"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
             {renderTrigger()}
 
-            {!megaMenuType && hasDropdown && dropdownItems.length > 0 && (
-                <DropdownMenu items={dropdownItems} />
+            {hasDropdown && dropdownItems.length > 0 && open && (
+                <DropdownMenu items={dropdownItems} onLinkClick={handleLinkClick} />
             )}
         </li>
     )

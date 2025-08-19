@@ -34,22 +34,18 @@ export type DiscountType = {
 };
 
 
-export type ProductType = {
+type BaseProduct = {
     id: number | string;
     title: string;
     category: string;
-    brand: string;
     description: string;
     price: number;
     oldPrice?: number;
     inStock: boolean;
-    sizes?: string[];
     images: string[];
-    colors?: ColorType[];
     ratingAverage: number;
     ratingTotal: number;
     stock?: number;
-
     sku?: string;
     tags?: string[];
     deliveryEstimate?: string;
@@ -62,15 +58,34 @@ export type ProductType = {
         weight?: string;
         dimensions?: string;
     };
-
     ratingsBreakdown?: RatingBreakdownType;
     reviews?: ProductReviewType[];
-    frequentlyBoughtTogether?: ProductType[]
-    group?: ProductType[]
+    frequentlyBoughtTogether?: ProductType[];
+    group?: ProductType[];
+    discounts?: DiscountType[];
+};
+
+export type ProductType = BaseProduct & {
+    brand?: string;
+    sizes?: string[];
+    colors?: ColorType[];
     materials?: MaterialType[];
-    discounts?: DiscountType[]
     gender?: ("men" | "women")[];
 };
+
+export type BookType = Omit<ProductType, 'brand' | 'colors' | 'sizes'> & {
+    author: string;
+    publisher: string;
+    year: number;
+    isbn: string;
+    editionLanguage: string;
+    format: string;
+    datePublished: string;
+    pages?: number;
+    likes?: number;
+};
+
+
 
 export type ProductStyleType =
     | "style1"

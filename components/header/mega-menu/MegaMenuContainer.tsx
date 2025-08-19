@@ -5,7 +5,8 @@ import HomeMegaMenu from './HomeMegaMenu'
 import ShopMegaMenu from './ShopMegaMenu'
 import {Container} from '@/components'
 
-const MegaMenuContainer = ({ type }: { type?: MegaMenuType }) => {
+const MegaMenuContainer = ({ type, onLinkClick }: { type?: MegaMenuType, onLinkClick?: () => void }) => {
+
     const open = Boolean(type)
 
     return (
@@ -15,9 +16,9 @@ const MegaMenuContainer = ({ type }: { type?: MegaMenuType }) => {
 
             <Container>
 
-                {type === 'home' && <HomeMegaMenu />}
-                {type === 'product' && <ProductMegaMenu />}
-                {type === 'shop' && <ShopMegaMenu />}
+                {type === 'home' && <HomeMegaMenu onLinkClick={onLinkClick} />}
+                {type === 'product' && <ProductMegaMenu onLinkClick={onLinkClick} />}
+                {type === 'shop' && <ShopMegaMenu onLinkClick={onLinkClick} />}
 
             </Container>
 

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const ProductMegaMenu = () => {
+const ProductMegaMenu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
     return (
         <div className="grid grid-cols-4 gap-3">
 
@@ -14,7 +14,8 @@ const ProductMegaMenu = () => {
                     <ul className="space-y-2.5 font-medium text-[13px] text-gray-700 dark:text-gray-300">
                         {group.items.map((item, idx) => (
                             <li key={idx}>
-                                <Link href={item.href} className="hover:text-primary transition-colors duration-300">
+                                <Link href={item.href} className="hover:text-primary transition-colors duration-300"
+                                onClick={onLinkClick}>
                                     {item.label}
                                 </Link>
                             </li>

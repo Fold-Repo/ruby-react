@@ -8,6 +8,7 @@ import { SkincareProductCard, SkincareProductCardTwo, SkincareProductCardThree }
 import FreqBoughtCard from "./FreqBoughtCard";
 import { SportProductCard, SportProductCardTwo } from "./sport";
 import { ElectronicProductCard, ElectronicProductCardTwo } from "./electronics";
+import { BookProductCard, BookProductCardTwo, BookProductCardThree, BookProductCardFour } from "./book";
 
 export {
     ProductCard,
@@ -25,5 +26,10 @@ export {
     SportProductCardTwo,
 
     ElectronicProductCard,
-    ElectronicProductCardTwo
+    ElectronicProductCardTwo,
+
+    BookProductCard,
+    BookProductCardTwo,
+    BookProductCardThree,
+    BookProductCardFour
 }

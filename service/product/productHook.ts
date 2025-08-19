@@ -3,7 +3,7 @@
 import { useQueryParams } from "@/hooks";
 import { useGetProducts } from "@/service";
 import { removeEmptyFields } from "@/utils";
-import { useGetProductById, useInfiniteProducts } from "./productFn";
+import { useGetBooksProduct, useGetProductById, useInfiniteProducts } from "./productFn";
 import { useMemo } from "react";
 
 type QueryObject = Record<string, any>;
@@ -29,6 +29,18 @@ export function useProductQuery(defaults: QueryObject = { page: 1, limit: 12 }) 
     const { page = 1, limit = 12, ...restQuery } = query;
 
     const { response, isLoading } = useGetProducts({ page, limit, ...restQuery });
+    const { data: products, currentPage, totalItems } = response || {};
+
+    return { products, currentPage, totalItems, limit, isLoading };
+}
+
+export function useBookProductQuery(defaults: QueryObject = { page: 1, limit: 12 }) {
+    
+    const query = useMergedQueryParams(defaults);
+
+    const { page = 1, limit = 12, ...restQuery } = query;
+
+    const { response, isLoading } = useGetBooksProduct({ page, limit, ...restQuery });
     const { data: products, currentPage, totalItems } = response || {};
 
     return { products, currentPage, totalItems, limit, isLoading };

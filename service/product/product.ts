@@ -36,8 +36,25 @@ export const getElectronicsProducts = async (params = {}) => {
     return response?.data;
 };
 
+export const getBooksProduct = async (params = {}) => {
+    const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.BOOKS_PRODUCTS, {
+        params
+    });
+    return response?.data;
+};
+
 export const getProductMetas = async () => {
     const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.PRODUCT_METAS);
+    return response?.data;
+};
+
+export const getProductBookMetas = async () => {
+    const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.PRODUCT_BOOK_METAS);
+    return response?.data;
+};
+
+export const getBookDetails = async (id: string | number) => {
+    const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.BOOK_PRODUCT_ID(id));
     return response?.data;
 };
 

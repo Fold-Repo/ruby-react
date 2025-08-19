@@ -21,9 +21,12 @@ export const ENDPOINT = {
         SPORT_PRODUCTS: 'product/sport',
         OTHER_PRODUCTS: 'product/others',
         ELECTONICS_PRODUCTS: 'product/electronics',
+        BOOKS_PRODUCTS: 'product/books',
+        BOOK_PRODUCT_ID: (id: string | number) => `product/books/${id}`,
         PRODUCT_ID: (id: string | number) => `product/${id}`,
         RELATED: (id: string | number) => `product/${id}/related`,
-        PRODUCT_METAS: 'product/meta'
+        PRODUCT_METAS: 'product/meta',
+        PRODUCT_BOOK_METAS: 'product/book-meta'
     },
 
     COLLECTION: {

@@ -121,8 +121,10 @@ const Header = () => {
                 </Container>
 
                 {/* ======== MEGA MENU ========== */}
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                    <MegaMenuContainer type={megaMenuType} />
+                <div onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}>
+                    <MegaMenuContainer type={megaMenuType} 
+                    onLinkClick={() => setMegaMenuType(null)} />
                 </div>
             </header>
 

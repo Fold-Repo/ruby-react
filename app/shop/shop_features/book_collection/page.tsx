@@ -2,7 +2,7 @@ import { BookCollectionView } from '@/views';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Shop Features",
+    title: "Book Store",
 };
 
 export default function page() {
