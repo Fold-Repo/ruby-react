@@ -3,7 +3,6 @@
 import { Tab } from '@/components';
 import { ElectronicProductCard } from '@/components/cards';
 import { ElectronicProductCardSkeleton } from '@/components/skeleton';
-import { products } from '@/data';
 import { useGetElectronicsProducts } from '@/service';
 import { ProductType } from '@/types';
 import React, { useState } from 'react'

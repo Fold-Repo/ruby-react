@@ -1,3 +1,5 @@
+'use client';
+
 import { Breadcrumb, Container, MapLocation, Timeline } from '@/components'
 import { TimelineStepType } from '@/types';
 import React from 'react'
@@ -55,8 +57,8 @@ const TrackingDetails = () => {
                         <div className="space-y-7">
 
                             {/*  ====== SHIPPING DATE AND ORDER ID ======== */}
-                            <div className="bg-lavender py-2 px-4 rounded-lg">
-                                <h2 className="text-gray-700 font-medium text-sm">
+                            <div className="bg-lavender dark:bg-gray-700 py-2 px-4 rounded-lg">
+                                <h2 className="text-gray-700 dark:text-gray-200 font-medium text-sm">
                                     <b>Shipping Date:</b> Apr 14 2025 Order ID:Order-12567
                                 </h2>
                             </div>
@@ -66,15 +68,15 @@ const TrackingDetails = () => {
 
                                 <div className="relative flex flex-col items-center pt-1">
 
-                                    <div className="w-2 h-2 rounded-full bg-gray-400 z-10"></div>
+                                    <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 z-10"></div>
 
-                                    <div className="w-px h-12 bg-gray-400"></div>
+                                    <div className="w-px h-12 bg-gray-400 dark:bg-gray-600"></div>
 
-                                    <div className="w-2 h-2 rounded-full bg-gray-400 z-10"></div>
+                                    <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 z-10"></div>
 
                                 </div>
 
-                                <div className="flex flex-col justify-between text-gray-700 text-sm space-y-8.5">
+                                <div className="flex flex-col justify-between text-gray-700 dark:text-gray-300 text-sm space-y-8.5">
                                     <div>2118 Ironridge Cir, Syracuse, 237458</div>
                                     <div>3517 W, Gray St. Utica, 57524</div>
                                 </div>
@@ -86,29 +88,29 @@ const TrackingDetails = () => {
 
                                 <div className="relative w-full flex items-center justify-between">
 
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full z-10"></div>
+                                    <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full z-10"></div>
 
-                                    <div className="absolute left-0 right-0 top-1/2 h-px bg-gray-400 z-0"></div>
+                                    <div className="absolute left-0 right-0 top-1/2 h-px bg-gray-400 dark:bg-gray-600 z-0"></div>
 
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full z-10"></div>
+                                    <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full z-10"></div>
 
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full z-10"></div>
+                                    <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full z-10"></div>
                                 </div>
 
-                                <div className="flex w-full justify-between text-gray-700 !text-xs md:!text-sm font-medium">
+                                <div className="flex w-full justify-between text-gray-700 dark:text-gray-300 !text-xs md:!text-sm font-medium">
 
                                     <div className="text-left w-1/3">
-                                        <h1 className="font-semibold text-black">Total Time</h1>
+                                        <h1 className="font-semibold text-black dark:text-gray-200">Total Time</h1>
                                         <p>21 days, 6hours</p>
                                     </div>
 
                                     <div className="text-center w-1/3">
-                                        <h1 className="font-semibold text-black">Departure Time</h1>
+                                        <h1 className="font-semibold text-black dark:text-gray-200">Departure Time</h1>
                                         <p>23 Aug 25 14:11pm</p>
                                     </div>
 
                                     <div className="text-end w-1/3">
-                                        <h1 className="font-semibold text-black">Expected Arrival</h1>
+                                        <h1 className="font-semibold text-black dark:text-gray-200">Expected Arrival</h1>
                                         <p>14 Nov 25 14:86pm</p>
                                     </div>
 
@@ -116,7 +118,7 @@ const TrackingDetails = () => {
 
                             </div>
 
-                            <h2 className="tex-lg font-semibold mb-5">Shipment Status</h2>
+                            <h2 className="text-lg font-semibold mb-5 text-gray-800 dark:text-gray-200">Shipment Status</h2>
 
                             <Timeline steps={timeline} layout="inline" />
 

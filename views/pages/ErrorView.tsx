@@ -11,23 +11,31 @@ const ErrorView = () => {
 
                 <div className="max-w-xl m-auto text-center">
 
-                    <Image width={339} height={339} src="/img/404.gif" alt="404" className="w-72 md:w-80 m-auto" 
-                    unoptimized />
+                    <Image
+                        width={339}
+                        height={339}
+                        src="/img/404.gif"
+                        alt="404"
+                        className="w-72 md:w-80 m-auto"
+                        unoptimized
+                    />
 
-                        <div className="space-y-2 mt-6">
+                    <div className="space-y-2 mt-6">
 
-                            <h2 className="text-base md:text-lg lg:text-xl font-semibold">
-                                Oops <br />
-                                it seems you follow backlink
-                            </h2>
+                        <h2 className="text-base md:text-lg lg:text-xl font-semibold text-black dark:text-white leading-7">
+                            Oops <br /> <br />
+                            it seems you followed a backlink
+                        </h2>
 
-                            <Link href="/" className="flex justify-center pt-5">
-                                <Button rounded='xl' className="w-full">
-                                    Back To Home
-                                </Button>
-                            </Link>
+                        <Link href="/" className="flex justify-center pt-5">
+                            <Button
+                                rounded='xl'
+                                className="w-full bg-primary text-white hover:bg-primary/80 dark:bg-primary dark:text-white">
+                                Back To Home
+                            </Button>
+                        </Link>
 
-                        </div>
+                    </div>
 
                 </div>
 

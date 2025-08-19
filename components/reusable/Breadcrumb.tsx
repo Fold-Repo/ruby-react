@@ -28,24 +28,31 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     const isBgVariant = variant === 'bg'
 
     const renderTitleAndDescription = () => (
-        <>
-            <h1 className='font-bold text-xl lg:text-2xl'>{title}</h1>
-        </>
+        <h1 className="font-bold text-xl lg:text-2xl text-gray-900 dark:text-gray-100">
+            {title}
+        </h1>
     )
 
-    const renderBreadcrumbItems = (textColor = 'text-gray-600') => (
-        <div className={`flex items-center gap-1 text-sm mt-2 ${isLeftAligned ? '' : 'justify-center'} ${textColor}`}>
+    const renderBreadcrumbItems = (textColor = 'text-gray-600 dark:text-gray-300') => (
+        <div
+            className={`flex items-center gap-1 text-sm mt-2 ${
+                isLeftAligned ? '' : 'justify-center'
+            } ${textColor}`}
+        >
             {items?.map((item, index) => (
                 <React.Fragment key={index}>
                     {item.href ? (
-                        <Link href={item.href} className={`${textColor === 'text-white' ? 'text-white/80' : 'text-black/80'} font-semibold`}>
+                        <Link
+                            href={item.href}
+                            className="font-semibold text-gray-800 dark:text-gray-200 hover:text-primary"
+                        >
                             {item.label}
                         </Link>
                     ) : (
-                        <span>{item.label}</span>
+                        <span className="text-gray-600 dark:text-gray-400">{item.label}</span>
                     )}
                     {index < items.length - 1 && (
-                        <ChevronRightIcon className={`w-4 h-4 ${textColor === 'text-white' ? 'text-gray-200' : 'text-gray-400'}`} />
+                        <ChevronRightIcon className="w-4 h-4 text-gray-400 dark:text-gray-500" />
                     )}
                 </React.Fragment>
             ))}
@@ -54,24 +61,21 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
     if (isBgVariant && imageSrc) {
         return (
-            <div className="relative bg-cover bg-center rounded overflow-hidden py-12 lg:py-16" style={{ backgroundImage: `url(${imageSrc})` }}>
-
+            <div className="relative bg-cover bg-center rounded overflow-hidden py-12 lg:py-16"
+                style={{ backgroundImage: `url(${imageSrc})` }}>
                 <div className="absolute inset-0 bg-black/40 z-0 rounded" />
-
                 <div className="relative z-10 container mx-auto px-4 flex justify-center">
                     <div className="max-w-xl text-white text-center">
                         {renderTitleAndDescription()}
                         {items && renderBreadcrumbItems('text-white')}
                     </div>
                 </div>
-
             </div>
         )
     }
 
     return (
-        <div className="relative bg-[#F5F3EE] py-12 lg:py-16 rounded overflow-hidden">
-
+        <div className="relative bg-[#F5F3EE] dark:bg-gray-900 py-12 lg:py-16 rounded overflow-hidden">
             {isImageVariant && imageSrc && (
                 <>
                     <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-52">
@@ -80,7 +84,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                             alt="Left"
                             className="w-full h-full object-cover rounded-l scale-x-[-1] opacity-80"
                             width={208}
-                            height={1000} 
+                            height={1000}
                             priority
                             unoptimized={false}
                         />
@@ -99,17 +103,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 </>
             )}
 
-            <div className={`relative z-10 container mx-auto px-4 ${isLeftAligned ? 'text-left' : 'text-center'} flex justify-${isLeftAligned ? 'start' : 'center'}`}>
-
+            <div className={`relative z-10 container mx-auto px-4 ${
+                    isLeftAligned ? 'text-left' : 'text-center'
+                } flex justify-${isLeftAligned ? 'start' : 'center'}`}>
                 <div className="max-w-xl">
-
                     {renderTitleAndDescription()}
                     {items && renderBreadcrumbItems()}
-
                 </div>
-
             </div>
-
         </div>
     )
 }

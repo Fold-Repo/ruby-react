@@ -8,7 +8,7 @@ import Container from '../container';
 
 const Footer = () => {
     return (
-        <footer className="bg-black py-10">
+        <footer className="bg-black dark:bg-gray-950 dark:border-t dark:border-gray-800 py-10">
 
             <Container>
 
@@ -56,8 +56,19 @@ const Footer = () => {
                             <p className="text-white text-xs">{newsletterText}</p>
 
                             <form className="relative w-full max-w-md">
-                                <input type="email" required placeholder="Enter your email" className="block w-full pl-5 pr-16 py-3.5 text-xs md:text-sm !text-black bg-white rounded-full !outline-0 ring-0" />
-                                <Button size='sm' type='submit' className='absolute top-1/2 -translate-y-1/2 right-1.5 !text-xs px-6 !py-2' rounded='full'>Send</Button>
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="Enter your email"
+                                    className="block w-full pl-5 pr-16 py-3.5 text-xs md:text-sm 
+                                        text-black dark:text-gray-200 
+                                        placeholder-gray-500 dark:placeholder-gray-400
+                                        bg-white dark:bg-gray-800 rounded-full outline-none ring-0"
+                                />
+                                <Button size="sm" type="submit" className="absolute top-1/2 -translate-y-1/2 right-1.5 !text-xs px-6 !py-2"
+                                    rounded="full" >
+                                    Send
+                                </Button>
                             </form>
 
                             <div className="flex items-start gap-2">

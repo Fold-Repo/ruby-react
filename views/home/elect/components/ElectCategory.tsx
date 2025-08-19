@@ -14,10 +14,10 @@ const ElectCategory = () => {
     const skeletonItems = Array(6).fill(0)
 
     return (
-        <div className="border border-gray-200 rounded-b-2xl rounded-t-xl">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-b-2xl rounded-t-xl">
 
             <div onClick={() => setIsOpen((prev) => !prev)}
-                className="flex items-center justify-between text-white px-6 py-3 rounded-xl bg-primary w-full cursor-pointer">
+                className="flex items-center justify-between px-6 py-3 rounded-xl w-full cursor-pointer bg-primary dark:bg-primary-dark text-white">
                 <span className="text-sm font-medium">Our Categories</span>
                 {isOpen ? (
                     <ChevronUpIcon className="w-5 h-5" />
@@ -37,29 +37,28 @@ const ElectCategory = () => {
                         className="overflow-hidden">
 
                         <div className="p-3 space-y-2">
-
-                            { isLoading ? (
+                            {isLoading ? (
                                 skeletonItems.map((_, index) => (
                                     <div key={index} className="flex items-center gap-x-3 p-2.5 rounded-md">
-                                        <div className="w-8 h-8 rounded bg-gray-200 animate-pulse"></div>
-                                        <div className="flex-1 h-5 rounded bg-gray-100 animate-pulse"></div>
+                                        <div className="w-8 h-8 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+                                        <div className="flex-1 h-5 rounded bg-gray-100 dark:bg-gray-600 animate-pulse"></div>
                                     </div>
                                 ))
                             ) : (
                                 data.map((cat: ElectCategoryType, index: number) => (
-                                    <div key={index} className="flex items-center gap-x-3 hover:bg-gray-100 p-2.5 rounded-md cursor-pointer">
+                                    <div key={index}
+                                        className="flex items-center gap-x-3 p-2.5 rounded-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                                         <Image
                                             src={cat.image}
                                             alt={cat.name}
                                             width={40}
                                             height={40}
-                                            className="object-contain w-6 h-6 flex-shrink-0"
+                                            className="object-contain w-6 h-6 flex-shrink-0 dark:invert"
                                         />
-                                        <span className="text-sm font-medium">{cat.name}</span>
+                                        <span className="text-xs 2xl:text-sm font-medium text-gray-900 dark:text-gray-100">{cat.name}</span>
                                     </div>
                                 ))
                             )}
-
                         </div>
 
                     </motion.div>

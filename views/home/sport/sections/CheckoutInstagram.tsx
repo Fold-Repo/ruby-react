@@ -18,8 +18,8 @@ const CheckoutInstagram = () => {
                 <h2 className="text-lg font-bold">Check us on Instagram</h2>
 
                 <div className="flex items-center gap-x-3">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="instagram" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="instagram" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="instagram" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="instagram" />
                 </div>
 
             </div>

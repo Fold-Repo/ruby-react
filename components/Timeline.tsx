@@ -28,7 +28,7 @@ const Timeline: React.FC<TimelineProps> = ({ steps, layout = "inline" }) => {
                             ? "bg-[#454545] text-white"
                             : step.status === "in-progress"
                                 ? "bg-amber-500 text-white"
-                                : "bg-gray-300 text-black";
+                                : "bg-gray-300 dark:bg-gray-600 text-black dark:text-white";
 
                 const lineColor = colorMap[step.status];
 
@@ -38,11 +38,9 @@ const Timeline: React.FC<TimelineProps> = ({ steps, layout = "inline" }) => {
                         <div className="relative">
 
                             <div className="relative z-10 size-7 flex justify-center items-center">
-
                                 <span className={`flex shrink-0 justify-center items-center size-6 md:size-7 rounded-full ${iconBgClass}`}>
                                     <Icon size={16} />
                                 </span>
-
                             </div>
 
                             {!isLast && (
@@ -56,24 +54,24 @@ const Timeline: React.FC<TimelineProps> = ({ steps, layout = "inline" }) => {
                         {layout === "inline" ? (
                             <div className="flex gap-3 flex-wrap w-full items-center justify-between pb-12">
                                 <div className="text-sm">
-                                    <h3 className="font-semibold text-gray-800">{step.title}</h3>
+                                    <h3 className="font-semibold text-gray-800 dark:text-gray-200">{step.title}</h3>
                                     {step.description && (
-                                        <p className="mt-1 text-sm text-gray-600">
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                                             {step.description}
                                         </p>
                                     )}
                                 </div>
-                                <p className="text-gray-500 !text-xs md:!text-sm whitespace-nowrap">
+                                <p className="text-gray-500 dark:text-gray-300 !text-xs md:!text-sm whitespace-nowrap">
                                     {step.timestamp}
                                 </p>
                             </div>
                         ) : (
                             <div className={`flex flex-col text-sm ${!isLast ? "pb-8" : "pb-0"}`}>
-                                <h3 className="font-semibold text-gray-800">{step.title}</h3>
+                                <h3 className="font-semibold text-gray-800 dark:text-gray-200">{step.title}</h3>
                                 {step.description && (
-                                    <p className="mt-1 text-sm text-gray-600">{step.description}</p>
+                                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{step.description}</p>
                                 )}
-                                <p className="mt-1 text-sm text-gray-600">{step.timestamp}</p>
+                                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{step.timestamp}</p>
                             </div>
                         )}
 

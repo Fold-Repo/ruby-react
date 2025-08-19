@@ -19,15 +19,14 @@ import toast from 'react-hot-toast';
 import { addToWishlist, isInWishlist, removeFromWishlist } from '@/store/wishlistSlice';
 import { ProductQuickView } from '@/components/modal';
 
-const iconClass = "w-4 h-4 text-gray-700";
-const ElectronicProductCard = ({ product }: { product: ProductType }) => {
+const iconClass = "w-4 h-4 text-gray-700 dark:text-gray-300";
 
+const ElectronicProductCard = ({ product }: { product: ProductType }) => {
     const dispatch = useAppDispatch()
     const isWished = useAppSelector(isInWishlist(product.id));
     const [open, setOpen] = useState(false)
 
     const { id, title, price, oldPrice, images = [], ratingAverage } = product;
-
     const productImage = images[0] || '';
 
     const discount =
@@ -57,12 +56,11 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
 
     return (
         <>
-
-            <div className="flex flex-col rounded-xl shadow_elect">
+            <div className="flex flex-col rounded-xl shadow_elect bg-white dark:bg-gray-800">
 
                 <div className="relative p-3 !pb-0 h-full rounded-lg space-y-7">
 
-                    <div className="aspect-7/5 rounded-md overflow-hidden bg-white">
+                    <div className="aspect-7/5 rounded-md overflow-hidden  dark:bg-gray-700">
 
                         <Image
                             src={productImage}
@@ -84,8 +82,10 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
 
                     {/* ==== ACTION BUTTON ==== */}
                     <div className="flex justify-center items-center gap-x-4">
-
-                        <IconWrapper onClick={() => handleClick("heart")} className='border border-gray-100' title='Favorite'>
+                        <IconWrapper
+                            onClick={() => handleClick("heart")}
+                            className="border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700"
+                            title="Favorite">
                             {isWished ? (
                                 <SolidHeartIcon className="w-4 h-4 text-red-500" />
                             ) : (
@@ -93,20 +93,26 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                             )}
                         </IconWrapper>
 
-                        <IconWrapper onClick={() => handleClick("cart")} className='border border-gray-100' title='Add to cart'>
+                        <IconWrapper
+                            onClick={() => handleClick("cart")}
+                            className="border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700"
+                            title="Add to cart">
                             <ShoppingCartIcon className={iconClass} />
                         </IconWrapper>
 
-                        <IconWrapper onClick={() => handleClick("view")} className='border border-gray-100' title='Quick View'>
+                        <IconWrapper
+                            onClick={() => handleClick("view")}
+                            className="border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700"
+                            title="Quick View">
                             <ViewfinderCircleIcon className={iconClass} />
                         </IconWrapper>
-
                     </div>
+
 
                 </div>
 
                 {/* PRODUCT DETAILS */}
-                <div className="p-2 sm:p-4 space-y-4 text-center">
+                <div className="p-2 sm:p-4 space-y-4 text-center text-gray-900 dark:text-gray-200">
 
                     <Link href={`/products/${id}`}
                         className="text-sm lg:!text-[15px] font-bold block line-clamp-1">
@@ -118,21 +124,20 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                     <div className="justify-center items-center flex gap-x-3 text-[15px] font-semibold">
                         <p>{formatCurrency(price)}</p>
                         {oldPrice && (
-                            <p className="text-gray-500 line-through text-[13px]">
+                            <p className="text-gray-500 dark:text-gray-400 line-through text-[13px]">
                                 {formatCurrency(oldPrice)}
                             </p>
                         )}
                     </div>
 
                     {/* Add to Cart */}
-                    <Button rounded='lg' className='h-9 w-full'> Add to cart </Button>
+                    <Button onClick={() => handleClick("cart")} rounded='lg' className='h-9 w-full'> Add to cart </Button>
 
                 </div>
 
             </div>
 
             <ProductQuickView open={open} setOpen={setOpen} product={product} />
-
         </>
     );
 };

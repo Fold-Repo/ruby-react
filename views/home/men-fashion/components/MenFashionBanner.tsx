@@ -7,7 +7,7 @@ import React from 'react'
 
 const MenFashionBanner = () => {
     return (
-        <section className="overflow-hidden relative bg-[#EBEBEB]">
+        <section className="overflow-hidden relative bg-[#EBEBEB] dark:bg-gray-900">
 
             <div className="relative h-[40vh] sm:h-[70vh] lg:h-[80vh]">
 
@@ -24,7 +24,7 @@ const MenFashionBanner = () => {
 
                     <div className="bottom-0 absolute">
 
-                        <div className="p-6 bg-white !max-w-md rounded-t-xl text-black space-y-4">
+                        <div className="p-6 bg-white dark:bg-gray-800 !max-w-md rounded-t-xl text-black dark:text-white space-y-4">
 
                             <h1 className="fade-item fade-item-1 text-xl sm:text-2xl md:!text-3xl/10 font-bold">
                                 Check Out Our New Men Collections
@@ -35,7 +35,7 @@ const MenFashionBanner = () => {
                             </p>
 
                             <Link href="/shop/shop_features/shop_collection">
-                                <Button className="bg-black text-white px-12 !rounded-full">
+                                <Button className="bg-black text-white dark:bg-white dark:text-black px-12 !rounded-full">
                                     Explore Collection
                                 </Button>
                             </Link>

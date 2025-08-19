@@ -8,9 +8,9 @@ const ContactForm = () => {
 
             <div className="grid sm:grid-cols-2 gap-x-5">
 
-                <Input startContent={<UserIcon className='size-4 text-gray-600' />} radius='xl' name='name' placeholder='Full Name' />
+                <Input startContent={<UserIcon className='size-4 text-gray-600 dark:text-gray-300' />} radius='xl' name='name' placeholder='Full Name' />
 
-                <Input type='Email' startContent={<EnvelopeIcon className='size-4 text-gray-600' />} radius='xl' name='email' placeholder='Email address' />
+                <Input type='Email' startContent={<EnvelopeIcon className='size-4 text-gray-600 dark:text-gray-300' />} radius='xl' name='email' placeholder='Email address' />
 
             </div>
 

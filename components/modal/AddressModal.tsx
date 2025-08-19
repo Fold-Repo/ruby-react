@@ -42,7 +42,7 @@ const AddressModal: React.FC<ShareModalProps> = ({ open, setOpen }) => {
                             name='location' placeholder='Location' />
                     </div>
 
-                    <Checkbox label='Set as default address.' />
+                    <Checkbox label='Set as default address.' labelClassName='dark:text-gray-400' />
 
                 </div>
 

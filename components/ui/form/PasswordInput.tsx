@@ -91,7 +91,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
                     type="button"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 inset-y-0 flex items-center cursor-pointer text-gray-600">
+                    className="absolute right-3 inset-y-0 flex items-center cursor-pointer text-gray-600 dark:text-gray-300">
                     {showPassword ? (
                         <EyeSlashIcon className="size-[18px]" />
                     ) : (

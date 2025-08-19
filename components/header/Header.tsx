@@ -14,7 +14,6 @@ import { MobileNav } from './mobile'
 import Image from 'next/image'
 
 const Header = () => {
-
     const [open, setOpen] = useState<boolean>(false)
     const [megaMenuType, setMegaMenuType] = useState<MegaMenuType>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -38,10 +37,10 @@ const Header = () => {
 
     const cancelCloseMegaMenu = () => {
         if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
+            clearTimeout(timeoutRef.current)
+            timeoutRef.current = null
         }
-    };
+    }
 
     const handleHoverChange = (type: MegaMenuType) => {
         if (type) {
@@ -52,7 +51,7 @@ const Header = () => {
     }
 
     const handleMouseEnter = () => {
-        cancelCloseMegaMenu();
+        cancelCloseMegaMenu()
     }
 
     const handleMouseLeave = () => {
@@ -61,26 +60,42 @@ const Header = () => {
 
     return (
         <>
-
             <NavBar />
 
-            <header className="py-4 xl:py-0 bg-white sticky top-0 z-50" onMouseLeave={handleMouseLeave}>
-
+            <header
+                className="py-4 xl:py-0 bg-white dark:bg-background sticky top-0 z-50 transition-colors"
+                onMouseLeave={handleMouseLeave}>
                 <Container>
-
                     <div className="flex items-center justify-between">
 
-                        {/* MOBILE MENU ICON */}
-                        <button onClick={() => setOpen(true)} type="button" className="cursor-pointer w-1/4 md:w-1/3 xl:hidden">
-                            <Bars3Icon className="h-6 w-6 text-gray-800" />
+                        <button
+                            onClick={() => setOpen(true)}
+                            type="button"
+                            className="cursor-pointer w-1/4 md:w-1/3 xl:hidden">
+                            <Bars3Icon className="h-6 w-6 text-gray-800 dark:text-gray-200" />
                         </button>
 
                         {/* LOGO */}
-                        <Link href="/"
-                            className="logo-header"
-                            onMouseEnter={closeMegaMenu} >
-                            <Image width={153} height={63} src="/img/logo/black_logo.png" alt="logo" className="logo w-24 md:w-32" />
+                        <Link href="/" className="logo-header" onMouseEnter={closeMegaMenu}>
+                            {/* Light logo */}
+                            <Image
+                                width={153}
+                                height={63}
+                                src="/img/logo/black_logo.png"
+                                alt="logo"
+                                className="logo w-24 md:w-32 dark:hidden"
+                            />
+
+                            {/* Dark logo */}
+                            <Image
+                                width={153}
+                                height={63}
+                                src="/img/logo/white_logo.png"
+                                alt="logo"
+                                className="logo w-24 md:w-32 hidden dark:block"
+                            />
                         </Link>
+
 
                         {/* CENTER LINKS */}
                         <div className="hidden xl:block">
@@ -103,22 +118,16 @@ const Header = () => {
                         <HeaderRight />
 
                     </div>
-
                 </Container>
 
                 {/* ======== MEGA MENU ========== */}
-                <div onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}>
+                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <MegaMenuContainer type={megaMenuType} />
                 </div>
-
-                {/* ======== MOBILE SIDEBAR ========== */}
-
-
             </header>
 
+            {/* ======== MOBILE SIDEBAR ========== */}
             <MobileNav open={open} setOpen={setOpen} />
-
         </>
     )
 }

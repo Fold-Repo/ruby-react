@@ -1,7 +1,5 @@
 import { Breadcrumb, ContactDetails, ContactForm, Container, MapLocation, SectionTitle } from '@/components'
 import React from 'react'
-import { storeList } from '@/data'
-import { StoreCard } from '@/components/cards'
 
 const ContactView2 = () => {
 

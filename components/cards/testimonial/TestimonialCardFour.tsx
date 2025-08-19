@@ -8,7 +8,7 @@ const TestimonialCardFour = ({ testimonial }: { testimonial: TestimonialType }) 
     const { name, role, message, image = '', rating } = testimonial;
 
     return (
-        <div className="flex flex-col gap-y-8 bg-white p-5 rounded-xl border border-gray-200">
+        <div className="flex flex-col gap-y-8 bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
 
             <div className="flex items-start gap-4">
 
@@ -25,8 +25,8 @@ const TestimonialCardFour = ({ testimonial }: { testimonial: TestimonialType }) 
                 <div className="flex justify-between items-end w-full">
 
                     <div>
-                        <h2 className="font-bold text-base">{name}</h2>
-                        <p className="text-xs">{role}</p>
+                        <h2 className="font-bold text-base text-gray-800 dark:text-gray-200">{name}</h2>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{role}</p>
                     </div>
 
                     <StarRating value={Number(rating)} />
@@ -35,7 +35,7 @@ const TestimonialCardFour = ({ testimonial }: { testimonial: TestimonialType }) 
 
             </div>
 
-            <p className="text-sm font-medium text-center">"{message}"</p>
+            <p className="text-sm font-medium text-center text-gray-600 dark:text-gray-300">"{message}"</p>
 
         </div>
     );

@@ -32,7 +32,7 @@ const DropdownFilterToggle = ({ data, loading }: { data: FilterDataType; loading
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        className="w-full absolute left-0 right-0 top-12 bg-white transition-all duration-200 !z-[100] px-4 py-8 !rounded-xl shadow"
+                        className="w-full absolute left-0 right-0 top-12 bg-white dark:bg-gray-800 transition-all duration-200 !z-[100] px-4 py-8 !rounded-xl shadow"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
@@ -43,7 +43,7 @@ const DropdownFilterToggle = ({ data, loading }: { data: FilterDataType; loading
                             <button
                                 onClick={close}
                                 type="button"
-                                className="bg-gray-100 rounded-full size-7 text-sm flex items-center justify-center">
+                                className="bg-gray-100 dark:bg-gray-900 rounded-full size-7 text-sm flex items-center justify-center">
                                 <XMarkIcon className="size-4" />
                             </button>
                         </div>

@@ -42,7 +42,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref
     ) => {
         const variantClasses: Record<ButtonVariant, string> = {
-            primary: "bg-primary hover:bg-black text-white",
+            primary: "bg-primary hover:bg-primary/90 text-white",
             white: "bg-white hover:bg-white text-black",
             dark: "bg-black hover:bg-primary text-white",
             secondary: "bg-gray-500 text-white",

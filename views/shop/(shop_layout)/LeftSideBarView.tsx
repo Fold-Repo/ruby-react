@@ -49,7 +49,7 @@ const LeftSideBarView = () => {
 
           <div className="grid md:grid-cols-12 sm:grid-cols-2 grid-cols-1 gap-10">
 
-            <div className="hidden lg:block col-span-3 bg-white">
+            <div className="hidden lg:block col-span-3 bg-white dark:bg-gray-900 p-2">
 
               <Filterbar loading={pending} data={filterData} />
 

@@ -35,7 +35,7 @@ const slides = [
 
 const WomenFashionBanner = () => {
     return (
-        <section className="bg-gray-100 pt-12 2xl:pt-20">
+        <section className="bg-gray-100 dark:bg-gray-900 pt-12 2xl:pt-20">
 
             <SwiperCarousel xl={1}
                 loop={true}
@@ -51,14 +51,15 @@ const WomenFashionBanner = () => {
 
                                 <div className="space-y-6">
 
-                                    <h2 className="text-4xl/12 md:text-5xl/14 2xl:text-6xl/18 font-bold text-gray-900">
+                                    <h2 className="text-4xl/12 md:text-5xl/14 2xl:text-6xl/18 font-bold text-gray-900 dark:text-white">
                                         {slide.title}
                                     </h2>
 
-                                    <p className="text-gray-600">{slide.description}</p>
+                                    <p className="text-gray-600 dark:text-gray-300">{slide.description}</p>
 
                                     <Link href={slide.href}>
-                                        <Button className="bg-black text-white !rounded-full px-12">
+                                        <Button className="bg-black dark:bg-white text-white dark:text-black !rounded-full px-12 hover:bg-white 
+                                            hover:text-black dark:hover:bg-gray-700 dark:hover:text-white">
                                             Explore Collection
                                         </Button>
                                     </Link>

@@ -19,7 +19,7 @@ const ShopMegaMenu = () => {
             {shopMenuGroups.map((group, index) => (
                 <div key={index} className="flex flex-col">
                     <h1 className="text-sm !font-semibold mb-4">{group.title.toUpperCase()}</h1>
-                    <ul className="space-y-2.5 font-medium text-[13px] text-gray-700">
+                    <ul className="space-y-2.5 font-medium text-[13px] text-gray-700 dark:text-gray-300">
                         {group.items.map((item, idx) => (
                             <li key={idx}>
                                 <Link href={item.href} className="hover:text-primary transition-colors duration-300">

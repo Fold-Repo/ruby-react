@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Button, PopupModal } from '../ui'
 import { ProductType } from '@/types';
@@ -20,6 +22,7 @@ interface ShareModalProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     product: ProductType
 }
+
 const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product }) => {
 
     const router = useRouter()
@@ -33,9 +36,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
     const defaultImage = images[0] || "";
     const [activeImage, setActiveImage] = useState<string>(defaultImage);
 
-    const discount =
-        typeof oldPrice !== 'undefined'
-        && getDiscountPercentage(oldPrice, price)
+    const discount = typeof oldPrice !== 'undefined' && getDiscountPercentage(oldPrice, price)
 
     const isWished = useAppSelector(isInWishlist(id));
 
@@ -73,24 +74,24 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
 
             <div className="pb-10">
 
-                <div className="space-y-1.5 border-b border-gray-300 pb-3 mb-10">
+                <div className="space-y-1.5 border-b border-gray-300 dark:border-gray-600 pb-3 mb-10">
 
-                    <h2 className="text-xl font-bold">{title}</h2>
+                    <h2 className="text-xl font-bold text-black dark:text-white">{title}</h2>
 
                     {colors?.length > 0 && (
-                        <div className="text-gray-500 text-sm font-medium flex items-center flex-wrap">
+                        <div className="text-gray-500 dark:text-gray-300 text-sm font-medium flex items-center flex-wrap">
                             <span className="mr-2">Select Colors:</span>
                             <div className="inline-flex flex-wrap items-center gap-1">
                                 {colors.map((color, index) => (
                                     <React.Fragment key={index}>
                                         <div onMouseEnter={() => setActiveImage(color.image)}
                                             onClick={() => setActiveImage(color.image)} className="cursor-pointer inline-flex items-center gap-1">
-                                            <span className="inline-block w-4 h-4 rounded-full border"
+                                            <span className="inline-block w-4 h-4 rounded-full border dark:border-gray-400"
                                                 style={{ backgroundColor: color.hex }}
                                                 title={color.name}></span>
-                                            <span className="text-xs text-black">{color.name}</span>
+                                            <span className="text-xs text-black dark:text-white">{color.name}</span>
                                         </div>
-                                        {index < colors.length - 1 && <span className="mx-1">|</span>}
+                                        {index < colors.length - 1 && <span className="mx-1 text-gray-400 dark:text-gray-500">|</span>}
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -98,13 +99,13 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                     )}
 
                     {sizes?.length > 0 && (
-                        <div className="text-gray-500 text-sm font-medium flex items-center flex-wrap">
+                        <div className="text-gray-500 dark:text-gray-300 text-sm font-medium flex items-center flex-wrap">
                             <span className="mr-2">Select Sizes:</span>
                             <div className="inline-flex items-center gap-1">
                                 {sizes.map((size, index) => (
                                     <React.Fragment key={index}>
-                                        <span className="text-xs text-black">{size}</span>
-                                        {index < sizes.length - 1 && <span className="mx-1">|</span>}
+                                        <span className="text-xs text-black dark:text-white">{size}</span>
+                                        {index < sizes.length - 1 && <span className="mx-1 text-gray-400 dark:text-gray-500">|</span>}
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -116,14 +117,14 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                 <div className="grid md:grid-cols-2 gap-10">
 
                     <div className="relative overflow-hidden shadow group rounded-md duration-500 
-                                aspect-square bg-gray-200 border-gray-200">
+                                aspect-square bg-gray-200 dark:bg-gray-700 border-gray-200 dark:border-gray-600">
 
                         <Image
                             src={activeImage}
                             alt="Product"
                             width={900}
                             height={900}
-                            className="object-cover h-full  w-full rounded-md product-image
+                            className="object-cover h-full w-full rounded-md product-image
                                         group-hover:scale-110 duration-500"
                         />
 
@@ -140,12 +141,12 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
 
                     <div className="space-y-8">
 
-                        {/* DESCRIPTION / PRICE AND STCOK */}
+                        {/* DESCRIPTION / PRICE AND STOCK */}
                         <div className="space-y-3">
 
                             <div className="flex gap-x-3 font-medium items-center">
                                 <p className="font-bold text-primary text-lg"> {formatCurrency(price)} </p>
-                                {oldPrice && <p className="text-gray-400 line-through text-base"> {formatCurrency(oldPrice)} </p>}
+                                {oldPrice && <p className="text-gray-400 dark:text-gray-400 line-through text-base"> {formatCurrency(oldPrice)} </p>}
                             </div>
 
                             <Chip size="sm" variant="flat"
@@ -153,7 +154,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                                 {inStock ? "In stock" : "Out of stock"}
                             </Chip>
 
-                            <p className="text-sm !line-clamp-3">
+                            <p className="text-sm !line-clamp-3 text-black dark:text-gray-200">
                                 {description}
                             </p>
 
@@ -164,7 +165,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
 
                             {colors.length > 0 && (
                                 <div className="flex flex-col gap-y-3">
-                                    <label className='text-sm' htmlFor="size"> Select Color
+                                    <label className='text-sm text-black dark:text-gray-300' htmlFor="size"> Select Color
                                         {selectedColor && <span className="font-bold">: {selectedColor} </span>}
                                     </label>
                                     <ColorSwatchGroup value={selectedColor} className='size-8' colors={colors}
@@ -179,7 +180,7 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                             {sizes.length > 1 && (
                                 <div className="flex flex-col gap-y-3">
 
-                                    <label className='text-sm' htmlFor="size"> Select Size
+                                    <label className='text-sm text-black dark:text-gray-300' htmlFor="size"> Select Size
                                         {selectedSize && <span className="font-bold">: {selectedSize} </span>}
                                     </label>
 
@@ -200,11 +201,11 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                                 <Button onClick={() => handleCartAndBuy(false)} rounded='full' className='h-10 !text-xs px-12'>Add to cart</Button>
 
                                 <button onClick={handleWishlist}
-                                    className='cursor-pointer bg-gray-200 rounded-full flex items-center justify-center w-9 aspect-square text-base"'>
+                                    className='cursor-pointer bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center w-9 aspect-square text-base'>
                                     {isWished ? (
                                         <SolidHeartIcon className="size-4.5 text-red-500" />
                                     ) : (
-                                        <HeartIcon className='size-4.5 text-gray-900' />
+                                        <HeartIcon className='size-4.5 text-gray-900 dark:text-gray-200' />
                                     )}
                                 </button>
 
@@ -213,7 +214,6 @@ const ProductQuickView: React.FC<ShareModalProps> = ({ open, setOpen, product })
                             <Button onClick={() => handleCartAndBuy(true)} rounded='full' className='w-full !text-xs px-12'>Buy Now</Button>
 
                         </div>
-
 
                     </div>
 

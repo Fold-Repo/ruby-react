@@ -12,7 +12,6 @@ import { useAppDispatch } from '@/store/hooks'
 import { addToCart } from '@/store/cartSlice'
 
 const SkincareProductCard = ({ product }: { product: ProductType }) => {
-
     const dispatch = useAppDispatch()
     const { id, title, images, price, stock = 0, ratingAverage } = product
     const mainImage = images[0]
@@ -25,7 +24,8 @@ const SkincareProductCard = ({ product }: { product: ProductType }) => {
     return (
         <div className="flex flex-col relative duration-500">
 
-            <div className="rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/7 bg-gray-200">
+            <div className="rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/7 
+                            bg-gray-200 dark:bg-gray-800">
 
                 <Image
                     src={mainImage}
@@ -36,8 +36,8 @@ const SkincareProductCard = ({ product }: { product: ProductType }) => {
                 />
 
                 <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
-                    <Button onClick={handleAddToCart} size='sm' className='!text-xs w-full bg-black' rounded='lg'> 
-                        Quickly add to cart 
+                    <Button onClick={handleAddToCart} size='sm' className='!text-xs w-full bg-black dark:bg-primary' rounded='lg'>
+                        Quickly add to cart
                     </Button>
                 </div>
 
@@ -45,23 +45,26 @@ const SkincareProductCard = ({ product }: { product: ProductType }) => {
 
             {/* PRODUCT DETAILS */}
             <Link href={`/products/${id}`}
-                className="block !rounded-b-lg space-y-1.5 p-3 lg:p-4 bg-[#FAF8F8]">
+                className="block !rounded-b-lg space-y-1.5 p-3 lg:p-4 
+                        bg-[#FAF8F8] dark:bg-gray-900">
 
                 <div className="text-xs md:!text-sm font-medium flex items-center gap-x-3 justify-between">
-                    <p className="!truncate font-bold">{title}</p>
+                    <p className="!truncate font-bold text-gray-900 dark:text-gray-200">{title}</p>
                     <h6 className="text-primary">{formatCurrency(price)}</h6>
                 </div>
 
                 <div className="flex items-center gap-y-1 gap-x-3 justify-between flex-wrap">
 
-                    <p className="text-[11px] md:!text-xs font-medium block">
+                    <p className="text-[11px] md:!text-xs font-medium text-gray-600 dark:text-gray-400 block">
                         {stock > 0
                             ? `${product.stock} items available`
                             : 'Out of stock'}
                     </p>
 
                     <div className="inline-flex items-center gap-x-1">
-                        <span className="text-xs md:text-sm font-medium"> {ratingAverage} </span>
+                        <span className="text-xs md:text-sm font-medium text-gray-800 dark:text-gray-200">
+                            {ratingAverage}
+                        </span>
                         <StarIcon className='size-4.5 text-yellow-500' />
                     </div>
 

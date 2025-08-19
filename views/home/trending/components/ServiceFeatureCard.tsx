@@ -15,12 +15,18 @@ const ServiceFeatureCard: React.FC<ServiceFeatureCardProps> = ({
     iconWidth = "w-12",
 }) => {
     return (
-        <div className="bg-gray-100 p-3 relative overflow-hidden rounded-tl-2xl rounded-br-2xl">
+        <div className="bg-gray-100 dark:bg-gray-800 p-3 relative overflow-hidden rounded-tl-2xl rounded-br-2xl">
             <div className="flex items-center gap-x-3">
-                <Image width={200} height={200} src={icon} className={iconWidth} alt={title} />
+                <Image 
+                    width={200} 
+                    height={200} 
+                    src={icon} 
+                    className={iconWidth} 
+                    alt={title} 
+                />
                 <div>
-                    <h2 className="text-base font-bold">{title}</h2>
-                    <p className="text-sm">{description}</p>
+                    <h2 className="text-base font-bold dark:text-white">{title}</h2>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
                 </div>
             </div>
         </div>

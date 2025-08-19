@@ -27,7 +27,7 @@ export default function ProductListCard({ product, styeType }: { product: Produc
             <div className="flex items-start">
 
                 <div className="relative overflow-hidden shrink-0 shadow-sm group rounded-md 
-                duration-500 w-36 md:w-60 aspect-7/9 sm:aspect-7/8 bg-gray-200">
+                duration-500 w-36 md:w-60 aspect-7/9 bg-gray-200">
 
                     <Image
                         src={activeImage}
@@ -70,7 +70,7 @@ export default function ProductListCard({ product, styeType }: { product: Produc
                         {title}
                     </Link>
 
-                    <p className="text-slate-500 md:block hidden text-[15px] line-clamp-2">{description}</p>
+                    <p className="text-slate-500 dark:text-gray-300 md:block hidden text-[14px] !line-clamp-2">{description}</p>
 
                     <div className="flex gap-x-3 font-medium items-center">
                         <p className="font-semibold text-primary text-base"> {formatCurrency(price)} </p>
@@ -102,7 +102,7 @@ export default function ProductListCard({ product, styeType }: { product: Produc
 
                         <StarRating value={ratingAverage} />
 
-                        <span className="text-sm text-gray-600"> {ratingTotal} verified ratings</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300"> {ratingTotal} verified ratings</span>
 
                     </div>
 

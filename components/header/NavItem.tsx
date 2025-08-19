@@ -25,7 +25,6 @@ const NavItem: React.FC<Props> = ({
     onItemLeave,
     onItemEnter
 }) => {
-
     const handleMouseEnter = () => {
         onHoverChange?.(megaMenuType ?? null)
         onItemEnter?.()
@@ -38,12 +37,12 @@ const NavItem: React.FC<Props> = ({
     const isActive = megaMenuType && activeMegaMenuType == megaMenuType
 
     const textColor = isActive
-        ? 'text-primary'
-        : 'text-gray-800 group-hover:text-primary'
+        ? 'text-[var(--primary)]'
+        : 'text-gray-800 dark:text-gray-200 group-hover:text-[var(--primary)]'
 
     const renderTrigger = () => {
-
-        const baseClass = 'font-semibold flex items-center gap-1 transition-all relative'
+        const baseClass =
+            'font-semibold flex items-center gap-1 transition-all relative'
 
         if (linkOnly || (!hasDropdown && href)) {
             return (

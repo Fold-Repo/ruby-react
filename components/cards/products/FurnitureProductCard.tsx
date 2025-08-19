@@ -31,7 +31,7 @@ const FurnitureProductCard = ({
     return (
         <div className="tab-content flex flex-col relative duration-500 product-card">
 
-            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/8 bg-gray-200">
+            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/8 bg-gray-200 dark:bg-gray-800">
 
                 <Image src={image} alt={title} width={500} height={500}
                     className="object-cover h-full w-full rounded-t-md product-image group-hover:scale-110 duration-500"
@@ -50,11 +50,10 @@ const FurnitureProductCard = ({
 
             </div>
 
-
-            <div className="group !rounded-b-lg space-y-3 p-3 lg:p-4 bg-[#FAF8F8]">
+            <div className="group !rounded-b-lg space-y-3 p-3 lg:p-4 bg-[#FAF8F8] dark:bg-gray-900">
 
                 <Link href={`/products/${id}`}
-                    className="group-hover:text-primary text-xs md:!text-sm font-medium line-clamp-1">
+                    className="group-hover:text-primary text-xs md:!text-sm font-medium line-clamp-1 text-gray-900 dark:text-gray-200">
                     {title}
                 </Link>
 
@@ -62,7 +61,7 @@ const FurnitureProductCard = ({
 
                     <div className="items-center flex gap-x-3 text-xs md:!text-sm font-medium">
                         {oldPrice && (
-                            <p className="text-gray-400 line-through">
+                            <p className="text-gray-400 dark:text-gray-500 line-through">
                                 {formatCurrency(oldPrice)}
                             </p>
                         )}
@@ -70,7 +69,9 @@ const FurnitureProductCard = ({
                     </div>
 
                     <div className="inline-flex items-center gap-x-1">
-                        <span className="text-xs font-medium">{ratingAverage ?? '5.0'}</span>
+                        <span className="text-xs font-medium text-gray-900 dark:text-gray-200">
+                            {ratingAverage ?? '5.0'}
+                        </span>
                         <StarIcon className="text-yellow-500 text-sm size-4" />
                     </div>
 

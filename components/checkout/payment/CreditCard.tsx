@@ -4,10 +4,10 @@ import React from 'react'
 
 const CreditCard = () => {
     return (
-        <div className="p-5 rounded-xl border border-black/50 cursor-pointer">
+        <div className="p-5 rounded-xl border border-black/50 dark:border-gray-600 bg-white dark:bg-gray-900 cursor-pointer">
 
             <div className="flex items-center flex-wrap justify-between gap-3">
-                <span className="text-sm lg:text-base text-black font-bold">Credit Card</span>
+                <span className="text-sm lg:text-base font-bold text-black dark:text-gray-200">Credit Card</span>
                 <Image width={500} height={50} src="/img/payment/payment_cards.svg" alt="Paypal" className="w-52 sm:w-60" />
             </div>
 
@@ -30,7 +30,7 @@ const CreditCard = () => {
 
                     <Input type='text' radius='xl' name='cardName' placeholder='Card Name*' />
 
-                    <Checkbox label='Save this information for faster check-out next time' labelClassName='text-black/70' />
+                    <Checkbox label='Save this information for faster check-out next time' labelClassName='text-black/70 dark:text-gray-300' />
 
                 </form>
 

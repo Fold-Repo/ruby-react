@@ -32,17 +32,16 @@ const serviceItems = [
 ];
 
 const ServiceSection: React.FC<ServiceSectionProps> = ({ layout = 'row', className }) => {
-    
     const isRow = layout === 'row';
 
     return (
         <div className={cn(
-                'pt-12',
-                isRow
-                    ? 'flex items-center flex-wrap lg:flex-nowrap gap-8 justify-center lg:justify-between'
-                    : 'flex flex-col items-center gap-10',
-                className
-            )}>
+            'pt-12',
+            isRow
+                ? 'flex items-center flex-wrap lg:flex-nowrap gap-8 justify-center lg:justify-between'
+                : 'flex flex-col items-center gap-10',
+            className
+        )}>
             {serviceItems.map((item, idx) => (
                 <ServiceItem
                     key={idx}

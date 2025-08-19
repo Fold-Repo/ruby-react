@@ -24,7 +24,7 @@ const SportProductCardTwo = ({ product }: { product: ProductType }) => {
     };
 
     return (
-        <div className="flex items-center gap-3 bg-gray-100 p-2 rounded-lg">
+        <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
             
             <Image
                 src={defaultImage}
@@ -37,7 +37,7 @@ const SportProductCardTwo = ({ product }: { product: ProductType }) => {
             <div className="w-full space-y-1 flex flex-col justify-between h-full">
 
                 <Link href={`/products/${id}`} 
-                    className="hover:text-primary text-sm font-semibold block !line-clamp-1">
+                    className="hover:text-primary text-sm font-semibold block !line-clamp-1 dark:text-white dark:hover:text-primary">
                     {title}
                 </Link>
 
@@ -48,7 +48,7 @@ const SportProductCardTwo = ({ product }: { product: ProductType }) => {
                 <div className="items-center flex gap-x-3 text-[14px] font-semibold">
                     <p className="text-primary">{formatCurrency(price)}</p>
                     {oldPrice && (
-                        <p className="text-gray-400 line-through text-[12px]">
+                        <p className="text-gray-400 dark:text-gray-500 line-through text-[12px]">
                             {formatCurrency(oldPrice)}
                         </p>
                     )}

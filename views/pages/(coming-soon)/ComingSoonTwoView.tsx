@@ -26,7 +26,7 @@ const ComingSoonTwoView = () => {
                 ]}
             />
 
-            <div className="bg-black"
+            <div className="bg-black dark:bg-gray-900 relative"
                 style={{
                     backgroundImage: "url('/img/coming_soon_cover.png')",
                     backgroundPosition: 'top',
@@ -52,40 +52,27 @@ const ComingSoonTwoView = () => {
 
                         </div>
 
-                        <p className="text-[13px]">
+                        <p className="text-[13px] text-white/80">
                             Stay tuned and be the first to know when we go live!
                         </p>
 
                         <form className="relative w-full">
 
                             <input type="email" required placeholder="Enter your email"
-                                className="block w-full pl-5 pr-36 h-12 text-xs md:text-sm !text-black bg-white rounded-xl !outline-0" />
+                                className="block w-full pl-5 pr-36 h-12 text-xs md:text-sm text-black dark:text-white bg-white dark:bg-gray-800 rounded-xl outline-none placeholder:text-black/50 dark:placeholder:text-white/50" />
 
                             <button type="submit"
-                                className="cursor-pointer absolute top-1/2 -translate-y-1/2 right-0 bg-primary text-white rounded-r-xl text-xs px-10 h-12">
+                                className="cursor-pointer absolute top-1/2 -translate-y-1/2 right-0 bg-primary text-white rounded-r-xl text-xs px-10 h-12 hover:bg-white hover:text-black transition-colors duration-300">
                                 Notify Me
                             </button>
 
                         </form>
 
-                        <div className="flex items-center gap-x-6 text-lg justify-center">
-
-                            <a href="#">
-                                <FaFacebookF />
-                            </a>
-
-                            <a href="#">
-                                <FaLinkedinIn />
-                            </a>
-
-                            <a href="#">
-                                <FaInstagram />
-                            </a>
-
-                            <a href="#">
-                                <FaDribbble />
-                            </a>
-
+                        <div className="flex items-center gap-x-6 text-lg justify-center text-white/80">
+                            <a href="#" className="hover:text-white transition-colors"><FaFacebookF /></a>
+                            <a href="#" className="hover:text-white transition-colors"><FaLinkedinIn /></a>
+                            <a href="#" className="hover:text-white transition-colors"><FaInstagram /></a>
+                            <a href="#" className="hover:text-white transition-colors"><FaDribbble /></a>
                         </div>
 
                     </div>
@@ -101,10 +88,10 @@ const ComingSoonTwoView = () => {
 const TimeUnit = ({ label, digits }: { label: string; digits: [string, string] }) => (
     <div className="flex flex-col items-center">
         <div className="flex gap-1">
-            <div className="digit-box">{digits[0]}</div>
-            <div className="digit-box">{digits[1]}</div>
+            <div className="digit-box bg-white text-black dark:bg-gray-800 dark:text-white">{digits[0]}</div>
+            <div className="digit-box bg-white text-black dark:bg-gray-800 dark:text-white">{digits[1]}</div>
         </div>
-        <span className="mt-2 text-sm sm:text-base">{label}</span>
+        <span className="mt-2 text-sm sm:text-base text-white/80">{label}</span>
     </div>
 );
 

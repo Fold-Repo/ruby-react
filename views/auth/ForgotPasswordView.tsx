@@ -1,7 +1,6 @@
-import { Breadcrumb, Button, Input, PasswordInput } from '@/components'
-import { EnvelopeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/solid'
+import { Breadcrumb, Button, Input } from '@/components'
+import { EnvelopeIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const ForgotPasswordView = () => {

@@ -175,7 +175,7 @@ const Filterbar: React.FC<FilterbarProps> = ({ data, type = 'immediate', close, 
 
                     <Button
                         size="md"
-                        className="bg-black text-white w-full !text-xs"
+                        className="bg-black text-white w-full !text-xs dark:bg-gray-700"
                         onPress={handleApply}>
                         Apply
                     </Button>

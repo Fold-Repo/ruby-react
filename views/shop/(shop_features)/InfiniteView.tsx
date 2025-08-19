@@ -82,7 +82,7 @@ const InfiniteView = () => {
           )}
 
           {!hasNextPage && products.length > 0 && (
-            <div className="text-center text-gray-700 font-medium">
+            <div className="text-center text-gray-700 dark:text-gray-200 font-medium py-4">
               You've reached the end of products
             </div>
           )}

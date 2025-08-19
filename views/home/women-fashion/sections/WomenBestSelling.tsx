@@ -21,8 +21,8 @@ const WomenBestSelling = () => {
                 />
 
                 <div className="flex items-center gap-x-3">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="women_best" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="women_best" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="women_best" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="women_best" />
                 </div>
 
             </div>

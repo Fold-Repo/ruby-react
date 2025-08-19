@@ -68,7 +68,8 @@ const FreqBoughtCard = ({ product, onChange, showQuantity = false }: FreqBoughtC
 
                 <div className="flex items-center justify-between gap-5">
 
-                    <Link href={`/products/${id}`} className="hover:text-primary text-sm font-semibold block !line-clamp-1">
+                    <Link href={`/products/${id}`} 
+                        className="hover:text-primary text-sm font-semibold block !line-clamp-1 text-gray-800 dark:text-gray-200">
                         {title}
                     </Link>
 
@@ -87,24 +88,21 @@ const FreqBoughtCard = ({ product, onChange, showQuantity = false }: FreqBoughtC
                                 image: color.image,
                             }))}
                             value={selectedColor}
-                            onChange={(color) => {
-                                setSelectedColor(color.value);
-                            }}
+                            onChange={(color) => setSelectedColor(color.value)}
                             variant='label'
                         />
                     )}
 
                     {sizes.length > 1 && (
-                        <ProductVariantDropdown variant="label"
+                        <ProductVariantDropdown 
+                            variant="label"
                             placeholder="Select Size"
                             options={sizes.map((size: string) => ({
                                 label: size,
                                 value: size
                             }))}
                             value={{ label: selectedSize, value: selectedSize }}
-                            onChange={(size) => {
-                                setSelectedSize(size.value)
-                            }}
+                            onChange={(size) => setSelectedSize(size.value)}
                         />
                     )}
 
@@ -117,7 +115,7 @@ const FreqBoughtCard = ({ product, onChange, showQuantity = false }: FreqBoughtC
                 {!showQuantity && (
                     <div className="flex items-center gap-x-3 text-sm font-medium">
                         <p className="text-primary">{formatCurrency(price)}</p>
-                        {oldPrice && <p className="text-gray-400 line-through">{formatCurrency(oldPrice)}</p>}
+                        {oldPrice && <p className="text-gray-400 dark:text-gray-500 line-through">{formatCurrency(oldPrice)}</p>}
                         {discount && (
                             <div className="bg-primary text-white text-[11px] py-0.5 px-2 rounded">
                                 -{discount} <span className="hidden sm:inline">Discount</span>
@@ -126,11 +124,10 @@ const FreqBoughtCard = ({ product, onChange, showQuantity = false }: FreqBoughtC
                     </div>
                 )}
 
-
             </div>
 
         </div>
     )
 }
 
-export default FreqBoughtCard
+export default FreqBoughtCard;

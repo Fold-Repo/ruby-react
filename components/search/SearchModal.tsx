@@ -30,8 +30,8 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
     if (!mounted) return null;
 
     const handleSearch = () => {
-        router.push(`/search?q=${query}`)
-        onClose()
+        router.push(`/search?q=${query}`);
+        onClose();
     }
 
     return createPortal(
@@ -44,7 +44,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
                     {/* Backdrop */}
                     <motion.div
-                        className="fixed inset-0 bg-black opacity-50 z-[-1]"
+                        className="fixed inset-0 bg-black/50 dark:bg-black/70 z-[-1]"
                         onClick={onClose}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.5 }}
@@ -54,7 +54,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
                     {/* Modal Content */}
                     <motion.div
-                        className="relative bg-white w-full max-w-6xl max-h-full rounded-xl md:py-6 py-5 px-5 md:px-12 ease-out transition-all sm:mx-auto"
+                        className="relative bg-white dark:bg-gray-800 w-full max-w-6xl max-h-full rounded-xl md:py-6 py-5 px-5 md:px-12 ease-out transition-all sm:mx-auto shadow-lg"
                         initial={{ opacity: 0, scale: 0.95, y: -20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -62,13 +62,13 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
                         <div className="flex items-center justify-between">
 
-                            <h1 className="font-bold text-base text-gray-900">Search</h1>
+                            <h1 className="font-bold text-base text-gray-900 dark:text-gray-100">Search</h1>
 
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="bg-gray-200 rounded-full size-7 text-sm flex items-center justify-center cursor-pointer">
-                                <XMarkIcon className="w-4 h-4" />
+                                className="bg-gray-200 dark:bg-gray-700 rounded-full size-7 text-sm flex items-center justify-center cursor-pointer">
+                                <XMarkIcon className="w-4 h-4 text-black dark:text-gray-200" />
                             </button>
 
                         </div>
@@ -76,18 +76,30 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                         <div className="pt-8 space-y-8">
 
                             <div className="relative flex items-center">
-                                <SearchInput className='w-full py-3 !pr-24' value={query} onSearch={setQuery} placeholder="Search for products..." />
-                                <Button onClick={handleSearch} size='sm' type='button' className='absolute top-1/2 -translate-y-1/2 right-1.5 !text-xs px-6 !py-2' rounded='xl'>
+                                <SearchInput
+                                    className='w-full py-3 !pr-24 bg-white dark:bg-gray-700 text-black 
+                                    dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-500'
+                                    value={query}
+                                    onSearch={setQuery}
+                                    placeholder="Search for products..."
+                                />
+                                <Button
+                                    onClick={handleSearch}
+                                    size='sm'
+                                    type='button'
+                                    className='absolute top-1/2 -translate-y-1/2 right-1.5 !text-xs px-6 !py-2'
+                                    rounded='xl'
+                                >
                                     Search
                                 </Button>
                             </div>
 
                             <div className="space-y-3">
-                                <h2 className="text-sm font-semibold text-gray-700">Key features</h2>
+                                <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Key features</h2>
                                 <div className="flex items-center gap-3 flex-wrap">
                                     {['Men Dress', 'Summer Collection', 'Slim Fit', 'Casual Wear'].map((tag) => (
                                         <span key={tag}
-                                            className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-gray-300 bg-white text-black">
+                                            className="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-gray-100">
                                             {tag}
                                         </span>
                                     ))}
@@ -101,9 +113,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                 </motion.div>
 
             )}
-
         </AnimatePresence>,
-
         document.body
     );
 };

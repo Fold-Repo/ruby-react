@@ -15,10 +15,11 @@ const ProductCardThree = ({ product }: { product: ProductType }) => {
     return (
         <div className="flex flex-col relative duration-500 product-card">
 
-            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/8 bg-gray-200">
+            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/8 bg-gray-200 dark:bg-gray-800">
 
                 <Image src={defaultImage} alt={title} width={500}
-                    height={500} className="object-cover w-full h-full rounded-t-md product-image group-hover:scale-110 duration-500"
+                    height={500} 
+                    className="object-cover w-full h-full rounded-t-md product-image group-hover:scale-110 duration-500"
                 />
 
                 {/* Top Right Action Icons */}
@@ -27,22 +28,22 @@ const ProductCardThree = ({ product }: { product: ProductType }) => {
             </div>
 
             {/* Product Details */}
-            <div className="!rounded-b-lg space-y-1.5 p-3 lg:p-4 bg-[#FAF8F8]">
+            <div className="!rounded-b-lg space-y-1.5 p-3 lg:p-4 bg-[#FAF8F8] dark:bg-gray-900">
 
                 <div className="text-xs md:!text-sm font-medium flex items-center gap-2 justify-between">
-                    <p>{category || 'Uncategorized'}</p>
+                    <p className="text-gray-700 dark:text-gray-300">{category || 'Uncategorized'}</p>
                     <h6 className="text-primary">{formatCurrency(price)}</h6>
                 </div>
 
                 <div className="flex items-center gap-3 justify-between">
 
                     <Link href={`/products/${id}`}
-                        className="hover:text-primary text-sm font-bold block !line-clamp-1">
+                        className="hover:text-primary text-sm font-bold block !line-clamp-1 text-gray-900 dark:text-gray-200">
                         {title}
                     </Link>
 
                     <div className="inline-flex items-center gap-x-1">
-                        <span className="text-xs md:!text-sm font-medium">{ratingAverage ?? 0}</span>
+                        <span className="text-xs md:!text-sm font-medium text-gray-700 dark:text-gray-300">{ratingAverage ?? 0}</span>
                         <StarIcon className="size-4 text-yellow-500" />
                     </div>
 

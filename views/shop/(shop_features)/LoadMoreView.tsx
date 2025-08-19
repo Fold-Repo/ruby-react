@@ -73,7 +73,7 @@ const LoadMoreView = () => {
           {hasNextPage && (
             <div className="flex justify-center mt-6">
               <Button onPress={() => fetchNextPage()}
-                isLoading={isFetchingNextPage} className="px-6 py-3 bg-black text-white text-sm">
+                isLoading={isFetchingNextPage} className="px-6 py-3 bg-black text-white dark:bg-gray-100 dark:text-gray-900 text-sm">
                 Load More
               </Button>
             </div>
@@ -81,7 +81,7 @@ const LoadMoreView = () => {
 
 
           {!hasNextPage && products.length > 0 && (
-            <div className="text-center text-gray-700 font-medium py-4">
+            <div className="text-center text-gray-700 dark:text-gray-200 font-medium py-4">
               You've reached the end of products
             </div>
           )}

@@ -21,7 +21,6 @@ const SearchInput: React.FC<SearchInputProps> = ({
     const [query, setQuery] = useState(value || '');
     const [debouncedQuery] = useDebounce(query, 500);
 
-    
     useEffect(() => {
         if (value !== undefined && value !== query) {
             setQuery(value);
@@ -40,7 +39,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
     return (
         <div className="relative w-full">
-            <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5 text-black">
+            <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5 text-gray-700 dark:text-gray-300">
                 <MagnifyingGlassIcon className="size-4" />
             </div>
             <input
@@ -49,7 +48,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
                 onChange={handleChange}
                 placeholder={placeholder}
                 className={cn(
-                    'py-3 ps-10 pe-4 block w-full rounded-lg text-sm focus:ring-2 !border-0 focus:ring-primary text-gray-700 bg-[#F3F8F7] outline-0',
+                    'py-3 ps-10 pe-4 block w-full rounded-lg text-[13px] focus:ring-2 !border-0 focus:ring-primary text-gray-700 bg-[#F3F8F7] outline-0 placeholder-gray-400 dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-400',
                     className
                 )}
             />

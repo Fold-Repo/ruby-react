@@ -18,7 +18,7 @@ const BestSellingFurniture = () => {
 
             <div className="lg:col-span-4 2xl:col-span-3 flex flex-col justify-center bg-black lg:rounded-r-xl py-16 md:py-20 lg:py-5 px-10">
 
-                <div className="contaner flex flex-col lg:items-end lg:text-right text-white space-y-6">
+                <div className="contaner flex flex-col lg:items-end lg:text-right text-white dark:text-gray-200 space-y-6">
 
                     <h2 className="font-semibold text-xl">Best - Selling Furnitures</h2>
 
@@ -59,8 +59,8 @@ const BestSellingFurniture = () => {
                 </SwiperCarousel>
 
                 <div className="flex items-center justify-end gap-x-3">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="best" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="best" />
+                    <CarouselNavButton className='bg-gray-200 text-black dark:bg-gray-700 dark:text-white' direction="prev" targetClass="best" />
+                    <CarouselNavButton className='bg-gray-200 text-black dark:bg-gray-700 dark:text-white' direction="next" targetClass="best" />
                 </div>
 
             </div>

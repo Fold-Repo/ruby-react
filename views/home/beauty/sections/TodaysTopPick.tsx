@@ -14,8 +14,8 @@ const TodaysTopPick = () => {
         <div className="space-y-8">
 
             <div className="text-center space-y-2">
-                <h2 className="!text-xl font-bold">Today's Top Picks</h2>
-                <p className="text-sm text-gray-700">Fresh styles just in! Elevate your look.</p>
+                <h2 className="!text-xl font-bold text-gray-900 dark:text-gray-200">Today's Top Picks</h2>
+                <p className="text-sm text-gray-700 dark:text-gray-400">Fresh styles just in! Elevate your look.</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

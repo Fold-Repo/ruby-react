@@ -17,8 +17,7 @@ const SportProductCard = ({ product }: { product: ProductType }) => {
 
     const dispatch = useAppDispatch()
 
-    const { id, title, price, oldPrice, colors = [], images = [],
-        stock } = product
+    const { id, title, price, oldPrice, colors = [], images = [], stock } = product
 
     const defaultImage = images[0] || "";
     const hoverImage = images[1] || "";
@@ -29,9 +28,7 @@ const SportProductCard = ({ product }: { product: ProductType }) => {
         && getDiscountPercentage(oldPrice, price)
 
     const handleCart = () => {
-        dispatch(addToCart({
-            product,
-        }));
+        dispatch(addToCart({ product }));
         toast.success('Product added to cart');
     };
 
@@ -41,7 +38,7 @@ const SportProductCard = ({ product }: { product: ProductType }) => {
             <div className="flex-col">
 
                 <div className="relative overflow-hidden shadow-sm group rounded-md duration-500 
-                aspect-7/7 bg-gray-200">
+                aspect-7/7 bg-gray-200 dark:bg-gray-800">
 
                     <Image
                         src={activeImage}
@@ -81,7 +78,8 @@ const SportProductCard = ({ product }: { product: ProductType }) => {
 
                     <div className="flex items-center justify-between flex-wrap gap-2">
 
-                        <Link href={`/products/${id}`} className="hover:text-primary text-sm font-medium block !line-clamp-1">
+                        <Link href={`/products/${id}`}
+                            className="hover:text-primary text-sm font-medium block !line-clamp-1 dark:text-white dark:hover:text-primary">
                             {title}
                         </Link>
 
@@ -98,11 +96,10 @@ const SportProductCard = ({ product }: { product: ProductType }) => {
 
                     <div className="flex gap-x-3 font-medium items-center">
                         <p className="font-semibold text-primary text-base"> {formatCurrency(price)} </p>
-                        {oldPrice && <p className="text-gray-400 line-through text-sm"> {formatCurrency(oldPrice)} </p>}
+                        {oldPrice && <p className="text-gray-400 dark:text-gray-500 line-through text-sm"> {formatCurrency(oldPrice)} </p>}
                     </div>
 
-                    <Button onClick={handleCart} disabled={!stock} leftIcon={<ShoppingCartIcon className='size-4.5' />} 
-                        fullWidth rounded='lg' className='!text-xs h-9.5'>
+                    <Button onClick={handleCart} disabled={!stock} leftIcon={<ShoppingCartIcon className='size-4.5' />} fullWidth rounded='lg' className='!text-xs h-9.5'>
                         Add to cart
                     </Button>
 

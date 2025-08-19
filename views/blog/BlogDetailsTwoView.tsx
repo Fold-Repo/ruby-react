@@ -67,7 +67,7 @@ const BlogDetailsTwoView = () => {
                                                 {title}
                                             </h1>
 
-                                            <p className="text-sm">
+                                            <p className="text-sm leading-7">
                                                 {description}
                                             </p>
 

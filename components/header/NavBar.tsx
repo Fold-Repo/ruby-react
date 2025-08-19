@@ -3,7 +3,7 @@ import Container from '../container'
 
 const NavBar = () => {
     return (
-        <div className="bg-black py-2 border-b border-white/10">
+        <div className="bg-black py-2 border-b border-white/10 dark:bg-gray-950/90">
 
             <Container>
 
