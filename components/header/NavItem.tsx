@@ -25,13 +25,16 @@ const NavItem: React.FC<Props> = ({
     onItemLeave,
     onItemEnter,
 }) => {
+
     const [open, setOpen] = useState(false)
     const dropdownRef = useRef<HTMLLIElement>(null)
 
     const handleMouseEnter = () => {
-        if (megaMenuType) onHoverChange?.(megaMenuType)
+        if (megaMenuType) {
+            onHoverChange?.(megaMenuType ?? null)
+            onItemEnter?.()
+        }
         if (hasDropdown) setOpen(true)
-        onItemEnter?.()
     }
 
     const handleMouseLeave = () => {
@@ -49,6 +52,7 @@ const NavItem: React.FC<Props> = ({
         : 'text-gray-800 dark:text-gray-200 group-hover:text-[var(--primary)]'
 
     const renderTrigger = () => {
+
         const baseClass = 'font-semibold flex items-center gap-1 transition-all relative'
 
         if (linkOnly || (!hasDropdown && href)) {
@@ -68,15 +72,16 @@ const NavItem: React.FC<Props> = ({
     }
 
     return (
-        <li ref={dropdownRef}
-            className="py-6 relative group"
+        <li ref={dropdownRef} className="py-6 relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
+
             {renderTrigger()}
 
             {hasDropdown && dropdownItems.length > 0 && open && (
                 <DropdownMenu items={dropdownItems} onLinkClick={handleLinkClick} />
             )}
+
         </li>
     )
 }

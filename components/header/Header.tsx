@@ -14,6 +14,8 @@ import { MobileNav } from './mobile'
 import Image from 'next/image'
 
 const Header = () => {
+
+
     const [open, setOpen] = useState<boolean>(false)
     const [megaMenuType, setMegaMenuType] = useState<MegaMenuType>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -62,10 +64,11 @@ const Header = () => {
         <>
             <NavBar />
 
-            <header
-                className="py-4 xl:py-0 bg-white dark:bg-background sticky top-0 z-50 transition-colors"
+            <header className="py-4 xl:py-0 bg-white dark:bg-background sticky top-0 z-50 transition-colors"
                 onMouseLeave={handleMouseLeave}>
+
                 <Container>
+
                     <div className="flex items-center justify-between">
 
                         <button
@@ -75,9 +78,8 @@ const Header = () => {
                             <Bars3Icon className="h-6 w-6 text-gray-800 dark:text-gray-200" />
                         </button>
 
-                        {/* LOGO */}
                         <Link href="/" className="logo-header" onMouseEnter={closeMegaMenu}>
-                            {/* Light logo */}
+
                             <Image
                                 width={153}
                                 height={63}
@@ -130,6 +132,8 @@ const Header = () => {
 
             {/* ======== MOBILE SIDEBAR ========== */}
             <MobileNav open={open} setOpen={setOpen} />
+
+            
         </>
     )
 }

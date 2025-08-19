@@ -13,7 +13,6 @@ import toast from 'react-hot-toast';
 import { addToCart } from '@/store/cartSlice';
 import { ProductQuickView } from '@/components/modal';
 
-const iconClass = "w-4 h-4 text-gray-700";
 const ProductActionIconsTwo = ({ product }: { product: ProductType | BookType }) => {
 
     const [open, setOpen] = useState(false)
@@ -49,29 +48,36 @@ const ProductActionIconsTwo = ({ product }: { product: ProductType | BookType })
 
     return (
         <>
-
             <div className="flex justify-center items-center gap-x-4">
 
-                <IconWrapper onClick={() => handleClick("heart")} className='border border-gray-100' title='Favorite'>
+                <IconWrapper
+                    onClick={() => handleClick("heart")}
+                    className="border border-gray-100 dark:bg-gray-600 dark:border-gray-700"
+                    title='Favorite'>
                     {isWished ? (
                         <SolidHeartIcon className="w-4 h-4 text-red-500" />
                     ) : (
-                        <HeartIcon className={iconClass} />
+                        <HeartIcon className="w-4 h-4 text-gray-700 dark:text-gray-100" />
                     )}
                 </IconWrapper>
 
-                <IconWrapper onClick={() => handleClick("cart")} className='border border-gray-100' title='Add to cart'>
-                    <ShoppingCartIcon className={iconClass} />
+                <IconWrapper
+                    onClick={() => handleClick("cart")}
+                    className="border border-gray-100 dark:bg-gray-600 dark:border-gray-700"
+                    title='Add to cart'>
+                    <ShoppingCartIcon className="w-4 h-4 text-gray-700 dark:text-gray-100" />
                 </IconWrapper>
 
-                <IconWrapper onClick={() => handleClick("view")} className='border border-gray-100' title='Quick View'>
-                    <ViewfinderCircleIcon className={iconClass} />
+                <IconWrapper
+                    onClick={() => handleClick("view")}
+                    className="border border-gray-100 dark:bg-gray-600 dark:border-gray-700"
+                    title='Quick View'>
+                    <ViewfinderCircleIcon className="w-4 h-4 text-gray-700 dark:text-gray-100" />
                 </IconWrapper>
 
             </div>
 
             <ProductQuickView open={open} setOpen={setOpen} product={product} />
-
         </>
     )
 }

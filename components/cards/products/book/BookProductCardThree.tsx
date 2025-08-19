@@ -39,7 +39,7 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
     };
 
     return (
-        <div className="flex flex-col md:flex-row items-center md:items-start border border-gray-200 p-2 md:p-3 rounded-xl w-full">
+        <div className="flex flex-col md:flex-row items-center md:items-start border border-gray-200 dark:border-gray-700 p-2 md:p-3 rounded-xl w-full bg-white dark:bg-gray-800">
 
             <Image
                 src={image}
@@ -54,11 +54,11 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
 
             {/* Details */}
             <div className="flex flex-col items-center md:items-start justify-center md:justify-start text-center md:text-left md:ms-6 
-                space-y-2.5 py-2 w-full">
+                space-y-2.5 py-2 w-full text-gray-900 dark:text-gray-200">
 
                 {/* Author & Title */}
                 <div className="space-y-1">
-                    <p className="italic text-xs">{author}</p>
+                    <p className="italic text-xs text-gray-500 dark:text-gray-400">{author}</p>
                     <Link href={`/book_collection/${id}`} className="hover:text-primary text-sm lg:text-base font-bold block !line-clamp-1 md:!line-clamp-2">
                         {title}
                     </Link>
@@ -67,9 +67,9 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
                 {/* Price */}
                 <div className="items-center flex gap-x-3 text-sm font-medium">
                     {oldPrice && (
-                        <p className="text-gray-400 line-through">{formatCurrency(oldPrice)}</p>
+                        <p className="text-gray-400 dark:text-gray-500 line-through">{formatCurrency(oldPrice)}</p>
                     )}
-                    <p className="text-gray-700">{formatCurrency(price)}</p>
+                    <p className="text-gray-700 dark:text-gray-300">{formatCurrency(price)}</p>
                 </div>
 
                 {/* Rating & Reviews */}
@@ -78,12 +78,12 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
                         <StarRating size="size-4" value={ratingAverage} />
                         <span className="text-sm text-primary">{ratingAverage || 0}</span>
                     </div>
-                    <p className="text-sm font-medium">({ratingTotal || 0} Reviews)</p>
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">({ratingTotal || 0} Reviews)</p>
                 </div>
 
                 {/* Stock Info */}
                 {showStockInfo && (
-                    <div className="items-center gap-x-2 capitalize text-slate-500 md:flex hidden text-sm">
+                    <div className="items-center gap-x-2 capitalize text-slate-500 dark:text-gray-400 md:flex hidden text-sm">
                         <span>
                             available: <span className="font-medium">{stock || 0}</span>
                         </span>

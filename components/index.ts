@@ -19,6 +19,8 @@ import CountdownDisplay from "./CountdownDisplay";
 
 import { IconWrapper } from "./product";
 
+import ThemeSwitcher from "./ThemeSwitcher";
+
 export {
     Header,
     Footer,
@@ -69,6 +71,7 @@ export {
 
     CountdownDisplay,
 
-    IconWrapper
+    IconWrapper,
 
+    ThemeSwitcher
 }

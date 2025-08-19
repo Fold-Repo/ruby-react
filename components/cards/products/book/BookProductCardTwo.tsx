@@ -57,7 +57,7 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
     };
 
     return (
-        <div className="relative duration-500 w-full mx-auto border border-gray-100 rounded-lg p-4">
+        <div className="relative duration-500 w-full mx-auto border border-gray-100 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
 
             <div className="flex lg:items-center">
 
@@ -72,7 +72,7 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
                 </div>
 
                 {/* ==== DETAILS SECTION ==== */}
-                <div className="ms-6 space-y-2 lg:space-y-3 w-full">
+                <div className="ms-6 space-y-2 lg:space-y-3 w-full text-gray-900 dark:text-gray-200">
 
                     <Link href={`book_collection/${id}`} className="hover:text-primary text-base md:text-lg font-semibold block !line-clamp-1">
                         {title}
@@ -83,22 +83,20 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
 
                         <div className="flex items-center gap-x-3">
                             <StarRating size="size-4" value={ratingAverage} />
-                            <span className="text-xs font-semibold">
-                                ({ratingAverage || 0})
-                            </span>
+                            <span className="text-xs font-semibold">{ratingAverage || 0}</span>
                         </div>
 
                         {/* Reviews & Likes */}
                         <div className="hidden lg:flex items-center gap-3">
                             <div className="inline-flex items-center gap-2">
                                 <ChatBubbleLeftEllipsisIcon className="size-5 text-yellow-600" />
-                                <span className="text-sm font-medium">
+                                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
                                     {reviews?.length} reviews
                                 </span>
                             </div>
                             <div className="inline-flex items-center gap-2">
                                 <HandThumbUpIcon className="size-5 text-yellow-600" />
-                                <span className="text-sm font-medium">{likes} likes</span>
+                                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{likes} likes</span>
                             </div>
                         </div>
 
@@ -108,17 +106,17 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
                     <div className="hidden lg:flex flex-wrap items-end gap-5 justify-between pt-3">
 
                         <div className="flex flex-col space-y-1">
-                            <span className="text-sm text-gray-500 text-start">Author</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400 text-start">Author</span>
                             <p className="text-sm font-semibold">{author}</p>
                         </div>
 
                         <div className="flex flex-col space-y-1">
-                            <span className="text-sm text-gray-500 text-start">Publisher</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400 text-start">Publisher</span>
                             <p className="text-sm font-semibold">{publisher}</p>
                         </div>
 
                         <div className="flex flex-col space-y-1">
-                            <span className="text-sm text-gray-500 text-start">Year</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400 text-start">Year</span>
                             <p className="text-sm font-semibold">{year}</p>
                         </div>
 
@@ -128,7 +126,7 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm leading-6 pt-3 line-clamp-3 lg:line-clamp-4">
+                    <p className="text-sm leading-6 pt-3 line-clamp-3 lg:line-clamp-4 text-gray-700 dark:text-gray-300">
                         {description}
                     </p>
 
@@ -136,13 +134,9 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
                     <div className="flex flex-wrap items-center pt-2 gap-5 justify-between">
 
                         <div className="items-end flex gap-x-3 font-medium">
-                            <p className="text-primary text-lg">
-                                {formatCurrency(price)}
-                            </p>
+                            <p className="text-primary text-lg">{formatCurrency(price)}</p>
                             {oldPrice && (
-                                <p className="text-gray-400 line-through text-base">
-                                    {formatCurrency(oldPrice)}
-                                </p>
+                                <p className="text-gray-400 dark:text-gray-500 line-through text-base">{formatCurrency(oldPrice)}</p>
                             )}
                         </div>
 
@@ -165,7 +159,8 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
 
                             <button
                                 onClick={handleWishlist}
-                                className="cursor-pointer w-9 h-9 border border-gray-200 p-2 rounded-md flex items-center justify-center">
+                                className="cursor-pointer w-9 h-9 border border-gray-200 dark:border-gray-700 p-2 rounded-md
+                                flex items-center justify-center">
                                 {isWished ? (
                                     <SolidHeartIcon className="size-4.5 text-red-500" />
                                 ) : (

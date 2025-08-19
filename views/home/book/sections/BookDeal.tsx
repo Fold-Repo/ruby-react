@@ -29,8 +29,8 @@ const BookDeal = () => {
                     {/* Carousel Navigation Buttons */}
 
                     <div className="flex items-center gap-x-3">
-                        <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="deals" />
-                        <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="deals" />
+                        <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="deals" />
+                        <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="deals" />
                     </div>
 
                 </div>
