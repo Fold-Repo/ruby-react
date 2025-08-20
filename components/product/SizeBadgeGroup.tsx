@@ -25,10 +25,10 @@ export default function SizeBadgeGroup({
                         key={s}
                         onClick={() => onClick?.(s)}
                         className={cn(
-                            "size-5.5 inline-flex items-center justify-center text-center transition",
+                            "size-5.5 inline-flex items-center justify-center text-center transition cursor-pointer select-none",
                             variant,
-                            "bg-gray-300",
-                            isActive && "bg-gray-900 text-white",
+                            "bg-gray-300 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
+                            isActive && "bg-gray-900 text-white dark:bg-gray-200 dark:text-gray-900",
                             className
                         )}>
                         {s}

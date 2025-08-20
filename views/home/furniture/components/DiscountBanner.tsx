@@ -1,15 +1,14 @@
 'use client';
 
 import { Button } from '@/components';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function DiscountBanner() {
     return (
         <div className="flex flex-wrap md:flex-nowrap gap-y-10 items-center justify-between max-w-6xl m-auto 
-            bg-[#272626] px-10 py-6 rounded-xl">
+            bg-[#272626] dark:bg-gray-800 px-10 py-6 rounded-xl">
 
-            <div className="max-w-md text-white space-y-5">
+            <div className="max-w-md text-white dark:text-gray-200 space-y-5">
 
                 <h5 className="text-lg lg:!text-xl font-medium">
                     Weekend <span className="text-primary">Discount</span>

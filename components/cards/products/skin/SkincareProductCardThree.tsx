@@ -23,28 +23,28 @@ const SkincareProductCardThree = ({ product }: { product: ProductType }) => {
     return (
         <div className="relative overflow-hidden rounded-lg h-full">
 
-            <Image className="object-cover object-top aspect-7/6 lg:aspect-7/5 h-full w-full"
+            <Image
+                className="object-cover object-top aspect-7/6 lg:aspect-7/5 h-full w-full"
                 src={image}
                 alt={title}
                 width={800}
-                height={800} />
+                height={800}
+            />
 
-            <div className="space-y-2 absolute z-1 bottom-0 w-full bg-black/50 p-3 text-white">
+            <div className="space-y-2 absolute z-1 bottom-0 w-full bg-black/50 dark:bg-gray-900/60 p-3 text-white">
 
                 <h1 className="font-semibold text-[14px]">{title}</h1>
                 <p className="text-[12px] line-clamp-2">{description}</p>
 
                 <div className="flex items-center gap-4 justify-between relative">
 
-                    <Button
-                        onClick={handleAddToCart}
-                        variant='outline' size='sm'
-                        className="border !border-white w-full !rounded-full text-white bg-transparent hover:bg-white hover:text-black">
+                    <Button onClick={handleAddToCart} variant='outline' size='sm' className="border !border-white w-full !rounded-full text-white 
+                                bg-transparent hover:bg-white hover:text-black dark:hover:bg-primary dark:hover:text-white">
                         Add to cart
                     </Button>
 
                     <Link className='w-full' href={`/products/${product.id}`}>
-                        <Button size='sm' className="btn-primary w-full !rounded-full">
+                        <Button size='sm' className="btn-primary w-full !rounded-full dark:bg-primary dark:text-white dark:hover:bg-primary/90">
                             Shop the Look
                         </Button>
                     </Link>

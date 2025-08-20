@@ -18,9 +18,9 @@ const BookProductCard: React.FC<BookProductCardProps> = ({ product }) => {
     const image = images[0] || '';
 
     return (
-        <div className="flex flex-col border border-gray-100 rounded-lg">
+        <div className="flex flex-col border border-gray-100 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800">
 
-            <div className="bg-gray-50/50 p-3 h-full rounded-lg space-y-3">
+            <div className="bg-gray-50/50 dark:bg-gray-700/20 p-3 h-full rounded-lg space-y-3">
 
                 <Image
                     src={image}
@@ -35,9 +35,9 @@ const BookProductCard: React.FC<BookProductCardProps> = ({ product }) => {
             </div>
 
             {/* Details */}
-            <div className="p-3 space-y-2">
+            <div className="p-3 space-y-4 text-gray-900 dark:text-gray-200">
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-2">
 
                     <Link href={`book_collection/${id}`}
                         className="hover:text-primary text-sm lg:!text-[15px] font-medium block !line-clamp-1">
@@ -47,7 +47,7 @@ const BookProductCard: React.FC<BookProductCardProps> = ({ product }) => {
                     <div className="items-center flex gap-x-3 text-[13px] font-semibold">
                         <p>{formatCurrency(price)}</p>
                         {oldPrice && (
-                            <p className="text-gray-500 line-through text-xs">
+                            <p className="text-gray-500 dark:text-gray-400 line-through text-xs">
                                 {formatCurrency(oldPrice)}
                             </p>
                         )}

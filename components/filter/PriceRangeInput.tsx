@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useMemo } from "react";
 import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
 import { Input } from "../ui";
@@ -40,9 +42,7 @@ const PriceRangeInput: React.FC<PriceRangeInputProps> = ({
         <div className="flex flex-col gap-y-3">
 
             <div className="flex items-center justify-between gap-x-2">
-
-                <h2 className="text-[13px] font-bold">Product Price</h2>
-
+                <h2 className="text-[13px] font-bold text-gray-900 dark:text-gray-100">Product Price</h2>
             </div>
 
             <div className="space-y-2 text-[13px] pt-1">
@@ -56,10 +56,10 @@ const PriceRangeInput: React.FC<PriceRangeInputProps> = ({
                         debouncedMinPriceUpdate(e.target.value);
                     }}
                     inputSize="sm"
-                    className="text-xs"
+                    className="text-xs bg-gray-50 text-gray-900 placeholder-gray-500 dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-400"
                     radius="full"
                     endContent={
-                        <CurrencyDollarIcon className="w-5 h-5 text-muted-foreground" />
+                        <CurrencyDollarIcon className="w-5 h-5 text-gray-400 dark:text-gray-300" />
                     }
                 />
                 <Input
@@ -72,10 +72,10 @@ const PriceRangeInput: React.FC<PriceRangeInputProps> = ({
                         debouncedMaxPriceUpdate(e.target.value);
                     }}
                     inputSize="sm"
-                    className="text-xs"
+                    className="text-xs bg-gray-50 text-gray-900 placeholder-gray-500 dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-400"
                     radius="full"
                     endContent={
-                        <CurrencyDollarIcon className="w-5 h-5 text-muted-foreground" />
+                        <CurrencyDollarIcon className="w-5 h-5 text-gray-400 dark:text-gray-300" />
                     }
                 />
             </div>

@@ -1,6 +1,5 @@
 'use client'
 
-
 import { ColorSwatchGroup } from '@/components/product'
 import { formatCurrency } from '@/lib'
 import { ProductType } from '@/types'
@@ -24,7 +23,7 @@ const SkincareProductCardTwo = ({ product }: { product: ProductType }) => {
     return (
         <div className="flex flex-col relative duration-500 product-card">
 
-            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/7 bg-gray-200">
+            <div className="!rounded-t-lg relative overflow-hidden shadow-sm group duration-500 aspect-7/7 bg-gray-200 dark:bg-gray-800">
 
                 <Image
                     src={activeImage}
@@ -47,7 +46,7 @@ const SkincareProductCardTwo = ({ product }: { product: ProductType }) => {
                 {discount && (
                     <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
                         <div className="py-2.5 px-4 inline-block font-medium align-middle duration-500 text-[12px] 
-                        text-center bg-black text-white w-full rounded-xl">
+                        text-center bg-black/80 dark:bg-gray-900 text-white w-full rounded-xl">
                             HOT SALE {discount}% OFF
                         </div>
                     </div>
@@ -55,14 +54,13 @@ const SkincareProductCardTwo = ({ product }: { product: ProductType }) => {
 
             </div>
 
-
-            <div className="!rounded-b-lg space-y-1.5 p-3 lg:p-4 bg-[#FAF8F8]">
+            <div className="!rounded-b-lg space-y-1.5 p-3 lg:p-4 bg-[#FAF8F8] dark:bg-gray-900">
 
                 {/* TITLE + COLOR SWATCH */}
                 <div className="flex items-center justify-between gap-x-3 gap-y-1">
 
                     <Link href={`/products/${id}`}
-                        className="text-xs md:!text-sm font-medium line-clamp-1 hover:text-primary">
+                        className="text-xs md:!text-sm font-medium line-clamp-1 hover:text-primary dark:text-white dark:hover:text-primary">
                         {title}
                     </Link>
 
@@ -81,15 +79,15 @@ const SkincareProductCardTwo = ({ product }: { product: ProductType }) => {
 
                     <div className="items-center flex gap-x-3 text-xs md:!text-sm font-medium">
                         <p className="text-primary">{formatCurrency(price)}</p>
-                        {oldPrice && (
-                            <p className="text-gray-400 line-through">
-                                {formatCurrency(oldPrice)}
-                            </p>
-                        )}
+                            {oldPrice && (
+                                <p className="text-gray-400 dark:text-gray-500 line-through">
+                                    {formatCurrency(oldPrice)}
+                                </p>
+                            )}
                     </div>
 
                     <div className="inline-flex items-center gap-x-1">
-                        <span className="text-xs font-medium">
+                        <span className="text-xs font-medium dark:text-gray-200">
                             {ratingAverage?.toFixed(1) ?? '0.0'}
                         </span>
                         <StarIcon className="text-yellow-500 w-4 h-4" />

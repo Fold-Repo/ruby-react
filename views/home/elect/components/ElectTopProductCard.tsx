@@ -9,9 +9,9 @@ type ElectTopProductCardProps = {
 
 const ElectTopProductCard: React.FC<ElectTopProductCardProps> = ({ product }) => {
     return (
-        <div className="group border border-gray-50 bg-white rounded-xl overflow-hidden">
+        <div className="group border border-gray-50 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
 
-            <div className="bg-gray-200 aspect-[7/5] overflow-hidden">
+            <div className="bg-gray-200 dark:bg-gray-700 aspect-[7/5] overflow-hidden">
                 <Image
                     src={product.image}
                     alt={product.name}
@@ -21,21 +21,20 @@ const ElectTopProductCard: React.FC<ElectTopProductCardProps> = ({ product }) =>
                 />
             </div>
 
-
             {/* Product Info */}
-            <div className="group-hover:bg-[#E30047] group-hover:text-white space-y-3 p-5 transition-colors duration-300">
+            <div className="group-hover:bg-[#E30047] group-hover:text-white dark:group-hover:bg-[#E30047] dark:text-gray-200 space-y-3 p-5 transition-colors duration-300">
 
-                <h2 className="font-bold">{product.name}</h2>
+                <h2 className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-white">{product.name}</h2>
 
                 <div className="flex items-center gap-4 justify-between">
 
-                    <p className="text-sm text-gray-600 group-hover:text-white">
+                    <p className="text-sm text-gray-600 dark:text-gray-200 group-hover:text-white">
                         {product.count} {product.count === 1 ? 'Item' : 'Items'}
                     </p>
 
                     <Link href="/shop/shop_features/categories_top_1">
                         <svg
-                            className="text-black group-hover:text-white"
+                            className="text-black dark:text-gray-100 group-hover:text-white"
                             width="46"
                             height="16"
                             viewBox="0 0 46 16"

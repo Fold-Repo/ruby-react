@@ -26,11 +26,10 @@ const releases = [
 const NewReleases = () => {
     return (
         <Container>
-
             <div className="grid sm:grid-cols-2 gap-4">
                 {releases.map((release) => (
                     <div key={release.id}
-                        className="lg:max-h-[300px] flex flex-col lg:flex-row border border-gray-200 rounded-xl overflow-hidden">
+                        className="lg:max-h-[300px] flex flex-col lg:flex-row border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-gray-800">
 
                         <div className="lg:w-[40%]">
                             <Image
@@ -42,15 +41,16 @@ const NewReleases = () => {
                             />
                         </div>
 
-                        <div className="lg:w-[60%] text-center space-y-4 self-center p-4 lg:p-6">
-
+                        <div className="lg:w-[60%] text-center space-y-4 self-center p-4 lg:p-6 text-gray-900 dark:text-gray-200">
                             <h2 className="font-bold text-base lg:!text-lg">{release.title}</h2>
                             <p className="text-sm">{release.description}</p>
 
-                            <Link href="/shop/shop_features/book_collection" className='flex items-center justify-center'>
+                            <Link href="/shop/shop_features/book_collection"
+                                className="flex items-center justify-center">
                                 <Button
                                     rounded="lg"
-                                    className="bg-black text-white px-8 text-xs m-auto" rightIcon={<ArrowUpRightIcon className="size-4" />}>
+                                    className="bg-black text-white dark:bg-gray-700 dark:text-white px-8 text-xs m-auto"
+                                    rightIcon={<ArrowUpRightIcon className="size-4" />}>
                                     Shop Now
                                 </Button>
                             </Link>
@@ -58,9 +58,9 @@ const NewReleases = () => {
                         </div>
 
                     </div>
+
                 ))}
             </div>
-
         </Container>
     );
 };

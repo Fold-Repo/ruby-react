@@ -32,15 +32,22 @@ const EmptyState: React.FC<EmptyStateProps> = ({
             />
 
             <div className="space-y-2 mt-6">
-                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">{title}</h2>
+                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-black dark:text-white">
+                    {title}
+                </h2>
 
                 {description && (
-                    <p className="text-sm md:text-base text-black/50">{description}</p>
+                    <p className="text-sm md:text-base text-black/50 dark:text-gray-400">
+                        {description}
+                    </p>
                 )}
 
                 {actionLabel && actionHref && (
                     <Link href={actionHref} className="flex justify-center pt-5">
-                        <Button size="md" rounded="full" className="px-12">
+                        <Button
+                            size="md"
+                            rounded="full"
+                            className="px-12 bg-primary text-white">
                             {actionLabel}
                         </Button>
                     </Link>

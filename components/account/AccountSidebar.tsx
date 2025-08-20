@@ -37,18 +37,16 @@ const navItems: NavItem[] = [
 ];
 
 const AccountSidebar: React.FC = () => {
-
     const pathname = usePathname();
 
     const activeHref = navItems
         .map((item) => item.href)
         .filter((href) => pathname.startsWith(href))
-        .sort((a, b) => b.length - a.length)[0]
+        .sort((a, b) => b.length - a.length)[0];
 
     return (
-        <div className="bg-white-smoke p-4 rounded-xl space-y-4">
+        <div className="bg-white-smoke dark:bg-gray-800 p-4 rounded-xl space-y-4">
             {navItems.map((item) => {
-
                 const isActive = item.href === activeHref;
 
                 return (
@@ -59,7 +57,7 @@ const AccountSidebar: React.FC = () => {
                             "w-full rounded-lg text-sm p-3 inline-flex items-center gap-x-2 transition-colors",
                             isActive
                                 ? "bg-primary text-white"
-                                : "bg-transparent text-black hover:bg-gray-100"
+                                : "bg-transparent text-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                         )}>
                         {item.icon}
                         <span>{item.label}</span>

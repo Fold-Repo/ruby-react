@@ -20,7 +20,7 @@ const FaqView = () => {
 
                     <div className='space-y-5'>
                         {faqData.map((faq, index) => (
-                            <Accordion key={index} title={faq.title}>
+                            <Accordion defaultOpen={index  === 1} key={index} title={faq.title}>
                                 <p className="leading-7">{faq.content}</p>
                             </Accordion>
                         ))}
@@ -44,7 +44,7 @@ const FaqView = () => {
                             <TextArea className='p-5 h-52' radius='xl' placeholder='Type your message here' />
 
                             <div className="flex justify-center !pt-2">
-                                <Button rounded='2xl' className="btn btn-primary max-w-xs w-full">Send Request</Button>
+                                <Button rounded='2xl' className="max-w-xs w-full">Send Request</Button>
                             </div>
 
                         </form>

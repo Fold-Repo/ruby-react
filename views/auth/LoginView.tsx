@@ -25,7 +25,7 @@ const LoginView = () => {
 
                             <h1 className="font-bold text-2xl 2xl:text-3xl ">Welcome Back!</h1>
 
-                            <p className="text-sm 2xl:!text-base">To keep connected with us please login with your personal info</p>
+                            <p className="text-sm 2xl:text-base">To keep connected with us please login with your personal info</p>
 
                             <Link href="/register">
                                 <Button size='sm' type='button' className='px-16' rounded='full' variant='outline_primary'>Sign Up</Button>
@@ -45,9 +45,9 @@ const LoginView = () => {
 
                             <div className="flex items-center justify-between px-2">
 
-                                <Checkbox label='Remember me' labelClassName='text-black/70' />
+                                <Checkbox label='Remember me' labelClassName='text-black/70 dark:text-gray-300' />
 
-                                <Link className="text-black underline text-sm" href="/forgot-password">Forget password?</Link>
+                                <Link className="text-black dark:text-gray-300 underline text-sm" href="/forgot-password">Forget password?</Link>
 
                             </div>
 

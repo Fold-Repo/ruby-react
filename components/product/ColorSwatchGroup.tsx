@@ -39,7 +39,7 @@ export default function ColorSwatchGroup({
                             <button
                                 {...commonProps}
                                 className={cn(
-                                    "cursor-pointer border border-gray-500 rounded-full inline-flex ring-offset-2 transition-all size-4",
+                                    "cursor-pointer border border-gray-500 rounded-full inline-flex ring-offset-2 dark:ring-offset-1 ring- transition-all size-4",
                                     isActive && "ring-1 ring-gray-400",
                                     className
                                 )}

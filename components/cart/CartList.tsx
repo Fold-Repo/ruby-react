@@ -1,14 +1,14 @@
-import React from 'react'
-import QuantitySelector from './QuantitySelector'
-import { TrashIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
-import { CartItemType } from '@/types'
-import { formatCurrency } from '@/lib'
-import { removeFromCart, updateCart } from '@/store/cartSlice'
-import { useAppDispatch } from '@/store/hooks'
+import React from 'react';
+import QuantitySelector from './QuantitySelector';
+import { TrashIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import { CartItemType } from '@/types';
+import { formatCurrency } from '@/lib';
+import { removeFromCart, updateCart } from '@/store/cartSlice';
+import { useAppDispatch } from '@/store/hooks';
 
 const CartList = ({ cart }: { cart: CartItemType }) => {
-
+    
     const { product, quantity = 0, selectedColor, selectedSize } = cart
     const { id: productId, title, images, price, stock } = product;
     const colors = 'colors' in product ? product.colors : undefined;
@@ -22,9 +22,7 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
             productId: number | string;
             selectedColor?: string;
             selectedSize?: string;
-        } = {
-            productId,
-        };
+        } = { productId };
 
         if (field === 'selectedColor') {
             payload.selectedColor = value;
@@ -38,94 +36,94 @@ const CartList = ({ cart }: { cart: CartItemType }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-gray-300 py-4 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-gray-300 dark:border-gray-700 py-4 gap-4">
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-center gap-4">
 
-                <Image width={600} height={600} src={images[0]} alt={title}
-                    className="object-cover aspect-square size-24 rounded-xl" />
+                <Image
+                    width={600}
+                    height={600}
+                    src={images[0]}
+                    alt={title}
+                    className="object-cover aspect-square size-24 rounded-xl"
+                />
 
                 <div className="flex flex-col gap-2">
-
-                    <h3 className="text-base font-semibold"> {title} </h3>
+                    
+                    <h3 className="text-base font-semibold text-black dark:text-gray-100">{title}</h3>
 
                     <div className="flex items-center flex-wrap gap-2">
-                        {Array.isArray(colors) && (
-                            <select value={selectedColor} onChange={(e) => handleUpdate('selectedColor', e.target.value)}
-                                className="form-control cursor-pointer rounded text-xs py-1.5">
-                                <option value=""> Select Color </option>
-                                {colors.map((color, index) => (
-                                    <option key={index} value={color.name}> {color.name} </option>
+                        
+                        {colors && (
+                            <select
+                                value={selectedColor}
+                                onChange={(e) => handleUpdate('selectedColor', e.target.value)}
+                                className="form-control cursor-pointer rounded text-xs py-1.5 bg-white dark:bg-gray-800 text-black dark:text-gray-100 border border-gray-300 dark:border-gray-600">
+                                <option value="">Select Color</option>
+                                {colors?.map((color, index) => (
+                                    <option key={index} value={color.name}>{color.name}</option>
                                 ))}
                             </select>
                         )}
 
                         {sizes && (
-                            <select value={selectedSize}
+                            <select
+                                value={selectedSize}
                                 onChange={(e) => handleUpdate('selectedSize', e.target.value)}
-                                className="form-control cursor-pointer rounded text-xs py-1.5">
-                                <option value=""> Select Option </option>
+                                className="form-control cursor-pointer rounded text-xs py-1.5 bg-white dark:bg-gray-800 text-black dark:text-gray-100 border border-gray-300 dark:border-gray-600">
+                                <option value="">Select Option</option>
                                 {sizes?.map((size, index) => (
-                                    <option key={index} value={size}> {size} </option>
+                                    <option key={index} value={size}>{size}</option>
                                 ))}
                             </select>
                         )}
-
                     </div>
 
-                    {typeof product.stock === 'number' && (
-                        product.stock === 0 ? (
-                            <p className="text-sm text-red-500">Out of stock</p>
-                        ) : product.stock < 5 ? (
-                            <p className="text-sm text-yellow-600">Few units left</p>
+                    {typeof stock === 'number' && (
+                        stock === 0 ? (
+                            <p className="text-sm text-red-500 dark:text-red-400">Out of stock</p>
+                        ) : stock < 5 ? (
+                            <p className="text-sm text-yellow-600 dark:text-yellow-400">Few units left</p>
                         ) : null
                     )}
 
                 </div>
-
             </div>
 
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-2 w-full pt-2 divide-y lg:divide-y-0 divide-gray-200 lg:pt-0">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-2 w-full pt-2 divide-y lg:divide-y-0 divide-gray-200 dark:divide-gray-700 lg:pt-0">
 
-                <div className="flex items-center justify-between lg:justify-center text-sm lg:text-base w-full lg:max-w-[150px] text-left sm:text-center pb-2 lg:pb-0">
+                <div className="flex items-center justify-between lg:justify-center text-sm lg:text-base w-full lg:max-w-[150px] text-left sm:text-center pb-2 lg:pb-0 text-black dark:text-gray-100">
                     <span className="block lg:hidden">Price</span>
-                    <span className="font-semibold"> {formatCurrency(price)} </span>
+                    <span className="font-semibold">{formatCurrency(price)}</span>
                 </div>
 
-                {/* Quantity */}
                 <div className="flex items-center justify-between w-full lg:justify-center text-sm lg:text-base pb-3 lg:pb-0">
-                    <span className="block lg:hidden">Quantity</span>
+                    <span className="block lg:hidden text-black dark:text-gray-100">Quantity</span>
                     <QuantitySelector
                         disabled={stock === 0}
                         value={quantity}
-                        onChange={(qty) =>
-                            dispatch(updateCart({ productId, quantity: qty }))
-                        }
+                        onChange={(qty) => dispatch(updateCart({ productId, quantity: qty }))}
                     />
                 </div>
 
-                {/* Subtotal */}
-                <div className="flex items-center justify-between lg:justify-center text-sm lg:text-base w-full lg:max-w-[200px] text-right">
-
+                <div className="flex items-center justify-between lg:justify-center text-sm lg:text-base w-full lg:max-w-[200px] text-right text-black dark:text-gray-100">
                     <span className="block lg:hidden">Subtotal</span>
-
                     <div className="inline-flex flex-col items-end space-y-1.5">
-
-                        <h3 className="font-semibold"> {formatCurrency(sub)} </h3>
-
-                        <button onClick={() => dispatch(removeFromCart(productId))} type="button" className="cursor-pointer text-red-600 font-medium text-sm flex items-center gap-1">
+                        <h3 className="font-semibold">{formatCurrency(sub)}</h3>
+                        <button
+                            onClick={() => dispatch(removeFromCart(productId))}
+                            type="button"
+                            className="cursor-pointer text-red-600 dark:text-red-400 font-medium text-sm flex items-center gap-1" >
                             <TrashIcon className="size-5" />
                             <span>Remove</span>
                         </button>
-
                     </div>
-
                 </div>
 
             </div>
 
         </div>
-    )
-}
+    );
+};
 
-export default CartList
+export default CartList;

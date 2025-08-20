@@ -25,7 +25,7 @@ const NavItem: React.FC<Props> = ({
     onItemLeave,
     onItemEnter,
 }) => {
-    
+
     const [open, setOpen] = useState(false)
     const dropdownRef = useRef<HTMLLIElement>(null)
 
@@ -43,15 +43,16 @@ const NavItem: React.FC<Props> = ({
     }
 
     const handleLinkClick = () => {
-        setOpen(false) 
+        setOpen(false)
     }
 
-    const isActive = megaMenuType && activeMegaMenuType == megaMenuType
+    const isActive = megaMenuType && activeMegaMenuType === megaMenuType
     const textColor = isActive
-        ? 'text-primary'
-        : 'text-gray-800 hover:text-primary'
+        ? 'text-[var(--primary)]'
+        : 'text-gray-800 dark:text-gray-200 group-hover:text-[var(--primary)]'
 
     const renderTrigger = () => {
+
         const baseClass = 'font-semibold flex items-center gap-1 transition-all relative'
 
         if (linkOnly || (!hasDropdown && href)) {

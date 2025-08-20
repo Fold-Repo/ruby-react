@@ -15,7 +15,7 @@ const tabContent: Record<string, { title: string; content: React.JSX.Element }> 
     terms: {
         title: "Terms",
         content: (
-            <div className="space-y-4 mt-5 text-sm">
+            <div className="space-y-2 mt-5 text-sm">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed euismod justo, sit amet
                     efficitur dui...
@@ -32,7 +32,7 @@ const tabContent: Record<string, { title: string; content: React.JSX.Element }> 
     limitations: {
         title: "Limitations",
         content: (
-            <div className="space-y-4 mt-5 text-sm">
+            <div className="space-y-2 mt-5 text-sm">
                 <p>
                     Our service is subject to certain limitations based on technology, location, and legal boundaries...
                 </p>
@@ -42,7 +42,7 @@ const tabContent: Record<string, { title: string; content: React.JSX.Element }> 
     revisions: {
         title: "Revisions and Errata",
         content: (
-            <div className="space-y-4 mt-5 text-sm">
+            <div className="space-y-2 mt-5 text-sm">
                 <p>
                     Content on our site may include errors. We reserve the right to make corrections at any time...
                 </p>
@@ -52,7 +52,7 @@ const tabContent: Record<string, { title: string; content: React.JSX.Element }> 
     modifications: {
         title: "Site Terms of Use Modifications",
         content: (
-            <div className="space-y-4 mt-5 text-sm">
+            <div className="space-y-2 mt-5 text-sm">
                 <p>
                     We may modify these terms of use without prior notice. You are responsible for reviewing them periodically...
                 </p>
@@ -62,7 +62,7 @@ const tabContent: Record<string, { title: string; content: React.JSX.Element }> 
     risks: {
         title: "Risks",
         content: (
-            <div className="space-y-4 mt-5 text-sm">
+            <div className="space-y-2 mt-5 text-sm">
                 <p>
                     Usage of this site carries inherent risks, including but not limited to data loss or service outages...
                 </p>
@@ -92,16 +92,17 @@ const TermsView = () => {
                 <div className="section-lg max-w-6xl m-auto space-y-12">
 
                     {/*  ====== TAB ======== */}
-                    <div className="bg-white-smoke rounded-lg p-3">
+                    <div className="bg-white-smoke dark:bg-gray-800 rounded-lg p-3">
                         <Tab tabs={tabItems} active={activeTab} onChange={setActiveTab} />
                     </div>
 
                     {/*  ====== TAB CONTENT ======== */}
-                    <div className="border border-black/30 p-5 rounded-lg">
+                    <div className="border border-black/30 dark:border-gray-600 p-5 rounded-lg 
+                    bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 space-y-8">
 
                         <h2 className="text-lg font-semibold">{current.title}</h2>
 
-                        {current.content}
+                            {current.content}
 
                     </div>
 

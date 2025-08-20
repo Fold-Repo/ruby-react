@@ -8,8 +8,8 @@ const WhatMakeUsDifferent = () => {
             <div className="container px-6 max-w-xl m-auto flex flex-col justify-between gap-5 h-full">
 
                 <div className="space-y-5 max-w-lg">
-                    <h2 className="text-lg lg:!text-xl font-bold">What make us different</h2>
-                    <p className="text-sm/7">
+                    <h2 className="text-lg lg:!text-xl font-bold dark:text-gray-200">What make us different</h2>
+                    <p className="text-sm/7 dark:text-gray-400">
                         We believe that quality furniture should be stylish durable,
                         and affordable, with a focus on craftsmanship, modern design
                         customer satisfaction, we bring you the best selection to
@@ -19,7 +19,7 @@ const WhatMakeUsDifferent = () => {
 
                 <div className="flex items-center gap-4">
 
-                    <div className="h-full max-w-40 space-y-20 flex flex-col justify-between bg-black p-5 rounded-xl text-white">
+                    <div className="h-full max-w-40 space-y-20 flex flex-col justify-between bg-black p-5 rounded-xl text-white dark:bg-gray-800 dark:text-gray-200">
 
                         <h5 className="text-sm">Happy Customer</h5>
 
@@ -27,7 +27,7 @@ const WhatMakeUsDifferent = () => {
 
                     </div>
 
-                    <div className="h-full max-w-40 space-y-20 flex flex-col justify-between bg-gray-200 p-5 rounded-xl text-gray-800">
+                    <div className="h-full max-w-40 space-y-20 flex flex-col justify-between bg-gray-200 p-5 rounded-xl text-gray-800 dark:bg-gray-700 dark:text-gray-200">
 
                         <h5 className="text-sm">Our Quality Product</h5>
 
@@ -48,7 +48,7 @@ const WhatMakeUsDifferent = () => {
 
                 </div>
 
-                <div className="absolute z-5 top-0 right-0 bg-black w-[70%] rounded-l-xl h-full"></div>
+                <div className="absolute z-5 top-0 right-0 bg-black dark:bg-gray-800 w-[70%] rounded-l-xl h-full"></div>
 
             </div>
 

@@ -10,45 +10,48 @@ import { useRouter } from "next/navigation";
 const getStatusColor = (status: string) => {
     switch (status) {
         case "Delivered":
-            return "text-success";
+            return "text-success dark:text-green-500";
         case "Returned":
-            return "text-red-500";
+            return "text-red-500 dark:text-red-400";
         case "Ongoing":
         default:
-            return "text-yellow-500";
+            return "text-yellow-500 dark:text-amber-400";
     }
 };
 
 const OrderCard = ({ order } : { order: OrderType }) => {
-
-    const { image, title, orderId, orderDate, status } = order
-    const router = useRouter()
+    const { image, title, orderId, orderDate, status } = order;
+    const router = useRouter();
 
     return (
-        <div className="flex items-start justify-between gap-3 border border-gray-300 p-3 rounded-xl">
+        <div className="flex items-start justify-between gap-3 border border-gray-300 dark:border-gray-600 p-3 rounded-xl">
 
             <div className="inline-flex gap-x-3 items-center">
 
-                <Image width={200} height={200} src={image} alt="Product"
+                <Image 
+                    width={200} 
+                    height={200} 
+                    src={image} 
+                    alt="Product"
                     className="w-24 rounded-lg object-cover aspect-[1/1]"
                 />
 
                 <div className="space-y-1">
 
-                    <h2 className="text-gray-800 text-base font-bold">{title}</h2>
+                    <h2 className="text-gray-800 dark:text-gray-100 text-base font-bold">{title}</h2>
 
-                    <p className="text-[13px] text-gray-500">
+                    <p className="text-[13px] text-gray-500 dark:text-gray-300">
                         Order: <span className="font-bold">{orderId}</span>
                     </p>
 
-                    <p className="text-[13px] text-gray-500">
+                    <p className="text-[13px] text-gray-500 dark:text-gray-300">
                         Status:{" "}
                         <span className={cn("font-bold", getStatusColor(status))}>
                             {status}
                         </span>
                     </p>
 
-                    <p className="text-[13px] text-gray-500">
+                    <p className="text-[13px] text-gray-500 dark:text-gray-300">
                         Order Date: <span className="font-bold">{orderDate}</span>
                     </p>
 

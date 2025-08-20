@@ -12,7 +12,6 @@ import { addToCart } from '@/store/cartSlice';
 import toast from 'react-hot-toast';
 
 const ElectronicProductCardTwo = ({ product }: { product: ProductType }) => {
-
     const dispatch = useAppDispatch()
     const { id, title, price, images = [], ratingAverage } = product;
     const productImage = images[0] || ''
@@ -23,7 +22,7 @@ const ElectronicProductCardTwo = ({ product }: { product: ProductType }) => {
     }
 
     return (
-        <div className="flex items-center gap-5 p-3 rounded-lg shadow_elect">
+        <div className="flex items-center gap-5 p-3 rounded-lg shadow_elect bg-white dark:bg-gray-800">
 
             <Image
                 src={productImage}
@@ -36,7 +35,7 @@ const ElectronicProductCardTwo = ({ product }: { product: ProductType }) => {
             <div className="w-full flex flex-col justify-between space-y-2">
 
                 <Link href={`/products/${id}`}
-                    className="text-sm font-semibold block hover:text-primary !line-clamp-1">
+                    className="text-sm font-semibold block hover:text-primary !line-clamp-1 text-gray-900 dark:text-gray-200">
                     {title}
                 </Link>
 
@@ -48,7 +47,7 @@ const ElectronicProductCardTwo = ({ product }: { product: ProductType }) => {
 
                     <button onClick={handleCart}
                         aria-label={`Add ${title} to cart`}
-                        className="cursor-pointer text-gray-700 hover:text-primary transition-colors">
+                        className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
                         <ShoppingCartIcon className="size-5" />
                     </button>
 

@@ -13,7 +13,6 @@ import { ProductActionIconsTwo } from '@/components/product';
 const ElectronicProductCard = ({ product }: { product: ProductType }) => {
 
     const { id, title, price, oldPrice, images = [], ratingAverage } = product;
-
     const productImage = images[0] || '';
 
     const discount =
@@ -22,12 +21,11 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
 
     return (
         <>
-
-            <div className="flex flex-col rounded-xl shadow_elect">
+            <div className="flex flex-col rounded-xl shadow_elect bg-white dark:bg-gray-800">
 
                 <div className="relative p-3 !pb-0 h-full rounded-lg space-y-7">
 
-                    <div className="aspect-7/5 rounded-md overflow-hidden bg-white">
+                    <div className="aspect-7/5 rounded-md overflow-hidden  dark:bg-gray-700">
 
                         <Image
                             src={productImage}
@@ -50,10 +48,11 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                     {/* ==== ACTION BUTTON ==== */}
                     <ProductActionIconsTwo product={product} />
 
+
                 </div>
 
                 {/* PRODUCT DETAILS */}
-                <div className="p-2 sm:p-4 space-y-4 text-center">
+                <div className="p-2 sm:p-4 space-y-4 text-center text-gray-900 dark:text-gray-200">
 
                     <Link href={`/products/${id}`}
                         className="text-sm lg:!text-[15px] font-bold block line-clamp-1">
@@ -65,7 +64,7 @@ const ElectronicProductCard = ({ product }: { product: ProductType }) => {
                     <div className="justify-center items-center flex gap-x-3 text-[15px] font-semibold">
                         <p>{formatCurrency(price)}</p>
                         {oldPrice && (
-                            <p className="text-gray-500 line-through text-[13px]">
+                            <p className="text-gray-500 dark:text-gray-400 line-through text-[13px]">
                                 {formatCurrency(oldPrice)}
                             </p>
                         )}

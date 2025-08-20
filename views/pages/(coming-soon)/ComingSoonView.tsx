@@ -1,3 +1,5 @@
+'use client'
+
 import { Breadcrumb, Button, Container, Input } from '@/components'
 import { EnvelopeIcon } from '@heroicons/react/24/solid'
 import React from 'react'
@@ -15,7 +17,7 @@ const ComingSoonView = () => {
                 ]}
             />
 
-            <div className="bg-black"
+            <div className="bg-black dark:bg-gray-900"
                 style={{
                     backgroundImage: "url('/img/coming_soon_cover.png')",
                     backgroundPosition: 'top',
@@ -31,41 +33,43 @@ const ComingSoonView = () => {
                             We're Launching Soon!
                         </h2>
 
-                        <p className="text-[13px]">
+                        <p className="text-[13px] text-white/80">
                             Our fashion collections are almost ready. Stay tuned and be the first to know when we go live!
                         </p>
 
                         <form className="space-y-8">
 
-                            <Input radius='lg' startContent={<EnvelopeIcon className='size-4' />}
-                                className='!bg-transparent border border-white placeholder:text-white/60 !text-white/80'
-                                type='email' name='email' placeholder='Enter email address' required />
+                            <Input radius='lg'
+                                startContent={<EnvelopeIcon className='size-4 text-white/80' />}
+                                className='bg-black/20 border border-white/30 placeholder:text-white/60 text-white/80'
+                                type='email'
+                                name='email'
+                                placeholder='Enter email address'
+                                required
+                            />
 
                             <div className="flex justify-center">
-                                <Button type="submit" rounded='2xl' className="hover:bg-white hover:text-black max-w-md w-full">
+                                <Button type="submit"
+                                    rounded='2xl'
+                                    className="hover:bg-white hover:text-black max-w-md w-full transition-colors duration-300">
                                     Notify Me
                                 </Button>
                             </div>
                         </form>
 
-                        <div className="flex items-center gap-x-6 text-lg justify-center">
-
-                            <a href="#">
+                        <div className="flex items-center gap-x-6 text-lg justify-center text-white/80">
+                            <a href="#" className="hover:text-white transition-colors">
                                 <FaFacebookF />
                             </a>
-
-                            <a href="#">
+                            <a href="#" className="hover:text-white transition-colors">
                                 <FaLinkedinIn />
                             </a>
-
-                            <a href="#">
+                            <a href="#" className="hover:text-white transition-colors">
                                 <FaInstagram />
                             </a>
-
-                            <a href="#">
+                            <a href="#" className="hover:text-white transition-colors">
                                 <FaDribbble />
                             </a>
-
                         </div>
 
                     </div>

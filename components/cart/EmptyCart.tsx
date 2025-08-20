@@ -7,18 +7,31 @@ const EmptyCart = () => {
     return (
         <div className="max-w-xl m-auto text-center">
 
-            <Image width={500} height={500} src="/img/empty_cart.svg" alt="Empty Cart" className="size-28 md:size-30 m-auto" />
+            <Image
+                width={500}
+                height={500}
+                src="/img/empty_cart.svg"
+                alt="Empty Cart"
+                className="size-28 md:size-30 m-auto"
+            />
 
             <div className="space-y-2 mt-6">
 
-                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-black dark:text-white">
                     You have not added any items to your cart.
                 </h2>
 
-                <p className="text-sm md:text-base text-black/50">Browse our categories and discover our best product</p>
+                <p className="text-sm md:text-base text-black/50 dark:text-gray-400">
+                    Browse our categories and discover our best product
+                </p>
 
                 <Link href="/shop/shop_layout" className="flex justify-center pt-5">
-                    <Button size='md' rounded='full' className='px-12'>Start Shopping</Button>
+                    <Button
+                        size='md'
+                        rounded='full'
+                        className='px-12 bg-primary text-white dark:bg-gray-700 dark:text-gray-100 hover:dark:bg-gray-600'>
+                        Start Shopping
+                    </Button>
                 </Link>
 
             </div>

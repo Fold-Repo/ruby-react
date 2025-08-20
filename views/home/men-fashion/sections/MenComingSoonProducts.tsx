@@ -16,8 +16,8 @@ const MenComingSoonProducts = () => {
                 <h2 className="text-lg font-bold">Coming Soon New Product</h2>
 
                 <div className="flex items-center gap-x-3">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="coming_soon" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="coming_soon" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="coming_soon" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="coming_soon" />
                 </div>
 
             </div>

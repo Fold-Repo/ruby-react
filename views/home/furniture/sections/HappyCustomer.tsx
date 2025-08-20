@@ -9,7 +9,7 @@ const HappyCustomer = () => {
     return (
         <div className="space-y-12 relative">
 
-            <h2 className="text-xl font-bold text-left">
+            <h2 className="text-xl font-bold text-left dark:text-gray-200">
                 Trusted by Thousands of <br /> Happy Customers
             </h2>
 
@@ -31,8 +31,8 @@ const HappyCustomer = () => {
 
                 {/* ==== NAV ==== */}
                 <div className="flex items-center justify-center m-auto gap-5 pt-8">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="testimonial" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="testimonial" />
+                    <CarouselNavButton className='bg-gray-200 text-black dark:bg-gray-700 dark:text-white' direction="prev" targetClass="testimonial" />
+                    <CarouselNavButton className='bg-gray-200 text-black dark:bg-gray-700 dark:text-white' direction="next" targetClass="testimonial" />
                 </div>
 
             </SwiperCarousel>

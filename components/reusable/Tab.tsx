@@ -38,7 +38,8 @@ export default function Tab({
 
     return (
         <div className={cn("", isRow && "overflow-x-auto")}>
-            <div className={cn(
+            <div
+                className={cn(
                     "text-sm relative",
                     isRow
                         ? "flex justify-start sm:justify-center gap-x-4 sm:gap-x-6 whitespace-nowrap"
@@ -54,7 +55,9 @@ export default function Tab({
                             className={cn(
                                 "relative inline-flex items-center gap-x-2 transition-colors duration-300 cursor-pointer",
                                 isRow ? "px-1" : "py-1 pl-3",
-                                isActive ? "text-primary !font-semibold" : "text-gray-600 hover:text-primary"
+                                isActive
+                                    ? "text-primary dark:text-primary !font-semibold"
+                                    : "text-gray-600 dark:text-gray-300 hover:text-primary"
                             )}>
                             <span className="relative z-10">{tab.title}</span>
 

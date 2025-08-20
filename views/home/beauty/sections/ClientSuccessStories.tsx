@@ -29,8 +29,8 @@ const ClientSuccessStories = () => {
 
                 {/* ==== NAV ==== */}
                 <div className="flex items-center justify-center m-auto gap-5 pt-8">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="testimonial" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="testimonial" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="testimonial" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="testimonial" />
                 </div>
 
             </SwiperCarousel>

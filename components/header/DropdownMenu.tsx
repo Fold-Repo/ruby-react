@@ -9,12 +9,12 @@ type DropdownMenuProps = {
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, onLinkClick }) => {
     return (
-        <div className="absolute -left-4 top-18 rounded-lg w-44 bg-white z-50 shadow-lg text-start">
-            <ul className="py-2 font-medium text-[13px] text-gray-700">
+        <div className="absolute -left-4 top-18 rounded-lg w-44 bg-white dark:bg-gray-800">
+            <ul className="py-2 font-medium text-[13px] text-gray-700 dark:text-gray-200">
                 {items.map((item) => (
                     <li key={item.href}>
                         <Link href={item.href}
-                            className="block px-4 py-2 rounded hover:bg-gray-100"
+                            className="block px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-900"
                             onClick={onLinkClick}>
                             {item.label}
                         </Link>
@@ -25,4 +25,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, onLinkClick }) => {
     );
 };
 
+
+
 export default DropdownMenu;
+

@@ -18,13 +18,13 @@ const CustomerFeedbacksView = () => {
 
             <Container>
 
-                <div className="section-lg space-y-20">
+                <div className="section-lg space-y-20 text-white">
 
                     <div className="space-y-10">
 
                         <div className="text-center space-y-2">
                             <h1 className="font-bold text-lg lg:text-xl text-center text-primary">What Our Customers Are Saying</h1>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-sm text-gray-400 dark:text-gray-300">
                                 Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
                                 aliquet odio mattis.
                             </p>
@@ -39,15 +39,16 @@ const CustomerFeedbacksView = () => {
                                 />
                             ))}
 
-
                         </div>
 
-                        <Pagination total={100} perPage={10} />
+                        <Pagination total={100} perPage={10} className="text-white" /> 
 
                     </div>
 
                     {/* ========== Send us Feedbacks ============ */}
-                    <FeedBackForm />
+                    <div className="bg-gray-900 p-6 rounded-xl">
+                        <FeedBackForm  /> 
+                    </div>
 
                 </div>
 

@@ -8,7 +8,7 @@ const PersonalInfo = () => {
 
       <div className="flex items-center gap-3 justify-between">
 
-        <h2 className="text-gray-800 text-base font-bold">Personal Information</h2>
+        <h2 className="text-gray-800 dark:text-gray-100 text-base font-bold">Personal Information</h2>
 
         <button className="inline-flex items-center gap-1 text-primary font-medium text-sm cursor-pointer">
           <PencilIcon className='size-4' />

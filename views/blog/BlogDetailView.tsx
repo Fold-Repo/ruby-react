@@ -48,7 +48,7 @@ const BlogDetailsTwoView = ({ postId }: { postId: number | string }) => {
                                     comments={commentsCount}
                                 />
 
-                                <p className="text-sm">
+                                <p className="text-sm leading-7">
                                     {content}
                                 </p>
 
@@ -61,7 +61,7 @@ const BlogDetailsTwoView = ({ postId }: { postId: number | string }) => {
                                     {title}
                                 </h1>
 
-                                <p className="text-sm">
+                                <p className="text-sm leading-7">
                                     {description}
                                 </p>
 

@@ -22,9 +22,10 @@ const OrderView = () => {
         <>
 
             {/*  ====== TAB ======== */}
-            <div className="bg-white-smoke rounded-lg p-4">
-                <Tab tabs={tabItems} active={activeTab} onChange={setActiveTab} />
+            <div className="bg-white-smoke dark:bg-gray-800 rounded-lg p-4">
+                <Tab tabs={tabItems} active={activeTab} onChange={setActiveTab} className="dark:text-white" />
             </div>
+
 
             <div className="space-y-4">
                 {filteredOrders.map((order, index) => (

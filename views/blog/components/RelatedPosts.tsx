@@ -9,13 +9,13 @@ const RelatedPosts = ({ postId }: { postId: number | string }) => {
 
     const { response: posts = [], isLoading } = useGetRelatedPosts(postId)
 
-    if (!posts) return null;
+    if (!isLoading && (!posts || posts.length === 0)) return null;
 
     return (
         <div className="mt-20 overflow-hidden">
 
             <div className="max-w-xl m-auto text-center space-y-2 mb-12">
-                <h1 className="font-bold text-base lg:text-lg">Related Blog</h1>
+                <h1 className="font-bold text-base lg:text-lg">Related Posts</h1>
                 <p className="text-sm">Discover the Hottest Fashion News and Trends Straight from the Runway</p>
             </div>
 

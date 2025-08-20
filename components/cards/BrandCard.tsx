@@ -16,10 +16,10 @@ const BrandCard = ({ brand }: { brand: BrandType }) => {
             />
 
             <Link href={`/brand/${brand.id}`}
-                className="text-sm md:text-base hover:text-primary font-semibold">
+                className="text-sm md:text-base font-semibold text-gray-800 dark:text-gray-200 hover:text-primary transition-colors">
                 {brand.name}
             </Link>
-            
+
         </div>
     );
 };

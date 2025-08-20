@@ -32,8 +32,9 @@ export default function Accordion({
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className={cn(
-                    'flex w-full items-center justify-between border-b border-black/30 pb-3 text-left font-semibold text-gray-600 cursor-pointer',
-                    isOpen && 'text-black', buttonClassName 
+                    'flex w-full items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-3 text-left font-semibold text-gray-600 dark:text-gray-300 cursor-pointer',
+                    isOpen && 'text-black dark:text-white',
+                    buttonClassName 
                 )}>
                 <span>{title}</span>
                 <ChevronDownIcon className={cn('h-5 w-5 transform transition-transform duration-300', isOpen && 'rotate-180')}/>
@@ -48,14 +49,12 @@ export default function Accordion({
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden">
-
                         <div className={cn(
-                                'mt-4 rounded-lg border border-black/30 p-4 text-sm lg:text-base text-gray-800',
+                                'mt-4 rounded-lg border border-gray-300 dark:border-gray-700 p-4 text-sm lg:text-base text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800',
                                 contentClassName
                             )}>
                             {children}
                         </div>
-
                     </motion.div>
                 )}
             </AnimatePresence>

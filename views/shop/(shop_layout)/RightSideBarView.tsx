@@ -74,7 +74,7 @@ const RightSideBarView = () => {
 
             </div>
 
-            <div className="hidden lg:block col-span-3 bg-white">
+            <div className="hidden lg:block col-span-3 bg-white dark:bg-gray-900 p-2">
 
               <Filterbar data={filterData} />
 

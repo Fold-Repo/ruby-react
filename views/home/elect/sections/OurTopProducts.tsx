@@ -18,8 +18,8 @@ const OurTopProducts = () => {
                 <h2 className="text-lg font-bold">Top Categories</h2>
 
                 <div className="flex items-center gap-x-3">
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="prev" targetClass="top_products" />
-                    <CarouselNavButton className='bg-gray-200 text-black' direction="next" targetClass="top_products" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="prev" targetClass="top_products" />
+                    <CarouselNavButton className='bg-gray-200 dark:bg-gray-700 text-black dark:text-white' direction="next" targetClass="top_products" />
                 </div>
 
             </div>

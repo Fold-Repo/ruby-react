@@ -41,20 +41,20 @@ const ExploreCollection = () => {
     return (
         <Container>
             <div className="space-y-10">
-                
-                <h2 className="text-lg font-bold">Explore Our Collections</h2>
+
+                <h2 className="text-lg font-bold dark:text-white">Explore Our Collections</h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
                     {/* Bedroom Collection (Main) */}
                     {collections.filter(item => item.isMain).map((item, index) => (
-                        <div key={index} className={`${item.span} bg-light-pink p-2 rounded-xl flex flex-col justify-between gap-y-5 h-full`}>
+                        <div key={index} className={`${item.span} bg-light-pink dark:bg-gray-800 p-2 rounded-xl flex flex-col justify-between gap-y-5 h-full`}>
                             <div className="p-5 space-y-4">
-                                <Link href="/shop/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 text-sm md:!text-base font-semibold">
+                                <Link href="/shop/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 dark:text-gray-200 text-sm md:!text-base font-semibold">
                                     {item.title} <br />
                                     <span className="px-5">{item.subtitle}</span>
                                 </Link>
-                                <p className="text-gray-500 text-sm">{item.desc}</p>
+                                <p className="text-gray-500 dark:text-gray-300 text-sm">{item.desc}</p>
                             </div>
                             <Image
                                 src={item.image}
@@ -73,9 +73,9 @@ const ExploreCollection = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                             {collections.slice(1, 3).map((item, index) => (
                                 <div key={index}
-                                    className={`${item.span || ''} bg-light-pink p-2 rounded-xl flex ${item.reverse ? 'flex-col lg:flex-row' : 'flex-col'} justify-between gap-4 overflow-hidden`}>
+                                    className={`${item.span || ''} bg-light-pink dark:bg-gray-800 p-2 rounded-xl flex ${item.reverse ? 'flex-col lg:flex-row' : 'flex-col'} justify-between gap-4 overflow-hidden`}>
                                     <div className="p-5 space-y-4">
-                                        <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 text-sm md:!text-base font-semibold">
+                                        <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 dark:text-gray-200 text-sm md:!text-base font-semibold">
                                             {item.title} <br />
                                             <span className="px-5">{item.subtitle}</span>
                                         </Link>
@@ -96,7 +96,7 @@ const ExploreCollection = () => {
                             {collections.slice(3).map((item, index) => {
                                 if (item.wide) {
                                     return (
-                                        <div key={index} className="sm:col-span-1 lg:col-span-2 bg-light-pink p-2 rounded-xl flex flex-col lg:flex-row justify-between">
+                                        <div key={index} className="sm:col-span-1 lg:col-span-2 bg-light-pink dark:bg-gray-800 p-2 rounded-xl flex flex-col lg:flex-row justify-between">
                                             <Image
                                                 src={item.image}
                                                 alt={item.title}
@@ -105,7 +105,7 @@ const ExploreCollection = () => {
                                                 className="w-full lg:max-w-[65%] rounded-lg object-cover"
                                             />
                                             <div className="p-5 space-y-4">
-                                                <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 text-sm md:!text-base font-semibold">
+                                                <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 dark:text-gray-200 text-sm md:!text-base font-semibold">
                                                     {item.title} <br />
                                                     <span className="px-5">{item.subtitle}</span>
                                                 </Link>
@@ -115,9 +115,9 @@ const ExploreCollection = () => {
                                 }
 
                                 return (
-                                    <div key={index} className="bg-light-pink p-2 rounded-xl flex flex-col justify-between gap-y-5">
+                                    <div key={index} className="bg-light-pink dark:bg-gray-800 p-2 rounded-xl flex flex-col justify-between gap-y-5">
                                         <div className="p-5">
-                                            <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 text-sm md:!text-base font-semibold">
+                                            <Link href="/shop_features/shop_collection/" className="block hover:text-primary text-gray-700 dark:text-gray-200 text-sm md:!text-base font-semibold">
                                                 {item.title} <br />
                                                 <span className="px-5">{item.subtitle}</span>
                                             </Link>
