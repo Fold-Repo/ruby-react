@@ -35,53 +35,61 @@ export default function ColorSwatchGroup({
 
                 return (
                     <li key={color.hex}>
+                        {/* Circle Variant */}
                         {variant === "circle" && (
                             <button
                                 {...commonProps}
                                 className={cn(
-                                    "cursor-pointer border border-gray-500 rounded-full inline-flex ring-offset-2 dark:ring-offset-1 ring- transition-all size-4",
-                                    isActive && "ring-1 ring-gray-400",
+                                    "cursor-pointer border border-gray-400 dark:border-gray-600 rounded-full inline-flex ring-offset-2 dark:ring-offset-gray-900 transition-all size-4",
+                                    isActive && "ring-1 ring-gray-400 dark:ring-gray-200",
                                     className
                                 )}
                                 style={{
                                     backgroundColor: color.hex,
-                                    ...(isActive ? { '--tw-ring-color': color.hex } : {}),
+                                    ...(isActive ? { "--tw-ring-color": color.hex } : {}),
                                 }}
                             />
                         )}
 
+                        {/* Label Variant */}
                         {variant === "label" && (
                             <button
                                 {...commonProps}
                                 className={cn(
-                                    "px-5 py-1.5 border border-gray-300 rounded-full inline-flex text-xs cursor-pointer",
-                                    isActive && "bg-black text-white",
+                                    "px-5 py-1.5 border border-gray-300 dark:border-gray-600 rounded-full inline-flex text-xs cursor-pointer text-gray-700 dark:text-gray-200",
+                                    isActive &&
+                                        "bg-black text-white dark:bg-white dark:text-black",
                                     className
                                 )}>
                                 {color.name}
                             </button>
                         )}
 
+                        {/* Label + Color Variant */}
                         {variant === "label-color" && (
                             <button
                                 {...commonProps}
                                 className={cn(
-                                    " items-center gap-x-2 pl-3 pr-2 py-1.5 border border-gray-300 rounded-full inline-flex text-xs cursor-pointer",
-                                    isActive && "bg-black text-white",
+                                    "items-center gap-x-2 pl-3 pr-2 py-1.5 border border-gray-300 dark:border-gray-600 rounded-full inline-flex text-xs cursor-pointer text-gray-700 dark:text-gray-200",
+                                    isActive &&
+                                        "bg-black text-white dark:bg-white dark:text-black",
                                     className
                                 )}>
                                 {color.name}
-                                <div className="size-4 border border-white rounded-full"
+                                <div
+                                    className="size-4 border border-white dark:border-gray-800 rounded-full"
                                     style={{ backgroundColor: color.hex }}
                                 />
                             </button>
                         )}
 
+                        {/* Image Variant */}
                         {variant === "image" && color.image && (
-                            <button {...commonProps}
+                            <button
+                                {...commonProps}
                                 className={cn(
                                     "inline-flex rounded-lg overflow-hidden cursor-pointer",
-                                    isActive && "border border-primary",
+                                    isActive && "ring ring-offset-2 ring-primary",
                                     className
                                 )}>
                                 <Image
@@ -93,12 +101,13 @@ export default function ColorSwatchGroup({
                             </button>
                         )}
 
+                        {/* Image Round Variant */}
                         {variant === "image-round" && color.image && (
                             <button
                                 {...commonProps}
                                 className={cn(
-                                    " inline-flex rounded-full overflow-hidden cursor-pointer",
-                                    isActive && "border border-primary",
+                                    "inline-flex rounded-full overflow-hidden cursor-pointer",
+                                    isActive && "ring ring-offset-2 ring-primary",
                                     className
                                 )}>
                                 <Image

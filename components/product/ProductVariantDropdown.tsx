@@ -43,12 +43,15 @@ export default function ProductVariantDropdown({
 
     return (
         <div ref={dropdownRef} className={cn("relative", className)}>
-
+    
             <button
                 type="button"
                 onClick={() => setOpen((prev) => !prev)}
-                className="cursor-pointer inline-flex items-center justify-between border 
-                border-gray-300 rounded-lg w-full py-2 px-3 gap-x-2 text-xs">
+                className="cursor-pointer inline-flex items-center justify-between 
+                border border-gray-300 dark:border-gray-600 
+                bg-white dark:bg-gray-800 
+                text-gray-800 dark:text-gray-200
+                rounded-lg w-full py-2.5 px-3 gap-x-2 text-xs">
                 <span className="flex items-center gap-x-2">
                     {variant === "image" && selected?.image && (
                         <Image
@@ -56,28 +59,36 @@ export default function ProductVariantDropdown({
                             alt={selected.label}
                             width={20}
                             height={20}
-                            className="w-5 h-5 rounded object-cover"
+                            className="size-5 rounded object-cover"
                         />
                     )}
                     {selected?.label || placeholder}
                 </span>
-                <ChevronDownIcon className="w-4 h-4 text-gray-500" />
+                <ChevronDownIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
             </button>
 
+   
             {open && (
-                <div className="absolute left-0 top-full z-10 mt-1 w-full bg-white rounded-md shadow-lg p-1.5 max-h-64 overflow-y-auto">
-                    <ul className="text-sm text-gray-700 font-medium space-y-1">
+                <div
+                    className="absolute left-0 top-full z-10 mt-1 w-full 
+                    bg-white dark:bg-gray-800 
+                    rounded-md shadow-lg dark:shadow-none 
+                    p-1.5 max-h-64 overflow-y-auto">
+                    <ul className="text-sm text-gray-700 dark:text-gray-200 font-medium space-y-1">
                         {options.map((option) => {
                             const isActive = option.value === selected?.value;
                             return (
-                                <li key={option.value} onClick={() => {
-                                    onChange(option);
-                                    setOpen(false);
-                                }} className={cn(
-                                    "flex items-center justify-between gap-2 py-1.5 px-3 rounded-md text-xs hover:bg-gray-100 cursor-pointer",
-                                    isActive && "bg-gray-100"
-                                )}>
-
+                                <li
+                                    key={option.value}
+                                    onClick={() => {
+                                        onChange(option);
+                                        setOpen(false);
+                                    }}
+                                    className={cn(
+                                        "flex items-center justify-between gap-2 py-1.5 px-3 rounded-md text-xs cursor-pointer",
+                                        "hover:bg-gray-100 dark:hover:bg-gray-700",
+                                        isActive && "bg-gray-100 dark:bg-gray-700"
+                                    )}>
                                     <div className="flex items-center gap-2">
                                         {variant === "image" && option.image && (
                                             <Image

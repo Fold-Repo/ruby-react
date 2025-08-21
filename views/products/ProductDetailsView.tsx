@@ -89,7 +89,7 @@ const ProductDetailsView = ({ productId } : { productId: string | number }) => {
                                         {title}
                                     </h1>
 
-                                    <p className="text-slate-500 md:block hidden text-[15px]">
+                                    <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
                                         {description}
                                     </p>
 
@@ -197,7 +197,7 @@ const ProductDetailsView = ({ productId } : { productId: string | number }) => {
 
                                 <div className='space-y-7'>
 
-                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 text-gray-800 pb-3">Customers Reviews</div>
+                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 pb-3">Customers Reviews</div>
 
                                     <ProductReview ratingAverage={ratingAverage} ratingsBreakdown={ratingsBreakdown} reviews={reviews} />
 
@@ -205,7 +205,7 @@ const ProductDetailsView = ({ productId } : { productId: string | number }) => {
 
                                 <div className='space-y-7'>
 
-                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 text-gray-800 pb-3">Description</div>
+                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 pb-3">Description</div>
 
                                     <ProductDesc desc={description} />
 
@@ -213,7 +213,7 @@ const ProductDetailsView = ({ productId } : { productId: string | number }) => {
 
                                 <div className='space-y-7'>
 
-                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 text-gray-800 pb-3">Return Policies</div>
+                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 pb-3">Return Policies</div>
 
                                     <ProductsPolicy />
 
@@ -221,7 +221,7 @@ const ProductDetailsView = ({ productId } : { productId: string | number }) => {
 
                                 <div className='space-y-7'>
 
-                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 text-gray-800 pb-3">Return Policies</div>
+                                    <div className="text-base md:text-lg font-bold border-b border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 pb-3">Return Policies</div>
 
                                     <ShippingAndReturn />
 

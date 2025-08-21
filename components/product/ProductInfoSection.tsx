@@ -34,11 +34,11 @@ interface ProductInfoSectionProps {
 }
 
 const ICON_MAP: Partial<Record<InfoType, React.ReactNode>> = {
-    pickup: <RiMapPinLine className="text-lg text-gray-700" />,
-    delivery: <RiTruckLine className="text-lg text-gray-700" />,
-    return: <RiArrowGoBackLine className="text-lg text-gray-700" />,
-    store: <RiErrorWarningFill className="text-lg text-gray-700" />,
-    question: <RiQuestionLine className="text-lg text-gray-700" />,
+    pickup: <RiMapPinLine className="text-lg text-gray-700 dark:text-gray-300" />,
+    delivery: <RiTruckLine className="text-lg text-gray-700 dark:text-gray-300" />,
+    return: <RiArrowGoBackLine className="text-lg text-gray-700 dark:text-gray-300" />,
+    store: <RiErrorWarningFill className="text-lg text-gray-700 dark:text-gray-300" />,
+    question: <RiQuestionLine className="text-lg text-gray-700 dark:text-gray-300" />,
 };
 
 const DEFAULT_LABELS: Record<InfoType, string> = {
@@ -54,7 +54,6 @@ const DEFAULT_LABELS: Record<InfoType, string> = {
 };
 
 const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({ data }) => {
-
     const generalTypes: InfoType[] = ['pickup', 'delivery', 'return', 'store', 'question'];
     const detailsTypes: InfoType[] = ['sku', 'vendor', 'available', 'categories'];
 
@@ -62,11 +61,12 @@ const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({ data }) => {
     const detailData = data.filter((item) => detailsTypes.includes(item.type));
 
     return (
-        <div className="divide-y divide-gray-300 pt-2">
+        <div className="divide-y divide-gray-300 dark:divide-gray-700 pt-2">
 
+            {/* General Info */}
             <div className="flex flex-col space-y-4 py-4">
                 {generalData.map((item, index) => (
-                    <p key={index} className="text-sm inline-flex flex-wrap items-start gap-x-2 gap-y-1">
+                    <p key={index} className="text-sm inline-flex flex-wrap items-start gap-x-2 gap-y-1 text-gray-800 dark:text-gray-200">
                         <span className="inline-flex items-center gap-2 font-bold">
                             {ICON_MAP[item.type]}
                             {item.label ?? DEFAULT_LABELS[item.type]}
@@ -76,7 +76,11 @@ const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({ data }) => {
                                 <>
                                     {item.value}{' '}
                                     {item.href && (
-                                        <Link target='_blank' href={item.href} className="underline font-semibold">
+                                        <Link
+                                            target='_blank'
+                                            href={item.href}
+                                            className="underline font-semibold text-blue-600 dark:text-blue-400"
+                                        >
                                             Click Here
                                         </Link>
                                     )}
@@ -89,9 +93,10 @@ const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({ data }) => {
                 ))}
             </div>
 
+            {/* Detail Info */}
             <div className="flex flex-col space-y-3 py-4">
                 {detailData.map((item, index) => (
-                    <p key={index} className="text-sm inline-flex flex-wrap items-start gap-x-2 gap-y-1">
+                    <p key={index} className="text-sm inline-flex flex-wrap items-start gap-x-2 gap-y-1 text-gray-800 dark:text-gray-200">
                         <span className="inline-flex items-center gap-2 font-bold">
                             {item.label ?? DEFAULT_LABELS[item.type]}
                         </span>
@@ -99,8 +104,8 @@ const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({ data }) => {
                     </p>
                 ))}
 
-
-                <p className="text-sm inline-flex items-center gap-2 flex-wrap">
+                {/* Payment System */}
+                <p className="text-sm inline-flex items-center gap-2 flex-wrap text-gray-800 dark:text-gray-200">
                     <span className="inline-flex items-center gap-2 font-bold">
                         Payment System Checkout:
                     </span>

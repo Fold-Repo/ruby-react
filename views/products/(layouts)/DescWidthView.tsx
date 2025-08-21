@@ -93,9 +93,9 @@ const DescWidthView = () => {
                     {title}
                   </h1>
 
-                  <p className="text-slate-500 md:block hidden text-[15px]">
-                    {description}
-                  </p>
+                  <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
+                                        {description}
+                                    </p>
 
                   {stock !== undefined && (
                     <div className="border border-gray-300 rounded-full py-1.5 text-sm px-3 max-w-max">

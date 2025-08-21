@@ -69,7 +69,7 @@ const FreqBoughtCard = ({ product, onChange, showQuantity = false }: FreqBoughtC
                 <div className="flex items-center justify-between gap-5">
 
                     <Link href={`/products/${id}`} 
-                        className="hover:text-primary text-sm font-semibold block !line-clamp-1 text-gray-800 dark:text-gray-200">
+                        className="text-sm font-semibold block !line-clamp-1 text-gray-800 dark:text-gray-200 hover:text-primary transition-colors">
                         {title}
                     </Link>
 

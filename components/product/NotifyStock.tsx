@@ -11,7 +11,7 @@ const NotifyStock = ({ productId } : { productId?: string }) => {
 
             <div className="space-y-1.5">
                 <h2 className="font-semibold text-base">Notify when in Stock</h2>
-                <p className="text-gray-600 text-sm">Email your register to receive notifications when  products are in stock</p>
+                <p className="text-gray-600 text-sm dark:text-gray-400">Email your register to receive notifications when  products are in stock</p>
             </div>
 
             <div className="space-y-4">
