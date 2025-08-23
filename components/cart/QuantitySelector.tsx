@@ -6,7 +6,7 @@ interface Props {
     value: number;
     onChange: (value: number) => void;
     disabled?: boolean;
-    size?: 'sm' | 'md'; // New size prop
+    size?: 'sm' | 'md'; 
 }
 
 export default function QuantitySelector({

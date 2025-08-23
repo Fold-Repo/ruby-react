@@ -101,7 +101,7 @@ const CustomerNoteView = () => {
                                         {title}
                                     </h1>
 
-                                    <p className="text-slate-500 md:block hidden text-[15px]">
+                                    <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
                                         {description}
                                     </p>
 

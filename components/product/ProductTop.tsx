@@ -57,17 +57,17 @@ const ProductTop = ({ loading, product }: { loading: boolean; product: ProductTy
                 <div className="max-w-lg space-y-1">
 
                     <Link href={`/products/${id}`} 
-                        className="hover:text-primary text-sm sm:!text-base md:!text-lg font-medium block !line-clamp-1">
+                        className="hover:text-primary text-sm sm:!text-base md:!text-lg font-medium block !line-clamp-1 dark:text-white">
                         {title}
                     </Link>
 
-                    <p className="text-slate-500 md:block hidden text-[15px] !line-clamp-2">
+                    <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6 !line-clamp-2 dark:text-slate-400">
                         {description}
                     </p>
 
                     <div className="items-center flex gap-x-3 text-base font-semibold">
-                        <p className="text-primary">{formatCurrency(price)}</p>
-                        {oldPrice && <p className="text-gray-400 line-through">{formatCurrency(oldPrice)}</p>}
+                        <p className="text-primary dark:text-primary">{formatCurrency(price)}</p>
+                        {oldPrice && <p className="text-gray-400 line-through dark:text-gray-500">{formatCurrency(oldPrice)}</p>}
                     </div>
 
                 </div>
@@ -78,29 +78,30 @@ const ProductTop = ({ loading, product }: { loading: boolean; product: ProductTy
 
                 {sizes && (
                     <Select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}
-                        formGroupClass='mb-0' radius='xl' className='bg-transparent border border-primary text-xs'
+                        formGroupClass='mb-0' radius='xl' className='bg-transparent border border-primary text-xs 
+                        dark:text-white dark:border-gray-600'
                         inputSize='sm' name='size'>
-                        <option value=""> Select Size </option>
+                        <option className='dark:text-gray-700' value=""> Select Size </option>
                         {sizes?.map((size, index) => (
-                            <option key={index} value={size}> {size} </option>
+                            <option className='dark:text-gray-700' key={index} value={size}> {size} </option>
                         ))}
                     </Select>
                 )}
 
                 {colors && (
                     <Select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}
-                        formGroupClass='mb-0' radius='xl' className='bg-transparent border border-primary text-xs'
+                        formGroupClass='mb-0' radius='xl' className='bg-transparent border border-primary text-xs dark:text-white dark:border-gray-600'
                         inputSize='sm' name='color'>
-                        <option value=""> Select Color </option>
+                        <option className='dark:text-gray-700' value=""> Select Color </option>
                         {colors?.map((color, index) => (
-                            <option key={index} value={color.name}> {color.name} </option>
+                            <option className='dark:text-gray-700' key={index} value={color.name}> {color.name} </option>
                         ))}
                     </Select>
                 )}
 
                 <QuantitySelector value={qty} onChange={setQty} />
 
-                <Button onClick={handleCart} rounded='xl' className='h-10 !text-xs px-12'>Add to cart</Button>
+                <Button onClick={handleCart} rounded='xl' className='h-10 !text-xs px-12 dark:bg-primary dark:text-white'>Add to cart</Button>
 
             </div>
 

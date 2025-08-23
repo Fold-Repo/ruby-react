@@ -94,7 +94,7 @@ const OutStockView = () => {
 
                                     </div>
 
-                                    <p className="text-slate-500 md:block hidden text-[15px]">
+                                    <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
                                         {description}
                                     </p>
 
@@ -163,6 +163,8 @@ const OutStockView = () => {
 
                                     </div>
 
+                                    <NotifyStock productId={id} />
+
                                     <ProductInfoSection
                                         data={[
                                             { type: 'pickup', value: 'At shop location, Usually ready in 12 hours' },
@@ -196,8 +198,6 @@ const OutStockView = () => {
                                         ].filter(Boolean) as any} />
 
                                 </div>
-
-                                <NotifyStock productId={id} />
 
                             </div>
 

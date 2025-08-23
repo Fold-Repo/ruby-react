@@ -36,8 +36,10 @@ const Combo = ({ product, onChange }: Props) => {
     }
 
     return (
-        <div className="border border-gray-300 p-3 md:p-4 rounded-lg">
-            <h1 className="text-sm md:text-base font-bold block">Combo Offers</h1>
+        <div className="border border-gray-300 dark:border-gray-600 p-3 md:p-4 rounded-lg bg-white dark:bg-gray-900">
+            <h1 className="text-sm md:text-base font-bold block text-gray-800 dark:text-gray-100">
+                Combo Offers
+            </h1>
 
             <div className="mt-3 space-y-3">
                 {comboOptions.map(option => {
@@ -50,26 +52,29 @@ const Combo = ({ product, onChange }: Props) => {
                         <div
                             key={option.id}
                             onClick={() => handleClick(option.id)}
-                            className={`flex md:items-center flex-wrap gap-y-3 gap-x-3 justify-between p-3 text-sm rounded-lg cursor-pointer transition border ${isSelected ? 'border-primary bg-primary/5' : 'border-gray-300'
-                                }`}>
+                            className={`flex md:items-center flex-wrap gap-y-3 gap-x-3 justify-between p-3 text-sm rounded-lg cursor-pointer transition border ${
+                                isSelected
+                                    ? 'border-primary bg-primary/5 dark:bg-primary/10'
+                                    : 'border-gray-300 dark:border-gray-600'
+                            }`}>
                             <div className="inline-flex items-center gap-2">
                                 <Checkbox checked={isSelected} />
-                                <span className="font-semibold">
+                                <span className="font-semibold text-gray-800 dark:text-gray-200">
                                     Buy {option.quantity} get {option.discountPercent}% off
                                 </span>
                             </div>
 
                             <h5>
-                                <span className="text-gray-600">Total: </span>
-                                <span className="font-semibold">
+                                <span className="text-gray-600 dark:text-gray-400">Total: </span>
+                                <span className="font-semibold text-gray-900 dark:text-gray-100">
                                     {discountedPrice.toFixed(2)}
                                 </span>
                             </h5>
 
                             <div className="inline-flex items-center gap-2">
                                 <h5>
-                                    <span className="text-gray-600">Discount: </span>
-                                    <span className="font-semibold line-through">
+                                    <span className="text-gray-600 dark:text-gray-400">Discount: </span>
+                                    <span className="font-semibold line-through text-gray-500 dark:text-gray-400">
                                         {totalPrice.toFixed(2)}
                                     </span>
                                 </h5>

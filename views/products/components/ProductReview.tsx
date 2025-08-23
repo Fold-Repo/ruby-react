@@ -4,7 +4,7 @@ import { ProductReviewType, RatingBreakdownType } from '@/types';
 import React, { useState } from 'react'
 
 const ProductReview = ({ ratingsBreakdown, reviews, ratingAverage }:
-    { ratingsBreakdown: RatingBreakdownType; reviews: ProductReviewType[]; ratingAverage: number;}) => {
+    { ratingsBreakdown: RatingBreakdownType; reviews: ProductReviewType[]; ratingAverage: number; }) => {
 
     const [selectedSort, setSelectedSort] = useState('')
 
@@ -21,15 +21,19 @@ const ProductReview = ({ ratingsBreakdown, reviews, ratingAverage }:
         <div className="space-y-5">
 
             <div className="flex items-center justify-between gap-3">
+                <h2 className="font-semibold text-base md:text-lg text-gray-800 dark:text-gray-200">
+                    Ruby
+                </h2>
 
-                <h2 className="font-semibold text-base md:text-lg">Ruby </h2>
-
-                <Dropdown className='z-50' label="Sort by:"
+                <Dropdown
+                    className="z-50"
+                    label="Sort by:"
                     options={[
                         { label: 'Most Recent', value: 'recent' },
-                    ]} selected={selectedSort} onSelect={(value) => setSelectedSort(value)}
+                    ]}
+                    selected={selectedSort}
+                    onSelect={(value) => setSelectedSort(value)}
                 />
-
             </div>
 
             <RatingBreakdown
@@ -39,8 +43,7 @@ const ProductReview = ({ ratingsBreakdown, reviews, ratingAverage }:
             />
 
             <div className="space-y-5">
-
-                <h1 className="font-bold text-sm lg:!text-base">
+                <h1 className="font-bold text-sm lg:!text-base text-gray-900 dark:text-gray-100">
                     Customers Comments
                 </h1>
 
@@ -58,10 +61,10 @@ const ProductReview = ({ ratingsBreakdown, reviews, ratingAverage }:
                         />
                     ))
                 ) : (
-                    <p className="text-gray-500 text-sm">No reviews yet.</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                        No reviews yet.
+                    </p>
                 )}
-
-
             </div>
 
         </div>

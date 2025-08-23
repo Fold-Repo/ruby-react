@@ -60,7 +60,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -5 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full mt-2 rounded-lg min-w-48 p-1 bg-white dark:bg-gray-800 z-10 shadow-lg origin-top">
+                        className="absolute left-0 top-full mt-2 rounded-lg min-w-48 p-1 bg-white dark:bg-gray-600 z-10 shadow-lg origin-top">
 
                         <ul className="py-1 font-medium text-[12px] text-gray-700 dark:text-gray-200">
                             {options.map(({ label, value }) => (

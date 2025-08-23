@@ -90,7 +90,7 @@ const DescAccordionView = () => {
                     {title}
                   </h1>
 
-                  <p className="text-slate-500 md:block hidden text-[15px]">
+                  <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
                     {description}
                   </p>
 
@@ -102,11 +102,11 @@ const DescAccordionView = () => {
                   )}
 
                   {/*  ==== PRICE ====  */}
-                   {(price || oldPrice) && (
-                      <div className="items-center flex gap-x-3 text-base md:text-lg font-medium">
-                          {price && <p className="text-primary"> { formatCurrency(price) } </p>}
-                          {oldPrice && <p className="text-gray-400 line-through"> { formatCurrency(oldPrice) } </p>}
-                      </div>
+                  {(price || oldPrice) && (
+                    <div className="items-center flex gap-x-3 text-base md:text-lg font-medium">
+                      {price && <p className="text-primary"> {formatCurrency(price)} </p>}
+                      {oldPrice && <p className="text-gray-400 line-through"> {formatCurrency(oldPrice)} </p>}
+                    </div>
                   )}
 
                   {colors.length > 0 && (
@@ -194,8 +194,8 @@ const DescAccordionView = () => {
 
               </div>
 
-              <ProductDetailsAccordions desc={description} 
-              ratingsBreakdown={ratingsBreakdown} reviews={reviews} ratingAverage={ratingAverage} />
+              <ProductDetailsAccordions desc={description}
+                ratingsBreakdown={ratingsBreakdown} reviews={reviews} ratingAverage={ratingAverage} />
 
               <RecentAndRelatedProducts productId={productId} />
 
