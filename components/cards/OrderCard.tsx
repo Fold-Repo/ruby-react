@@ -20,6 +20,7 @@ const getStatusColor = (status: string) => {
 };
 
 const OrderCard = ({ order } : { order: OrderType }) => {
+    
     const { image, title, orderId, orderDate, status } = order;
     const router = useRouter();
 

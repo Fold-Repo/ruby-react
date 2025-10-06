@@ -53,7 +53,7 @@ const DescTabView = () => {
   dispatch(addToRecentViews(product));
 
   // HANDLE TAB STATES
-  const [ activeTab, setActiveTab ] = useState('review')
+  const [activeTab, setActiveTab] = useState('review')
 
   return (
     <>
@@ -95,8 +95,8 @@ const DescTabView = () => {
                   </h1>
 
                   <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-6">
-                                        {description}
-                                    </p>
+                    {description}
+                  </p>
 
                   {stock !== undefined && (
                     <div className="border border-gray-300 rounded-full py-1.5 text-sm px-3 max-w-max">
@@ -106,12 +106,12 @@ const DescTabView = () => {
                   )}
 
                   {/*  ==== PRICE ====  */}
-                   {(price || oldPrice) && (
-                                        <div className="items-center flex gap-x-3 text-base md:text-lg font-medium">
-                                            {price && <p className="text-primary"> { formatCurrency(price) } </p>}
-                                            {oldPrice && <p className="text-gray-400 line-through"> { formatCurrency(oldPrice) } </p>}
-                                        </div>
-                                    )}
+                  {(price || oldPrice) && (
+                    <div className="items-center flex gap-x-3 text-base md:text-lg font-medium">
+                      {price && <p className="text-primary"> {formatCurrency(price)} </p>}
+                      {oldPrice && <p className="text-gray-400 line-through"> {formatCurrency(oldPrice)} </p>}
+                    </div>
+                  )}
 
                   {colors.length > 0 && (
                     <div className="flex flex-col gap-y-3">
@@ -211,10 +211,10 @@ const DescTabView = () => {
 
                 <div className="w-full lg:w-[80%]">
 
-                    { activeTab === 'review' && <ProductReview ratingAverage={ratingAverage} ratingsBreakdown={ratingsBreakdown} reviews={reviews} /> }
-                    { activeTab === 'desc' && <ProductDesc desc={description} /> }
-                    { activeTab === 'policy' && <ProductsPolicy /> }
-                    { activeTab === 'shipping' && <ShippingAndReturn /> }
+                  {activeTab === 'review' && <ProductReview ratingAverage={ratingAverage} ratingsBreakdown={ratingsBreakdown} reviews={reviews} />}
+                  {activeTab === 'desc' && <ProductDesc desc={description} />}
+                  {activeTab === 'policy' && <ProductsPolicy />}
+                  {activeTab === 'shipping' && <ShippingAndReturn />}
 
                 </div>
 
