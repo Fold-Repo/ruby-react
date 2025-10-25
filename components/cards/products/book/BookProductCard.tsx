@@ -13,9 +13,11 @@ interface BookProductCardProps {
 }
 
 const BookProductCard: React.FC<BookProductCardProps> = ({ product }) => {
+    
     const { id, title, price, oldPrice, images = [] } = product;
 
     const image = images[0] || '';
+    const detailsLink = `/shop/shop_features/book_collection/${id}`;
 
     return (
         <div className="flex flex-col border border-gray-100 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800">
@@ -39,7 +41,7 @@ const BookProductCard: React.FC<BookProductCardProps> = ({ product }) => {
 
                 <div className="flex items-center justify-between flex-wrap gap-2">
 
-                    <Link href={`book_collection/${id}`}
+                    <Link href={detailsLink}
                         className="hover:text-primary text-sm lg:!text-[15px] font-medium block !line-clamp-1">
                         {title}
                     </Link>

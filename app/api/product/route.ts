@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { paginate } from '@/utils';
 import { ProductType } from '@/types';
-import { products } from '@/data';
+import { products, skinCareProducts, sportProducts, otherProducts, electronicProducts } from '@/data';
 
 export async function GET(request: Request) {
 
@@ -22,7 +22,16 @@ export async function GET(request: Request) {
     const type = searchParams.get('type')?.toLowerCase() || '';
     const sort = searchParams.get('sort')?.toLowerCase() || '';
 
-    let filteredProducts = products.filter(product => {
+    // Combine all product categories
+    const allProducts = [
+        ...products,
+        ...skinCareProducts,
+        ...sportProducts,
+        ...otherProducts,
+        ...electronicProducts,
+    ];
+
+    let filteredProducts = allProducts.filter(product => {
 
         // 🔍 General search (name, category, brand, etc.)
         if (search) {

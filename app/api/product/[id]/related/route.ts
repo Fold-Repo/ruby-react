@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { products, skinCareProducts, sportProducts } from '@/data';
+import { products, skinCareProducts, sportProducts, otherProducts, electronicProducts } from '@/data';
 import { ProductType } from '@/types';
 
 export async function GET(
@@ -13,6 +13,8 @@ export async function GET(
         ...products,
         ...skinCareProducts,
         ...sportProducts,
+        ...otherProducts,
+        ...electronicProducts,
     ];
 
     // Find the current product

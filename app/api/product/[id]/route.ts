@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { discount, products, skinCareProducts, sportProducts } from '@/data';
+import { discount, products, skinCareProducts, sportProducts, otherProducts, electronicProducts } from '@/data';
 import { ProductType } from '@/types';
 
 type RelatedProduct = Pick<
@@ -24,6 +24,8 @@ export async function GET(
         ...products,
         ...skinCareProducts,
         ...sportProducts,
+        ...otherProducts,
+        ...electronicProducts,
     ];
 
     const product = allProducts.find((p) => String(p.id) === id);
@@ -37,8 +39,8 @@ export async function GET(
         product.discounts = discount;
     }
 
-    const otherProducts = products.filter((p) => String(p.id) !== id);
-    const randomRelated = otherProducts[Math.floor(Math.random() * otherProducts.length)];
+    const remainingProducts = products.filter((p) => String(p.id) !== id);
+    const randomRelated = remainingProducts[Math.floor(Math.random() * remainingProducts.length)];
 
     const related: RelatedProduct = {
         id: randomRelated.id,
@@ -57,7 +59,7 @@ export async function GET(
     };
 
     if (String(product.id) === '5') {
-        const shuffled = otherProducts.sort(() => 0.5 - Math.random());
+        const shuffled = remainingProducts.sort(() => 0.5 - Math.random());
         responseData.frequentlyBoughtTogether = shuffled.slice(0, 3).map((p) => ({
             id: p.id,
             title: p.title,
@@ -70,7 +72,7 @@ export async function GET(
         }));
     }
 
-    const group = [...otherProducts]
+    const group = [...remainingProducts]
         .sort(() => 0.5 - Math.random())
         .slice(0, 2)
         .map((p) => ({
