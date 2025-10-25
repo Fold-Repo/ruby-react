@@ -27,6 +27,7 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
 
     const image = images[0] || "";
     const [qty, setQty] = useState<number>(1);
+    const detailsLink = `/shop/shop_features/book_collection/${id}`;
 
     const handleCartAndBuy = () => {
         const productForCart = {
@@ -74,7 +75,7 @@ const BookProductCardTwo: React.FC<BookProductCardTwoProps> = ({ product }) => {
                 {/* ==== DETAILS SECTION ==== */}
                 <div className="ms-6 space-y-2 lg:space-y-3 w-full text-gray-900 dark:text-gray-200">
 
-                    <Link href={`book_collection/${id}`} className="hover:text-primary text-base md:text-lg font-semibold block !line-clamp-1">
+                    <Link href={detailsLink} className="hover:text-primary text-base md:text-lg font-semibold block !line-clamp-1">
                         {title}
                     </Link>
 

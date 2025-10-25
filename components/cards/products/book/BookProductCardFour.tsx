@@ -13,6 +13,7 @@ interface BookProductCardFourProps {
 const BookProductCardFour: React.FC<BookProductCardFourProps> = ({ product }) => {
     const { id, title, images = [], stock, category } = product;
     const image = images[0] || "/assets/img/landing/book/placeholder.png";
+    const detailsLink = `/shop/shop_features/book_collection/${id}`;
 
     return (
         <div className="flex flex-col border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800">
@@ -35,7 +36,7 @@ const BookProductCardFour: React.FC<BookProductCardFourProps> = ({ product }) =>
             {/* Book Details */}
             <div className="p-5 space-y-2.5 flex flex-col justify-center text-center text-gray-900 dark:text-gray-200">
 
-                <Link href={`/book_collection/${id}`}
+                <Link href={detailsLink}
                     className="hover:text-primary text-sm lg:!text-[15px] font-medium block !line-clamp-1">
                     {category}
                 </Link>

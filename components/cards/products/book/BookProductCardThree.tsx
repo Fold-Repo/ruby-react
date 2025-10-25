@@ -26,6 +26,7 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
 
     const [qty] = useState<number>(1);
     const image = images[0] || "";
+    const detailsLink = `/shop/shop_features/book_collection/${id}`;
 
     const handleCart = () => {
         const productForCart = {
@@ -59,7 +60,7 @@ const BookProductCardThree: React.FC<BookProductCardThreeProps> = ({ product, sh
                 {/* Author & Title */}
                 <div className="space-y-1">
                     <p className="italic text-xs text-gray-500 dark:text-gray-400">{author}</p>
-                    <Link href={`/book_collection/${id}`} className="hover:text-primary text-sm lg:text-base font-bold block !line-clamp-1 md:!line-clamp-2">
+                    <Link href={detailsLink} className="hover:text-primary text-sm lg:text-base font-bold block !line-clamp-1 md:!line-clamp-2">
                         {title}
                     </Link>
                 </div>
