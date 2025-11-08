@@ -32,7 +32,7 @@ export const menuItems: NavItemType[] = [
     { title: 'Pages', hasDropdown: true, dropdownItems: pagesMenu },
     { title: 'Shop', hasDropdown: true, megaMenuType: 'shop' },
     { title: 'Blog', hasDropdown: true, dropdownItems: blogMenu },
-    { title: 'Purchase Theme', linkOnly: true, href: 'https://themeforest.net/' },
+    { title: 'Documentation', linkOnly: true, href: 'https://fold-documentation.netlify.app/documentation/ruby/react' },
 ]
 
 export const productMenuItems: MenuGroupType[] = [
